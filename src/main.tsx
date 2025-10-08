@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoUrl from './assets/logo-4setup.svg'
 
 function App() {
+  useEffect(() => {
+    const setParallax = () => {
+      const doc = document.documentElement
+      const max = Math.max(1, doc.scrollHeight - window.innerHeight)
+      const ratio = Math.min(1, Math.max(0, window.scrollY / max))
+      doc.style.setProperty('--parallax', ratio.toFixed(4))
+    }
+    setParallax()
+    window.addEventListener('scroll', setParallax, { passive: true })
+    window.addEventListener('resize', setParallax)
+    return () => {
+      window.removeEventListener('scroll', setParallax)
+      window.removeEventListener('resize', setParallax)
+    }
+  }, [])
+
   return (
     <div id="app-root">
       <header className="site-header">
