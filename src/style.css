@@ -75,6 +75,8 @@ a:hover { color: var(--primary); }
 .nav a { color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; line-height: 1; }
 .site-header .btn { display: inline-flex; align-items: center; line-height: 1; }
 .nav a:hover { color: var(--text); }
+.lang-select { background: #0f1724; color: var(--text); border: 1px solid #131b2b; border-radius: 8px; padding: 6px 8px; }
+.lang-select:focus { outline: 2px solid var(--primary); }
 
 .hero {
   max-width: 1120px;
@@ -144,4 +146,5 @@ a:hover { color: var(--primary); }
   .nav.open { display: flex; }
   .nav a { padding: 12px 14px; width: 100%; justify-content: center; }
   .site-header .btn { width: 100%; justify-content: center; }
+  .lang-select { width: 100%; }
 }

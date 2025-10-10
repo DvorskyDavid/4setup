@@ -7,6 +7,7 @@
     "src/style.css": "Global styles and Tron neon theme: animated grid, scanlines, perspective floor",
     "src/assets/logo-4setup.svg": "Vector logo used in header",
     "src/assets/misc/background button.png": "Background image used on header CTA buttons",
+    "src/i18n.tsx": "Lightweight i18n provider with EN/CZ translations, auto-detect, and selector",
     "tsconfig.json": "TS config with react-jsx enabled",
     "package.json": "Scripts and dependencies"
   }

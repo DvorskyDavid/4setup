@@ -3,32 +3,33 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoPng from './assets/4setup-gradient.png'
- 
+import { I18nProvider, useT, useI18n } from './i18n'
 
 function HomePage() {
+  const t = useT()
   return (
     <main>
       <section className="hero">
-        <h1>Premium Gaming Setups</h1>
-        <p>Custom PCs, ergonomic desks, ambient lighting, and pro peripherals configured for peak performance.</p>
+        <h1>{t('hero.title')}</h1>
+        <p>{t('hero.subtitle')}</p>
         <div className="cta-row">
-          <a className="btn primary" href="#contact">Get a Quote</a>
-          <Link className="btn ghost" to="/setups">Explore Setups</Link>
+          <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
+          <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
         </div>
       </section>
 
       <section id="setups" className="features">
         <div className="feature">
-          <h3>Power PCs</h3>
-          <p>Air or liquid-cooled builds curated for FPS stability and thermals.</p>
+          <h3>{t('feature.pcs.title')}</h3>
+          <p>{t('feature.pcs.desc')}</p>
         </div>
         <div className="feature">
-          <h3>Pro Desks</h3>
-          <p>Height-adjustable, cable-managed, and purpose-lit workspace ergonomics.</p>
+          <h3>{t('feature.desks.title')}</h3>
+          <p>{t('feature.desks.desc')}</p>
         </div>
         <div className="feature">
-          <h3>Immersive Lighting</h3>
-          <p>RGB scenes synced to gameplay and environment for total immersion.</p>
+          <h3>{t('feature.lights.title')}</h3>
+          <p>{t('feature.lights.desc')}</p>
         </div>
       </section>
     </main>
@@ -36,29 +37,47 @@ function HomePage() {
 }
 
 function SetupsPage() {
+  const t = useT()
   return (
     <main className="page">
-      <h2>Setups</h2>
-      <p>Explore curated builds, desks, and lighting packages. More coming soon.</p>
+      <h2>{t('page.setups.title')}</h2>
+      <p>{t('page.setups.desc')}</p>
     </main>
   )
 }
 
 function BlogPage() {
+  const t = useT()
   return (
     <main className="page">
-      <h2>Blog</h2>
-      <p>Guides and inspiration for performance setups and immersive spaces.</p>
+      <h2>{t('page.blog.title')}</h2>
+      <p>{t('page.blog.desc')}</p>
     </main>
   )
 }
 
 function ContactPage() {
+  const t = useT()
   return (
     <main className="page">
-      <h2>Contact</h2>
-      <p>Email us at hello@4setup.cz or use the form (coming soon).</p>
+      <h2>{t('page.contact.title')}</h2>
+      <p>{t('page.contact.desc')}</p>
     </main>
+  )
+}
+
+function LangSelector() {
+  const { lang, setLang } = useI18n()
+  return (
+    <select
+      className="lang-select"
+      value={lang}
+      onChange={(e) => setLang(e.target.value as any)}
+      aria-label="Language selector"
+    >
+      <option value="en">EN</option>
+      <option value="cz">CZ</option>
+    </select>
   )
 }
 
@@ -99,11 +118,13 @@ function App() {
           <span />
           <span />
         </button>
+        const t = useT()
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          <Link to="/setups">Setups</Link>
-          <Link to="/blog">Blog</Link>
-          <a className="btn primary" href="https://store.4setup.cz" target="_blank" rel="noreferrer">Store</a>
-          <Link className="btn primary" to="/contact">Contact us</Link>
+          <Link to="/setups">{t('nav.setups')}</Link>
+          <Link to="/blog">{t('nav.blog')}</Link>
+          <a className="btn primary" href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.store')}</a>
+          <Link className="btn primary" to="/contact">{t('nav.contact')}</Link>
+          <LangSelector />
         </nav>
       </header>
 
@@ -124,9 +145,11 @@ function App() {
 const container = document.getElementById('app')!
 createRoot(container).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <I18nProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </I18nProvider>
   </React.StrictMode>
 )
 
