@@ -84,6 +84,7 @@ function LangSelector() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  const t = useT()
   useEffect(() => {
     const setParallax = () => {
       const doc = document.documentElement
@@ -118,7 +119,6 @@ function App() {
           <span />
           <span />
         </button>
-        const t = useT()
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <Link to="/setups">{t('nav.setups')}</Link>
           <Link to="/blog">{t('nav.blog')}</Link>
