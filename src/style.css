@@ -69,8 +69,9 @@ a:hover { color: var(--primary); }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand-mark { width: 128px; height: auto; filter: drop-shadow(0 0 18px var(--ring)); display: block; }
 .header-left-ctas { display: none; }
-.nav { display: flex; gap: 18px; }
-.nav a { color: var(--muted); font-weight: 500; }
+.nav { display: flex; gap: 18px; align-items: center; }
+.nav a { color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; line-height: 1; }
+.site-header .btn { display: inline-flex; align-items: center; line-height: 1; }
 .nav a:hover { color: var(--text); }
 
 .hero {
