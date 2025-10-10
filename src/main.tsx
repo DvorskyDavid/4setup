@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoPng from './assets/4setup-gradient.png'
-import ctaBg from './assets/misc/background button.png'
+ 
 
 function HomePage() {
   return (
@@ -87,13 +87,11 @@ function App() {
             <img src={logoPng} alt="4setup" className="brand-mark" />
           </Link>
         </div>
-        <div className="header-left-ctas">
-          <a className="cta-bg" href="https://store.4setup.cz" target="_blank" rel="noreferrer">Store</a>
-          <Link className="cta-bg" to="/contact">Contact us</Link>
-        </div>
         <nav className="nav">
           <Link to="/setups">Setups</Link>
           <Link to="/blog">Blog</Link>
+          <a className="btn primary" href="https://store.4setup.cz" target="_blank" rel="noreferrer">Store</a>
+          <Link className="btn primary" to="/contact">Contact us</Link>
         </nav>
       </header>
 
