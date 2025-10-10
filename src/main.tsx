@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoPng from './assets/4setup-gradient.png'
@@ -63,6 +63,8 @@ function ContactPage() {
 }
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
   useEffect(() => {
     const setParallax = () => {
       const doc = document.documentElement
@@ -79,6 +81,11 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    // Close mobile menu when route changes
+    setMenuOpen(false)
+  }, [location])
+
   return (
     <div id="app-root">
       <header className="site-header">
@@ -87,7 +94,12 @@ function App() {
             <img src={logoPng} alt="4setup" className="brand-mark" />
           </Link>
         </div>
-        <nav className="nav">
+        <button className="menu-toggle" aria-expanded={menuOpen} aria-label="Toggle navigation" onClick={() => setMenuOpen(v => !v)}>
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <Link to="/setups">Setups</Link>
           <Link to="/blog">Blog</Link>
           <a className="btn primary" href="https://store.4setup.cz" target="_blank" rel="noreferrer">Store</a>
