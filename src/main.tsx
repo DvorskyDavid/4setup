@@ -1,7 +1,66 @@
 import React, { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoUrl from './assets/logo-4setup.svg'
+import ctaBg from './assets/misc/background button.png'
+
+function HomePage() {
+  return (
+    <main>
+      <section className="hero">
+        <h1>Premium Gaming Setups</h1>
+        <p>Custom PCs, ergonomic desks, ambient lighting, and pro peripherals configured for peak performance.</p>
+        <div className="cta-row">
+          <a className="btn primary" href="#contact">Get a Quote</a>
+          <Link className="btn ghost" to="/setups">Explore Setups</Link>
+        </div>
+      </section>
+
+      <section id="setups" className="features">
+        <div className="feature">
+          <h3>Power PCs</h3>
+          <p>Air or liquid-cooled builds curated for FPS stability and thermals.</p>
+        </div>
+        <div className="feature">
+          <h3>Pro Desks</h3>
+          <p>Height-adjustable, cable-managed, and purpose-lit workspace ergonomics.</p>
+        </div>
+        <div className="feature">
+          <h3>Immersive Lighting</h3>
+          <p>RGB scenes synced to gameplay and environment for total immersion.</p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function SetupsPage() {
+  return (
+    <main className="page">
+      <h2>Setups</h2>
+      <p>Explore curated builds, desks, and lighting packages. More coming soon.</p>
+    </main>
+  )
+}
+
+function BlogPage() {
+  return (
+    <main className="page">
+      <h2>Blog</h2>
+      <p>Guides and inspiration for performance setups and immersive spaces.</p>
+    </main>
+  )
+}
+
+function ContactPage() {
+  return (
+    <main className="page">
+      <h2>Contact</h2>
+      <p>Email us at hello@4setup.cz or use the form (coming soon).</p>
+    </main>
+  )
+}
 
 function App() {
   useEffect(() => {
@@ -27,38 +86,22 @@ function App() {
           <img src={logoUrl} alt="4setup logo" className="brand-mark" />
           <span className="brand-name">4setup</span>
         </div>
+        <div className="header-left-ctas">
+          <a className="cta-bg" href="https://store.4setup.cz" target="_blank" rel="noreferrer">Store</a>
+          <Link className="cta-bg" to="/contact">Contact us</Link>
+        </div>
         <nav className="nav">
-          <a href="#setups">Setups</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
+          <Link to="/setups">Setups</Link>
+          <Link to="/blog">Blog</Link>
         </nav>
       </header>
 
-      <main>
-        <section className="hero">
-          <h1>Premium Gaming Setups</h1>
-          <p>Custom PCs, ergonomic desks, ambient lighting, and pro peripherals configured for peak performance.</p>
-          <div className="cta-row">
-            <a className="btn primary" href="#contact">Get a Quote</a>
-            <a className="btn ghost" href="#setups">Explore Setups</a>
-          </div>
-        </section>
-
-        <section id="setups" className="features">
-          <div className="feature">
-            <h3>Power PCs</h3>
-            <p>Air or liquid-cooled builds curated for FPS stability and thermals.</p>
-          </div>
-          <div className="feature">
-            <h3>Pro Desks</h3>
-            <p>Height-adjustable, cable-managed, and purpose-lit workspace ergonomics.</p>
-          </div>
-          <div className="feature">
-            <h3>Immersive Lighting</h3>
-            <p>RGB scenes synced to gameplay and environment for total immersion.</p>
-          </div>
-        </section>
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/setups" element={<SetupsPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
 
       <footer className="site-footer">
         <p>© {new Date().getFullYear()} 4setup. All rights reserved.</p>
@@ -70,7 +113,9 @@ function App() {
 const container = document.getElementById('app')!
 createRoot(container).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 )
 

@@ -3,9 +3,10 @@
   "stack": "Vite + React + TypeScript",
   "files": {
     "index.html": "HTML shell with 4setup metadata, mounts React at #app",
-    "src/main.tsx": "React entry point and landing layout for 4setup",
+    "src/main.tsx": "React entry point with React Router (Home, Setups, Blog, Contact) and header CTAs",
     "src/style.css": "Global styles and Tron neon theme: animated grid, scanlines, perspective floor",
     "src/assets/logo-4setup.svg": "Vector logo used in header",
+    "src/assets/misc/background button.png": "Background image used on header CTA buttons",
     "tsconfig.json": "TS config with react-jsx enabled",
     "package.json": "Scripts and dependencies"
   }
