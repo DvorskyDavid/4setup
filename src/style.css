@@ -67,8 +67,7 @@ a:hover { color: var(--primary); }
   padding: 20px;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand-mark { width: 32px; height: 32px; filter: drop-shadow(0 0 18px var(--ring)); }
-.brand-name { font-weight: 700; letter-spacing: 0.5px; font-size: 18px; }
+.brand-mark { width: 128px; height: auto; filter: drop-shadow(0 0 18px var(--ring)); display: block; }
 .header-left-ctas { display: flex; gap: 10px; margin-left: 16px; justify-content: flex-start; }
 .cta-bg {
   position: relative;

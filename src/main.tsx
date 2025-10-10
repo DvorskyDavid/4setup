@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './style.css'
-import logoUrl from './assets/logo-4setup.svg'
+import logoPng from './assets/4setup-gradient.png'
 import ctaBg from './assets/misc/background button.png'
 
 function HomePage() {
@@ -83,8 +83,9 @@ function App() {
     <div id="app-root">
       <header className="site-header">
         <div className="brand">
-          <img src={logoUrl} alt="4setup logo" className="brand-mark" />
-          <span className="brand-name">4setup</span>
+          <Link to="/">
+            <img src={logoPng} alt="4setup" className="brand-mark" />
+          </Link>
         </div>
         <div className="header-left-ctas">
           <a className="cta-bg" href="https://store.4setup.cz" target="_blank" rel="noreferrer">Store</a>
