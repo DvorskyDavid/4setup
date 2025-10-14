@@ -11,7 +11,8 @@
   --grid-size: 60px;          /* spacing between lines */
   --grid-line: 1px;           /* line thickness */
   --grid-intensity: 0.10;     /* brightness of grid lines */
-  --grid-tilt: 62deg;         /* base tilt toward horizon */
+  --grid-tilt-min: 0deg;      /* starting tilt on load */
+  --grid-tilt-max: 88deg;     /* max tilt (approaches a line) */
   --grid-perspective: 1200px; /* camera perspective */
 
   color-scheme: dark;
@@ -34,7 +35,10 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
   pointer-events: none;
   background-image:
     repeating-linear-gradient(0deg, rgba(14,165,233,var(--grid-intensity)) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size)),
@@ -44,11 +48,9 @@ body::before {
   background-position:
     0 calc(var(--grid-size) * -8 * var(--parallax, 0)),
     calc(var(--grid-size) * 8 * var(--parallax, 0)) 0;
-  /* Remove drift to keep horizon aligned */
-  transform-origin: center center;
+  transform-origin: center bottom;
   transform: perspective(var(--grid-perspective))
-    rotateX(calc(var(--grid-tilt) + (var(--parallax, 0) * 10deg)))
-    translateY(calc(var(--parallax, 0) * -24px));
+    rotateX(calc(var(--grid-tilt-min) + (var(--grid-tilt-max) - var(--grid-tilt-min)) * var(--parallax, 0)));
   z-index: 0;
 }
 body::after {
@@ -76,6 +78,11 @@ a:hover { color: var(--primary); }
   max-width: 1120px;
   margin: 0 auto;
   padding: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+  background: linear-gradient(180deg, rgba(11,15,23,0.9), rgba(11,15,23,0.6));
+  backdrop-filter: saturate(1.2) blur(6px);
 }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand-mark { width: 128px; height: auto; filter: drop-shadow(0 0 18px var(--ring)); display: block; }
@@ -113,26 +120,8 @@ a:hover { color: var(--primary); }
 .hero h1 { text-shadow: 0 0 10px rgba(14,165,233,0.6), 0 0 22px rgba(14,165,233,0.35); }
 
 /* Perspective grid floor under hero */
-.hero::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -18vh;
-  width: 220vw;
-  height: 80vh;
-  transform: translateX(-50%) perspective(calc(var(--grid-perspective) * 0.85)) rotateX(calc(var(--grid-tilt) + 8deg));
-  transform-origin: center bottom;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(14,165,233,0.28) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size)),
-    repeating-linear-gradient(90deg, rgba(14,165,233,0.28) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size));
-  background-position:
-    0 calc(var(--grid-size) * -8 * var(--parallax, 0)),
-    calc(var(--grid-size) * 8 * var(--parallax, 0)) 0;
-  filter: drop-shadow(0 0 18px rgba(14,165,233,0.25));
-  opacity: 0.65;
-  mask-image: linear-gradient(to top, rgba(0,0,0,0.98), transparent 72%);
-  z-index: 0;
-}
+/* Remove old local floor grid; global grid handles horizon */
+.hero::before { display: none; }
 /* ensure hero content sits above floor */
 .hero > * { position: relative; z-index: 1; }
 
