@@ -4,15 +4,12 @@ import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoPng from './assets/4setup-gradient.png'
 import { I18nProvider, useT, useI18n } from './i18n'
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { useScroll, useMotionValueEvent } from 'framer-motion'
 
 function HomePage() {
   const t = useT()
   const sectionRef = useRef<HTMLElement | null>(null)
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
-  const titleY = useTransform(scrollYProgress, [0, 1], [24, -24])
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.08, 0.85, 1], [0, 1, 1, 0])
-  const visualScale = useTransform(scrollYProgress, [0, 1], [0.96, 1.04])
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     document.documentElement.style.setProperty('--parallax', v.toFixed(4))
@@ -24,14 +21,14 @@ function HomePage() {
           <section className="hero">
             <div className="hero-inner">
               <div className="hero-copy">
-                <motion.h1 style={{ y: titleY, opacity: titleOpacity }}>{t('hero.title')}</motion.h1>
-                <motion.p style={{ opacity: titleOpacity }}>{t('hero.subtitle')}</motion.p>
+                <h1>{t('hero.title')}</h1>
+                <p>{t('hero.subtitle')}</p>
                 <div className="cta-row">
                   <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
                   <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
                 </div>
               </div>
-              <motion.div className="hero-visual" aria-hidden="true" style={{ scale: visualScale }} />
+              <div className="hero-visual" aria-hidden="true" />
             </div>
           </section>
         </div>
