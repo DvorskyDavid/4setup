@@ -9,9 +9,9 @@ function HomePage() {
   const t = useT()
   return (
     <main>
-      <section className="hero hero-scroll">
-        <div className="hero-sticky">
-        <div className="hero-inner">
+      <section className="hero-scroll">
+        <div className="hero hero-sticky">
+          <div className="hero-inner">
           <div className="hero-copy">
             <h1>{t('hero.title')}</h1>
             <p>{t('hero.subtitle')}</p>
@@ -21,7 +21,7 @@ function HomePage() {
             </div>
           </div>
           <div className="hero-visual" aria-hidden="true" />
-        </div>
+          </div>
         </div>
       </section>
 
