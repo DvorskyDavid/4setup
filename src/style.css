@@ -86,6 +86,9 @@ a:hover { color: var(--primary); }
   position: relative;
   overflow: hidden;
 }
+.hero-inner { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
+.hero-copy { text-align: center; }
+.hero-visual { display: none; }
 .hero h1 { font-size: 48px; line-height: 1.1; margin: 0 0 12px; }
 .hero p { color: var(--muted); margin: 0 auto 24px; max-width: 720px; }
 .cta-row { display: flex; gap: 12px; justify-content: center; }
@@ -148,3 +151,14 @@ a:hover { color: var(--primary); }
   .site-header .btn { width: 100%; justify-content: center; }
   .lang-select { width: 100%; }
 }
+
+@media (min-width: 900px) {
+  .hero { text-align: left; }
+  .hero-inner { grid-template-columns: 1.1fr 0.9fr; }
+  .hero-copy { text-align: left; }
+  .hero-visual { display: block; height: 360px; border-radius: 16px; border: 1px solid #131b2b; background: radial-gradient(60% 100% at 50% 0%, rgba(14,165,233,0.18), rgba(2,132,199,0.06) 60%, transparent 100%), linear-gradient(180deg, rgba(2,8,23,0.6), rgba(2,8,23,0)); box-shadow: inset 0 0 0 1px rgba(2,132,199,0.12), 0 20px 60px rgba(0,0,0,0.35); }
+}
+
+/* Mobile menu backdrop */
+.nav-backdrop { position: fixed; inset: 0; background: rgba(2,8,23,0.6); opacity: 0; pointer-events: none; transition: opacity 180ms ease; z-index: 1500; }
+.nav-backdrop.show { opacity: 1; pointer-events: auto; }

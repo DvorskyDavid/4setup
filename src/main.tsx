@@ -10,11 +10,16 @@ function HomePage() {
   return (
     <main>
       <section className="hero">
-        <h1>{t('hero.title')}</h1>
-        <p>{t('hero.subtitle')}</p>
-        <div className="cta-row">
-          <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
-          <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
+        <div className="hero-inner">
+          <div className="hero-copy">
+            <h1>{t('hero.title')}</h1>
+            <p>{t('hero.subtitle')}</p>
+            <div className="cta-row">
+              <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
+              <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
+            </div>
+          </div>
+          <div className="hero-visual" aria-hidden="true" />
         </div>
       </section>
 
@@ -106,6 +111,16 @@ function App() {
     setMenuOpen(false)
   }, [location])
 
+  useEffect(() => {
+    const body = document.body
+    if (menuOpen) {
+      body.style.overflow = 'hidden'
+    } else {
+      body.style.overflow = ''
+    }
+    return () => { body.style.overflow = '' }
+  }, [menuOpen])
+
   return (
     <div id="app-root">
       <header className="site-header">
@@ -119,6 +134,7 @@ function App() {
           <span />
           <span />
         </button>
+        <div className={`nav-backdrop ${menuOpen ? 'show' : ''}`} onClick={() => setMenuOpen(false)} />
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <Link to="/setups">{t('nav.setups')}</Link>
           <Link to="/blog">{t('nav.blog')}</Link>
