@@ -45,8 +45,22 @@ function detectInitial(): Lang {
   if (typeof window === 'undefined') return 'en'
   const saved = window.localStorage.getItem('lang') as Lang | null
   if (saved === 'en' || saved === 'cz') return saved
-  const nav = navigator.language.toLowerCase()
-  if (nav.startsWith('cs') || nav.startsWith('cz')) return 'cz'
+
+  // Prefer explicit Czech language from browser settings
+  const langs = Array.isArray((navigator as any).languages)
+    ? ((navigator as any).languages as string[]).map((l) => l.toLowerCase())
+    : []
+  const primary = (navigator.language || '').toLowerCase()
+  const all = [primary, ...langs]
+  if (all.some((l) => l.startsWith('cs') || l.startsWith('cz'))) return 'cz'
+  if (all.some((l) => /-cz\b/.test(l))) return 'cz'
+
+  // Fallback: infer by time zone (covers Czechia if system is set correctly)
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone
+    if (tz && tz.toLowerCase() === 'europe/prague') return 'cz'
+  } catch {}
+
   return 'en'
 }
 

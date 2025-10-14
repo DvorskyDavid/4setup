@@ -7,6 +7,13 @@
   --primary-600: #0284c7;
   --ring: rgba(14, 165, 233, 0.4);
 
+  /* Grid parameters */
+  --grid-size: 60px;          /* spacing between lines */
+  --grid-line: 1px;           /* line thickness */
+  --grid-intensity: 0.10;     /* brightness of grid lines */
+  --grid-tilt: 62deg;         /* base tilt toward horizon */
+  --grid-perspective: 1200px; /* camera perspective */
+
   color-scheme: dark;
 }
 
@@ -30,13 +37,17 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    repeating-linear-gradient(0deg, rgba(14,165,233,0.09) 0 1px, transparent 1px 60px),
-    repeating-linear-gradient(90deg, rgba(14,165,233,0.09) 0 1px, transparent 1px 60px);
+    repeating-linear-gradient(0deg, rgba(14,165,233,var(--grid-intensity)) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size)),
+    repeating-linear-gradient(90deg, rgba(14,165,233,var(--grid-intensity)) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size));
   background-size: 100% 100%, 100% 100%;
+  /* parallax-driven drift to simulate infinity */
+  background-position:
+    0 calc(var(--grid-size) * -8 * var(--parallax, 0)),
+    calc(var(--grid-size) * 8 * var(--parallax, 0)) 0;
   /* Remove drift to keep horizon aligned */
   transform-origin: center center;
-  transform: perspective(1200px)
-    rotateX(calc(56deg + (var(--parallax, 0) * 8deg)))
+  transform: perspective(var(--grid-perspective))
+    rotateX(calc(var(--grid-tilt) + (var(--parallax, 0) * 10deg)))
     translateY(calc(var(--parallax, 0) * -24px));
   z-index: 0;
 }
@@ -106,17 +117,20 @@ a:hover { color: var(--primary); }
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -12vh;
-  width: 200vw;
-  height: 60vh;
-  transform: translateX(-50%) perspective(900px) rotateX(68deg);
+  bottom: -18vh;
+  width: 220vw;
+  height: 80vh;
+  transform: translateX(-50%) perspective(calc(var(--grid-perspective) * 0.85)) rotateX(calc(var(--grid-tilt) + 8deg));
   transform-origin: center bottom;
   background-image:
-    repeating-linear-gradient(0deg, rgba(14,165,233,0.28) 0 1px, transparent 1px 60px),
-    repeating-linear-gradient(90deg, rgba(14,165,233,0.28) 0 1px, transparent 1px 60px);
+    repeating-linear-gradient(0deg, rgba(14,165,233,0.28) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size)),
+    repeating-linear-gradient(90deg, rgba(14,165,233,0.28) 0 var(--grid-line), transparent var(--grid-line) var(--grid-size));
+  background-position:
+    0 calc(var(--grid-size) * -8 * var(--parallax, 0)),
+    calc(var(--grid-size) * 8 * var(--parallax, 0)) 0;
   filter: drop-shadow(0 0 18px rgba(14,165,233,0.25));
   opacity: 0.65;
-  mask-image: linear-gradient(to top, rgba(0,0,0,0.95), transparent 70%);
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.98), transparent 72%);
   z-index: 0;
 }
 /* ensure hero content sits above floor */
