@@ -125,10 +125,7 @@ a:hover { color: var(--primary); }
 /* ensure hero content sits above floor */
 .hero > * { position: relative; z-index: 1; }
 
-/* Sticky hero scroll capture */
-.hero-scroll { height: 200vh; }
-.hero-sticky { position: sticky; top: 0; min-height: 100vh; }
-.hero-sticky > * { position: relative; z-index: 1; }
+/* Pinned scroll removed: hero sits under sticky header */
 
 .features {
   display: grid;

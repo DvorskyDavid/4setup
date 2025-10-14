@@ -1,36 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoPng from './assets/4setup-gradient.png'
 import { I18nProvider, useT, useI18n } from './i18n'
-import { useScroll, useMotionValueEvent } from 'framer-motion'
+ 
 
 function HomePage() {
   const t = useT()
-  const sectionRef = useRef<HTMLElement | null>(null)
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
-
-  useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    document.documentElement.style.setProperty('--parallax', v.toFixed(4))
-  })
   return (
     <main>
-      <section className="hero-scroll" ref={sectionRef as any}>
-        <div className="hero-sticky">
-          <section className="hero">
-            <div className="hero-inner">
-              <div className="hero-copy">
-                <h1>{t('hero.title')}</h1>
-                <p>{t('hero.subtitle')}</p>
-                <div className="cta-row">
-                  <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
-                  <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
-                </div>
-              </div>
-              <div className="hero-visual" aria-hidden="true" />
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-copy">
+            <h1>{t('hero.title')}</h1>
+            <p>{t('hero.subtitle')}</p>
+            <div className="cta-row">
+              <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
+              <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
             </div>
-          </section>
+          </div>
+          <div className="hero-visual" aria-hidden="true" />
         </div>
       </section>
 
