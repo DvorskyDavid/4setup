@@ -37,6 +37,53 @@ function HomePage() {
           <p>{t('feature.lights.desc')}</p>
         </div>
       </section>
+
+      {/* Placeholder content to test scrolling */}
+      <section className="content-section">
+        <h2>Showcase</h2>
+        <p>
+          High-performance rigs with curated components. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+          non lacus ac justo malesuada posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+          cubilia curae.
+        </p>
+      </section>
+      <section className="content-section">
+        <h2>Components</h2>
+        <p>
+          GPUs, CPUs, memory kits and NVMe storage tuned for low latency and sustained throughput. Vivamus elementum,
+          tortor vitae pharetra varius, est mi efficitur ipsum, id tempor lorem massa in nisl.
+        </p>
+      </section>
+      <section className="content-section">
+        <h2>Desks & Ergonomics</h2>
+        <p>
+          Cable-managed, height-adjustable workspaces with monitor arms and acoustic treatments. Cras at nibh vitae
+          sapien tempus vulputate. Curabitur tincidunt, lorem in aliquet commodo, odio turpis tempor nibh, id egestas
+          arcu ligula sit amet lacus.
+        </p>
+      </section>
+      <section className="content-section">
+        <h2>Ambient Lighting</h2>
+        <p>
+          Addressable RGB, bias lighting, and room scenes synced to content. Nulla facilisi. Pellentesque habitant morbi
+          tristique senectus et netus et malesuada fames ac turpis egestas.
+        </p>
+      </section>
+      <section className="content-section">
+        <h2>Services</h2>
+        <p>
+          Design consultation, on-site setup, thermal tuning, and maintenance plans. Donec non quam eget quam feugiat
+          faucibus. Phasellus nec neque in sapien fermentum ultrices.
+        </p>
+      </section>
+      <section className="content-section">
+        <h2>Contact</h2>
+        <p>
+          Ready to start? Get in touch and we’ll tailor a build to your goals. Sed dictum placerat neque, vitae faucibus
+          erat interdum vitae. Integer pulvinar, nisi id sodales facilisis, nisi velit tempor massa, ut suscipit arcu
+          arcu ut lorem.
+        </p>
+      </section>
     </main>
   )
 }
