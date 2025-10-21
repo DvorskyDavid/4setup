@@ -8,82 +8,89 @@ import { I18nProvider, useT, useI18n } from './i18n'
 
 function HomePage() {
   const t = useT()
+  const [email, setEmail] = useState('')
+  
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // TODO: Implement newsletter subscription
+    alert('Newsletter subscription: ' + email)
+  }
+
   return (
     <main>
       <section className="hero">
         <div className="hero-inner">
           <div className="hero-copy">
             <h1>{t('hero.title')}</h1>
-            <p>{t('hero.subtitle')}</p>
+            <p className="hero-subtitle">{t('hero.subtitle')}</p>
             <div className="cta-row">
-              <a className="btn primary" href="#contact">{t('hero.getQuote')}</a>
-              <Link className="btn ghost" to="/setups">{t('hero.explore')}</Link>
+              <a className="btn primary" href="#contact">{t('hero.cta')}</a>
             </div>
           </div>
-          <div className="hero-visual" aria-hidden="true" />
         </div>
       </section>
 
-      <section id="setups" className="features">
-        <div className="feature">
-          <h3>{t('feature.pcs.title')}</h3>
-          <p>{t('feature.pcs.desc')}</p>
-        </div>
-        <div className="feature">
-          <h3>{t('feature.desks.title')}</h3>
-          <p>{t('feature.desks.desc')}</p>
-        </div>
-        <div className="feature">
-          <h3>{t('feature.lights.title')}</h3>
-          <p>{t('feature.lights.desc')}</p>
+      <section className="process-section">
+        <h2 className="section-title">{t('process.title')}</h2>
+        <div className="process-steps">
+          <div className="process-step">
+            <div className="step-content">{t('process.step1')}</div>
+          </div>
+          <div className="process-arrow">→</div>
+          <div className="process-step">
+            <div className="step-content">{t('process.step2')}</div>
+          </div>
+          <div className="process-arrow">→</div>
+          <div className="process-step">
+            <div className="step-content">{t('process.step3')}</div>
+          </div>
+          <div className="process-arrow">→</div>
+          <div className="process-step">
+            <div className="step-content">{t('process.step4')}</div>
+          </div>
         </div>
       </section>
 
-      {/* Placeholder content to test scrolling */}
-      <section className="content-section">
-        <h2>Showcase</h2>
-        <p>
-          High-performance rigs with curated components. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          non lacus ac justo malesuada posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-          cubilia curae.
-        </p>
+      <section className="quality-section">
+        <h2 className="quality-text">{t('quality.text')}</h2>
       </section>
-      <section className="content-section">
-        <h2>Components</h2>
-        <p>
-          GPUs, CPUs, memory kits and NVMe storage tuned for low latency and sustained throughput. Vivamus elementum,
-          tortor vitae pharetra varius, est mi efficitur ipsum, id tempor lorem massa in nisl.
-        </p>
+
+      <section className="podcast-section">
+        <h2 className="section-title">{t('podcast.title')}</h2>
+        <a className="btn primary" href="#podcast">{t('podcast.cta')}</a>
       </section>
-      <section className="content-section">
-        <h2>Desks & Ergonomics</h2>
-        <p>
-          Cable-managed, height-adjustable workspaces with monitor arms and acoustic treatments. Cras at nibh vitae
-          sapien tempus vulputate. Curabitur tincidunt, lorem in aliquet commodo, odio turpis tempor nibh, id egestas
-          arcu ligula sit amet lacus.
-        </p>
+
+      <section className="our-setups-section">
+        <h2 className="section-title">{t('ourSetups.title')}</h2>
+        <div className="setups-grid">
+          <div className="setup-card">
+            <div className="setup-image">[OBRÁZEK]</div>
+            <h3>{t('ourSetups.gaming')}</h3>
+          </div>
+          <div className="setup-card">
+            <div className="setup-image">[OBRÁZEK]</div>
+            <h3>{t('ourSetups.office')}</h3>
+          </div>
+          <div className="setup-card">
+            <div className="setup-image">[OBRÁZEK]</div>
+            <h3>{t('ourSetups.podcast')}</h3>
+          </div>
+        </div>
       </section>
-      <section className="content-section">
-        <h2>Ambient Lighting</h2>
-        <p>
-          Addressable RGB, bias lighting, and room scenes synced to content. Nulla facilisi. Pellentesque habitant morbi
-          tristique senectus et netus et malesuada fames ac turpis egestas.
-        </p>
-      </section>
-      <section className="content-section">
-        <h2>Services</h2>
-        <p>
-          Design consultation, on-site setup, thermal tuning, and maintenance plans. Donec non quam eget quam feugiat
-          faucibus. Phasellus nec neque in sapien fermentum ultrices.
-        </p>
-      </section>
-      <section className="content-section">
-        <h2>Contact</h2>
-        <p>
-          Ready to start? Get in touch and we’ll tailor a build to your goals. Sed dictum placerat neque, vitae faucibus
-          erat interdum vitae. Integer pulvinar, nisi id sodales facilisis, nisi velit tempor massa, ut suscipit arcu
-          arcu ut lorem.
-        </p>
+
+      <section className="newsletter-section">
+        <h2 className="section-title">{t('newsletter.title')}</h2>
+        <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
+          <input 
+            type="email" 
+            placeholder={t('newsletter.placeholder')}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="newsletter-input"
+          />
+          <button type="submit" className="btn primary">{t('newsletter.cta')}</button>
+        </form>
       </section>
     </main>
   )
@@ -138,21 +145,6 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const t = useT()
-  useEffect(() => {
-    const setParallax = () => {
-      const doc = document.documentElement
-      const max = Math.max(1, doc.scrollHeight - window.innerHeight)
-      const ratio = Math.min(1, Math.max(0, window.scrollY / max))
-      doc.style.setProperty('--parallax', ratio.toFixed(4))
-    }
-    setParallax()
-    window.addEventListener('scroll', setParallax, { passive: true })
-    window.addEventListener('resize', setParallax)
-    return () => {
-      window.removeEventListener('scroll', setParallax)
-      window.removeEventListener('resize', setParallax)
-    }
-  }, [])
 
   useEffect(() => {
     // Close mobile menu when route changes
@@ -172,24 +164,30 @@ function App() {
   return (
     <div id="app-root">
       <header className="site-header">
-        <div className="brand">
-          <Link to="/">
-            <img src={logoPng} alt="4setup" className="brand-mark" />
-          </Link>
+        <div className="header-main-row">
+          <div className="brand">
+            <Link to="/">
+              <img src={logoPng} alt="4setup" className="brand-mark" />
+            </Link>
+          </div>
+          <button className="menu-toggle" aria-expanded={menuOpen} aria-label="Toggle navigation" onClick={() => setMenuOpen(v => !v)}>
+            <span />
+            <span />
+            <span />
+          </button>
+          <div className={`nav-backdrop ${menuOpen ? 'show' : ''}`} onClick={() => setMenuOpen(false)} />
+          <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+            <Link to="/setups">{t('nav.setups')}</Link>
+            <Link to="/blog">{t('nav.blog')}</Link>
+            <a href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.eshop')}</a>
+            <Link to="/contact">{t('nav.contact')}</Link>
+            <LangSelector />
+          </nav>
         </div>
-        <button className="menu-toggle" aria-expanded={menuOpen} aria-label="Toggle navigation" onClick={() => setMenuOpen(v => !v)}>
-          <span />
-          <span />
-          <span />
-        </button>
-        <div className={`nav-backdrop ${menuOpen ? 'show' : ''}`} onClick={() => setMenuOpen(false)} />
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          <Link to="/setups">{t('nav.setups')}</Link>
-          <Link to="/blog">{t('nav.blog')}</Link>
-          <a className="btn primary" href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.store')}</a>
-          <Link className="btn primary" to="/contact">{t('nav.contact')}</Link>
-          <LangSelector />
-        </nav>
+        <div className="header-second-row">
+          <span className="business-label">{t('nav.businessLabel')}</span>
+          <a className="btn primary business-btn" href="#business">{t('nav.business')}</a>
+        </div>
       </header>
 
       <Routes>

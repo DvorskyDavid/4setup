@@ -7,23 +7,37 @@ type Dictionary = Record<string, Record<Lang, string>>
 const DICT: Dictionary = {
   'nav.setups': { en: 'Setups', cz: 'Setupy' },
   'nav.blog': { en: 'Blog', cz: 'Blog' },
-  'nav.store': { en: 'Store', cz: 'Obchod' },
-  'nav.contact': { en: 'Contact us', cz: 'Kontaktujte nás' },
+  'nav.eshop': { en: 'E-shop', cz: 'E-shop' },
+  'nav.contact': { en: 'Contact us', cz: 'Kontaktuj nás' },
+  'nav.business': { en: 'BUSINESS', cz: 'BUSINESS' },
+  'nav.businessLabel': { en: 'Are you a company?', cz: 'Jste firma?' },
 
-  'hero.title': { en: 'Premium Gaming Setups', cz: 'Prémiové herní sestavy' },
-  'hero.subtitle': {
-    en: 'Custom PCs, ergonomic desks, ambient lighting, and pro peripherals configured for peak performance.',
-    cz: 'Vlastní PC, ergonomické stoly, ambientní osvětlení a profi periferie pro maximální výkon.'
+  'hero.title': { en: 'WE CREATE CUSTOM ROOMS!', cz: 'TVOŘÍME POKOJE NA MÍRU!' },
+  'hero.subtitle': { en: 'gaming, streaming, work, learning', cz: 'gaming, streaming, práce, učení' },
+  'hero.cta': { en: 'I WANT MY SETUP', cz: 'CHCI SVŮJ SETUP' },
+
+  'process.title': { en: 'REALIZATION FROM A TO Z', cz: 'REALIZACE OD A – Z' },
+  'process.step1': { en: 'YOUR IDEA', cz: 'VÁŠ NÁPAD' },
+  'process.step2': { en: '3D DESIGN', cz: '3D NÁVRH' },
+  'process.step3': { en: 'PRODUCT DELIVERY', cz: 'DODÁNÍ PRODUKTŮ' },
+  'process.step4': { en: 'FINAL REALIZATION', cz: 'FINÁLNÍ REALIZACE' },
+
+  'quality.text': { 
+    en: 'WE CREATE EVERY SPACE WITH EMPHASIS ON QUALITY, DESIGN AND FUNCTIONALITY.',
+    cz: 'KAŽDÝ PROSTOR TVOŘÍME S DŮRAZEM NA KVALITU, DESIGN A FUNKČNOST.'
   },
-  'hero.getQuote': { en: 'Get a Quote', cz: 'Nezávazná poptávka' },
-  'hero.explore': { en: 'Explore Setups', cz: 'Prozkoumat sestavy' },
 
-  'feature.pcs.title': { en: 'Power PCs', cz: 'Výkonné PC' },
-  'feature.pcs.desc': { en: 'Air or liquid-cooled builds curated for FPS stability and thermals.', cz: 'Vzduchem či vodou chlazené sestavy pro stabilní FPS a teploty.' },
-  'feature.desks.title': { en: 'Pro Desks', cz: 'Profesionální stoly' },
-  'feature.desks.desc': { en: 'Height-adjustable, cable-managed, and purpose-lit workspace ergonomics.', cz: 'Výškově nastavitelné, kabelově čisté a osvětlené pracovní prostory.' },
-  'feature.lights.title': { en: 'Immersive Lighting', cz: 'Pohlcující osvětlení' },
-  'feature.lights.desc': { en: 'RGB scenes synced to gameplay and environment for total immersion.', cz: 'RGB scény synchronizované s hrou i prostředím pro maximální ponor.' },
+  'podcast.title': { en: '4SETUP PODCAST EVERY SATURDAY', cz: 'PODCAST 4SETUP KAŽDOU SOBOTU' },
+  'podcast.cta': { en: 'NEW EPISODE', cz: 'NOVÁ EPIZODA' },
+
+  'ourSetups.title': { en: 'Our SETUPS', cz: 'Naše SETUPY' },
+  'ourSetups.gaming': { en: 'Gaming room', cz: 'Gaming room' },
+  'ourSetups.office': { en: 'Office', cz: 'Kancelář' },
+  'ourSetups.podcast': { en: 'Podcast rooms + Streaming studios', cz: 'Podcastovny + Streamovací studia' },
+
+  'newsletter.title': { en: 'WANT TO STAY INFORMED?', cz: 'CHCEŠ MÍT PŘEHLED?' },
+  'newsletter.cta': { en: 'SUBSCRIBE TO NEWSLETTER', cz: 'ODEBÍREJ NEWSLETTER' },
+  'newsletter.placeholder': { en: 'Your email address', cz: 'Tvůj email' },
 
   'page.setups.title': { en: 'Setups', cz: 'Setupy' },
   'page.setups.desc': { en: 'Explore curated builds, desks, and lighting packages. More coming soon.', cz: 'Prozkoumejte sestavy, stoly a balíčky osvětlení. Již brzy více.' },
