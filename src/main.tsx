@@ -130,7 +130,6 @@ function LangSelector() {
   const { lang, setLang } = useI18n()
   return (
     <div className="lang-pill" role="group" aria-label="Language selector">
-      <div className={`lang-pill-indicator ${lang === 'cz' ? 'right' : 'left'}`} />
       <button
         className={`lang-pill-btn ${lang === 'en' ? 'active' : ''}`}
         onClick={() => setLang('en')}
