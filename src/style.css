@@ -351,7 +351,7 @@ main { background: transparent; }
   border-color: var(--primary);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1120px) {
   .features { grid-template-columns: 1fr; padding: 0 20px; }
   .hero { padding: 32px 16px 44px; }
   .hero h1 { font-size: 34px; }
@@ -386,7 +386,7 @@ main { background: transparent; }
   .newsletter-input { width: 100%; }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1121px) {
   .hero { text-align: center; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-copy { text-align: center; }
