@@ -344,8 +344,8 @@ main { background: transparent; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 14px; width: 100%; justify-content: center; }
   .site-header .btn { width: 100%; justify-content: center; }
-  .lang-pill { width: 100%; }
-  .lang-pill-indicator { width: calc(50% - 5px); }
+  .lang-pill { width: auto; max-width: 200px; margin: 0 auto; }
+  .lang-pill-indicator { width: calc(50% - 4px); }
   
   /* Mobile styles for new sections */
   .header-right { width: 100%; align-items: center; }
