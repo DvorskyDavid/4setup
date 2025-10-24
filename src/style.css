@@ -84,22 +84,51 @@ main { background: transparent; }
 .nav a { color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; line-height: 1; }
 .site-header .btn { display: inline-flex; align-items: center; line-height: 1; }
 .nav a:hover { color: var(--text); }
-.lang-select { 
-  background: var(--primary); 
-  color: #0b1220; 
-  font-weight: 700; 
+.lang-pill {
+  position: relative;
+  display: inline-flex;
+  background: rgba(15, 23, 36, 0.8);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 20px;
+  padding: 3px;
+  gap: 2px;
+}
+.lang-pill-indicator {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  width: calc(50% - 4px);
+  background: var(--primary);
+  border-radius: 17px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 18px rgba(14,165,233,0.5), 0 0 2px rgba(14,165,233,0.9) inset;
-  border: 1px solid transparent; 
-  border-radius: 10px; 
-  padding: 6px 10px;
+  pointer-events: none;
+  z-index: 0;
+}
+.lang-pill-indicator.left {
+  transform: translateX(3px);
+}
+.lang-pill-indicator.right {
+  transform: translateX(calc(100% + 5px));
+}
+.lang-pill-btn {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 16px;
   cursor: pointer;
+  transition: color 0.3s ease;
+  border-radius: 17px;
 }
-.lang-select:hover { 
-  background: var(--primary-600); 
-  box-shadow: 0 0 26px rgba(14,165,233,0.7), 0 0 2px rgba(14,165,233,0.9) inset;
+.lang-pill-btn.active {
+  color: #0b1220;
 }
-.lang-select:focus { 
-  outline: 2px solid var(--primary); 
+.lang-pill-btn:hover:not(.active) {
+  color: var(--text);
 }
 
 .hero {
@@ -314,7 +343,7 @@ main { background: transparent; }
   .nav.open { display: flex; }
   .nav a { padding: 12px 14px; width: 100%; justify-content: center; }
   .site-header .btn { width: 100%; justify-content: center; }
-  .lang-select { width: 100%; }
+  .lang-pill { width: 100%; justify-content: center; }
   
   /* Mobile styles for new sections */
   .header-right { width: 100%; align-items: center; }

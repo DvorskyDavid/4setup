@@ -129,15 +129,23 @@ function ContactPage() {
 function LangSelector() {
   const { lang, setLang } = useI18n()
   return (
-    <select
-      className="lang-select"
-      value={lang}
-      onChange={(e) => setLang(e.target.value as any)}
-      aria-label="Language selector"
-    >
-      <option value="en">EN</option>
-      <option value="cz">CZ</option>
-    </select>
+    <div className="lang-pill" role="group" aria-label="Language selector">
+      <div className={`lang-pill-indicator ${lang === 'cz' ? 'right' : 'left'}`} />
+      <button
+        className={`lang-pill-btn ${lang === 'en' ? 'active' : ''}`}
+        onClick={() => setLang('en')}
+        aria-pressed={lang === 'en'}
+      >
+        EN
+      </button>
+      <button
+        className={`lang-pill-btn ${lang === 'cz' ? 'active' : ''}`}
+        onClick={() => setLang('cz')}
+        aria-pressed={lang === 'cz'}
+      >
+        CZ
+      </button>
+    </div>
   )
 }
 
