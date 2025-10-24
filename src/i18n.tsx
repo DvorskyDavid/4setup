@@ -17,7 +17,7 @@ const DICT: Dictionary = {
   'hero.cta': { en: 'I WANT MY SETUP', cz: 'CHCI SVŮJ SETUP' },
 
   'process.title': { en: 'REALIZATION FROM A TO Z', cz: 'REALIZACE OD A – Z' },
-  'process.step1': { en: 'YOUR IDEA', cz: 'VÁŠ NÁPAD' },
+  'process.step1': { en: 'IDEA', cz: 'NÁPAD' },
   'process.step2': { en: '3D DESIGN', cz: '3D NÁVRH' },
   'process.step3': { en: 'PRODUCT DELIVERY', cz: 'DODÁNÍ PRODUKTŮ' },
   'process.step4': { en: 'FINAL REALIZATION', cz: 'FINÁLNÍ REALIZACE' },
