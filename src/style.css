@@ -98,6 +98,7 @@ main { background: transparent; }
   top: 0; 
   flex-direction: column;
   gap: 0;
+  z-index: 3001;
 }
 .menu-toggle span { 
   display: block; 
