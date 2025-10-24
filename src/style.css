@@ -20,21 +20,30 @@
 
 * { box-sizing: border-box; }
 
-html, body, #app {
-  height: 100%;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: linear-gradient(180deg, var(--bg) 0%, #0c1320 100%);
+  background: transparent;
   color: var(--text);
+}
+
+#app-root {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(180deg, #0a0d15 0%, var(--bg) 15%, #0c1320 50%, #0d1421 85%, #0e1522 100%);
 }
 
 /* Background removed - static gradient only */
 
 a { color: var(--text); text-decoration: none; }
 a:hover { color: var(--primary); }
+
+main { background: transparent; }
 
 .site-header {
   display: flex;
@@ -54,17 +63,20 @@ a:hover { color: var(--primary); }
   justify-content: space-between;
   width: 100%;
 }
-.header-second-row {
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.business-section {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding-top: 10px;
-  margin-top: 10px;
-  border-top: 1px solid rgba(31, 41, 55, 0.5);
+  gap: 10px;
+  padding-top: 8px;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
-.brand-mark { width: 128px; height: auto; filter: drop-shadow(0 0 18px var(--ring)); display: block; }
+.brand-mark { width: 160px; height: auto; filter: drop-shadow(0 0 18px var(--ring)); display: block; }
 .header-left-ctas { display: none; }
 .menu-toggle { display: none; width: 38px; height: 34px; background: transparent; border: 1px solid #1f2937; border-radius: 8px; align-items: center; justify-content: center; gap: 4px; }
 .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--text); box-shadow: 0 0 8px rgba(14,165,233,0.45); }
@@ -72,8 +84,23 @@ a:hover { color: var(--primary); }
 .nav a { color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; line-height: 1; }
 .site-header .btn { display: inline-flex; align-items: center; line-height: 1; }
 .nav a:hover { color: var(--text); }
-.lang-select { background: #0f1724; color: var(--text); border: 1px solid #131b2b; border-radius: 8px; padding: 6px 8px; }
-.lang-select:focus { outline: 2px solid var(--primary); }
+.lang-select { 
+  background: var(--primary); 
+  color: #0b1220; 
+  font-weight: 700; 
+  box-shadow: 0 0 18px rgba(14,165,233,0.5), 0 0 2px rgba(14,165,233,0.9) inset;
+  border: 1px solid transparent; 
+  border-radius: 10px; 
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.lang-select:hover { 
+  background: var(--primary-600); 
+  box-shadow: 0 0 26px rgba(14,165,233,0.7), 0 0 2px rgba(14,165,233,0.9) inset;
+}
+.lang-select:focus { 
+  outline: 2px solid var(--primary); 
+}
 
 .hero {
   max-width: 1120px;
@@ -82,6 +109,7 @@ a:hover { color: var(--primary); }
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: transparent;
 }
 .hero-inner { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
 .hero-copy { text-align: center; }
@@ -96,7 +124,7 @@ a:hover { color: var(--primary); }
 .btn.ghost:hover { border-color: var(--primary); color: var(--primary); }
 
 /* Neon heading glow */
-.hero h1 { text-shadow: 0 0 10px rgba(14,165,233,0.6), 0 0 22px rgba(14,165,233,0.35); }
+.hero h1 { text-shadow: 0 0 6px rgba(14,165,233,0.3), 0 0 12px rgba(14,165,233,0.15); }
 
 /* Perspective grid floor under hero */
 /* Remove old local floor grid; global grid handles horizon */
@@ -142,7 +170,7 @@ a:hover { color: var(--primary); }
   font-size: 32px; 
   font-weight: 700; 
   margin: 0 0 32px; 
-  text-shadow: 0 0 10px rgba(14,165,233,0.6), 0 0 22px rgba(14,165,233,0.35);
+  text-shadow: 0 0 6px rgba(14,165,233,0.3), 0 0 12px rgba(14,165,233,0.15);
 }
 
 /* Process section */
@@ -150,6 +178,7 @@ a:hover { color: var(--primary); }
   max-width: 1120px; 
   margin: 64px auto; 
   padding: 0 20px; 
+  background: transparent;
 }
 .process-steps { 
   display: flex; 
@@ -183,13 +212,14 @@ a:hover { color: var(--primary); }
   margin: 64px auto; 
   padding: 64px 20px;
   text-align: center;
+  background: transparent;
 }
 .quality-text { 
   font-size: 28px; 
   font-weight: 700; 
   line-height: 1.4;
   margin: 0;
-  text-shadow: 0 0 10px rgba(14,165,233,0.6), 0 0 22px rgba(14,165,233,0.35);
+  text-shadow: 0 0 6px rgba(14,165,233,0.3), 0 0 12px rgba(14,165,233,0.15);
 }
 
 /* Podcast section */
@@ -198,6 +228,7 @@ a:hover { color: var(--primary); }
   margin: 64px auto; 
   padding: 0 20px;
   text-align: center;
+  background: transparent;
 }
 
 /* Our setups section */
@@ -205,6 +236,7 @@ a:hover { color: var(--primary); }
   max-width: 1120px; 
   margin: 64px auto; 
   padding: 0 20px;
+  background: transparent;
 }
 .setups-grid { 
   display: grid; 
@@ -247,6 +279,7 @@ a:hover { color: var(--primary); }
   margin: 64px auto 80px; 
   padding: 0 20px;
   text-align: center;
+  background: transparent;
 }
 .newsletter-form { 
   display: flex; 
@@ -275,7 +308,7 @@ a:hover { color: var(--primary); }
   .hero h1 { font-size: 34px; }
   .hero p { font-size: 14px; }
   .site-header { padding: 10px 12px; }
-  .brand-mark { width: 112px; }
+  .brand-mark { width: 140px; }
   .menu-toggle { display: inline-flex; }
   .nav { position: fixed; top: 56px; left: 12px; right: 12px; background: #0f1724; border: 1px solid #131b2b; border-radius: 12px; padding: 12px; display: none; flex-direction: column; gap: 10px; box-shadow: 0 18px 40px rgba(0,0,0,0.55); z-index: 2000; }
   .nav.open { display: flex; }
@@ -284,7 +317,9 @@ a:hover { color: var(--primary); }
   .lang-select { width: 100%; }
   
   /* Mobile styles for new sections */
-  .header-second-row { flex-direction: row; gap: 8px; }
+  .header-right { width: 100%; align-items: center; }
+  .nav { width: 100%; }
+  .business-section { flex-direction: column; gap: 6px; width: 100%; justify-content: center; padding-top: 12px; }
   .business-label { text-align: center; font-size: 12px; }
   .section-title { font-size: 24px; }
   .process-steps { flex-direction: column; }

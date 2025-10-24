@@ -176,17 +176,19 @@ function App() {
             <span />
           </button>
           <div className={`nav-backdrop ${menuOpen ? 'show' : ''}`} onClick={() => setMenuOpen(false)} />
-          <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-            <Link to="/setups">{t('nav.setups')}</Link>
-            <Link to="/blog">{t('nav.blog')}</Link>
-            <a href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.eshop')}</a>
-            <Link to="/contact">{t('nav.contact')}</Link>
-            <LangSelector />
-          </nav>
-        </div>
-        <div className="header-second-row">
-          <span className="business-label">{t('nav.businessLabel')}</span>
-          <a className="btn primary business-btn" href="#business">{t('nav.business')}</a>
+          <div className="header-right">
+            <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+              <Link to="/setups">{t('nav.setups')}</Link>
+              <Link to="/blog">{t('nav.blog')}</Link>
+              <a href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.eshop')}</a>
+              <Link to="/contact">{t('nav.contact')}</Link>
+              <LangSelector />
+            </nav>
+            <div className="business-section">
+              <span className="business-label">{t('nav.businessLabel')}</span>
+              <a className="btn primary business-btn" href="#business">{t('nav.business')}</a>
+            </div>
+          </div>
         </div>
       </header>
 
