@@ -85,7 +85,19 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     try { window.localStorage.setItem('lang', lang) } catch {}
     // Update HTML lang attribute to prevent Google Translate from offering translation
     // Use 'cs' (ISO 639-1 code) for Czech instead of 'cz'
-    document.documentElement.lang = lang === 'cz' ? 'cs' : 'en'
+    const langCode = lang === 'cz' ? 'cs' : 'en'
+    document.documentElement.lang = langCode
+    
+    // Update content-language meta tag
+    let metaLang = document.querySelector('meta[http-equiv="content-language"]')
+    if (metaLang) {
+      metaLang.setAttribute('content', langCode)
+    } else {
+      metaLang = document.createElement('meta')
+      metaLang.setAttribute('http-equiv', 'content-language')
+      metaLang.setAttribute('content', langCode)
+      document.head.appendChild(metaLang)
+    }
   }, [lang])
 
   const setLang = (l: Lang) => setLangState(l)
