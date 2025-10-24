@@ -393,5 +393,5 @@ main { background: transparent; }
 }
 
 /* Mobile menu backdrop */
-.nav-backdrop { position: fixed; inset: 0; background: rgba(2,8,23,0.6); opacity: 0; pointer-events: none; transition: opacity 180ms ease; z-index: 1500; }
+.nav-backdrop { position: fixed; inset: 0; background: rgba(2,8,23,0.8); opacity: 0; pointer-events: none; transition: opacity 250ms ease; z-index: 1500; }
 .nav-backdrop.show { opacity: 1; pointer-events: auto; }
