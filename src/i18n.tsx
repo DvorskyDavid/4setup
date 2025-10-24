@@ -83,6 +83,9 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try { window.localStorage.setItem('lang', lang) } catch {}
+    // Update HTML lang attribute to prevent Google Translate from offering translation
+    // Use 'cs' (ISO 639-1 code) for Czech instead of 'cz'
+    document.documentElement.lang = lang === 'cz' ? 'cs' : 'en'
   }, [lang])
 
   const setLang = (l: Lang) => setLangState(l)
