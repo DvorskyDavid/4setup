@@ -177,10 +177,9 @@ function App() {
               <img src={logoPng} alt="4setup" className="brand-mark" />
             </Link>
           </div>
-          <button className="menu-toggle" aria-expanded={menuOpen} aria-label="Toggle navigation" onClick={() => setMenuOpen(v => !v)}>
-            <span />
-            <span />
-            <span />
+          <button className={`menu-toggle ${menuOpen ? 'open' : ''}`} aria-expanded={menuOpen} aria-label="Toggle navigation" onClick={() => setMenuOpen(v => !v)}>
+            <span className="line1" />
+            <span className="line2" />
           </button>
           <div className={`nav-backdrop ${menuOpen ? 'show' : ''}`} onClick={() => setMenuOpen(false)} />
           <div className="header-right">
