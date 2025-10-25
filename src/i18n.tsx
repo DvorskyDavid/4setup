@@ -44,7 +44,10 @@ const DICT: Dictionary = {
   'page.blog.title': { en: 'Blog', cz: 'Blog' },
   'page.blog.desc': { en: 'Guides and inspiration for performance setups and immersive spaces.', cz: 'Návody a inspirace pro výkonné sestavy a pohlcující prostředí.' },
   'page.contact.title': { en: 'Contact', cz: 'Kontakt' },
-  'page.contact.desc': { en: 'Email us at hello@4setup.cz or use the form (coming soon).', cz: 'Napište nám na hello@4setup.cz nebo použijte formulář (již brzy).' },
+  'page.contact.contactUs': { en: 'Contact us:', cz: 'Kontaktujte nás:' },
+  'page.contact.phone': { en: 'Phone:', cz: 'Telefon:' },
+  'page.contact.email': { en: 'Email:', cz: 'Email:' },
+  'page.contact.companyInfo': { en: 'Company Information', cz: 'Informace o společnosti' },
 }
 
 type I18nContextValue = {

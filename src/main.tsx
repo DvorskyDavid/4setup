@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 import logoPng from './assets/4setup-gradient.png'
@@ -123,12 +123,19 @@ function ContactPage() {
       <h2>{t('page.contact.title')}</h2>
       <div className="contact-content">
         <div className="contact-section">
-          <h3>Contact us:</h3>
-          <a href="mailto:info@4setup.cz" className="contact-email">info@4setup.cz</a>
+          <h3>{t('page.contact.contactUs')}</h3>
+          <p className="contact-info">
+            <strong>{t('page.contact.phone')}</strong><br />
+            <a href="tel:+420608689304" className="contact-link">+420 608 689 304</a>
+          </p>
+          <p className="contact-info">
+            <strong>{t('page.contact.email')}</strong><br />
+            <a href="mailto:info@4setup.cz" className="contact-link">info@4setup.cz</a>
+          </p>
         </div>
         
         <div className="contact-section">
-          <h3>Company Information</h3>
+          <h3>{t('page.contact.companyInfo')}</h3>
           <p className="contact-info">
             <strong>4setup s.r.o.</strong><br />
             IČ: 23616491
@@ -238,9 +245,9 @@ const container = document.getElementById('app')!
 createRoot(container).render(
   <React.StrictMode>
     <I18nProvider>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </I18nProvider>
   </React.StrictMode>
 )

@@ -226,13 +226,13 @@ main { background: transparent; }
   margin: 0 0 16px; 
   color: var(--primary);
 }
-.contact-email { 
-  font-size: 20px; 
+.contact-link { 
+  font-size: 18px; 
   color: var(--text); 
-  font-weight: 600;
+  font-weight: 500;
   display: inline-block;
 }
-.contact-email:hover { 
+.contact-link:hover { 
   color: var(--primary);
 }
 .contact-info { 
@@ -429,7 +429,7 @@ main { background: transparent; }
   .page { padding: 0 20px; margin: 48px auto; }
   .page h2 { font-size: 32px; }
   .contact-section h3 { font-size: 20px; }
-  .contact-email { font-size: 18px; }
+  .contact-link { font-size: 16px; }
 }
 
 @media (min-width: 1121px) {
