@@ -204,6 +204,47 @@ main { background: transparent; }
 
 .site-footer { border-top: 1px solid #131b2b; padding: 20px; text-align: center; color: var(--muted); }
 
+.page { 
+  max-width: 1120px; 
+  margin: 64px auto; 
+  padding: 0 40px; 
+  min-height: 60vh;
+}
+.page h2 { 
+  font-size: 42px; 
+  margin: 0 0 32px; 
+  text-shadow: 0 0 6px rgba(14,165,233,0.3), 0 0 12px rgba(14,165,233,0.15);
+}
+.contact-content { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 48px; 
+  max-width: 600px;
+}
+.contact-section h3 { 
+  font-size: 24px; 
+  margin: 0 0 16px; 
+  color: var(--primary);
+}
+.contact-email { 
+  font-size: 20px; 
+  color: var(--text); 
+  font-weight: 600;
+  display: inline-block;
+}
+.contact-email:hover { 
+  color: var(--primary);
+}
+.contact-info { 
+  margin: 0 0 16px; 
+  line-height: 1.6; 
+  color: var(--text);
+}
+.contact-info strong { 
+  color: var(--text); 
+  font-weight: 700;
+}
+
 .content-section { margin: 40px auto; padding: 0 40px; }
 .content-section h2 { margin: 0 0 8px; font-size: 22px; }
 .content-section p { margin: 0; color: var(--muted); }
@@ -385,6 +426,10 @@ main { background: transparent; }
   .setups-grid { grid-template-columns: 1fr; }
   .newsletter-form { flex-direction: column; }
   .newsletter-input { width: 100%; font-size: 16px; }
+  .page { padding: 0 20px; margin: 48px auto; }
+  .page h2 { font-size: 32px; }
+  .contact-section h3 { font-size: 20px; }
+  .contact-email { font-size: 18px; }
 }
 
 @media (min-width: 1121px) {

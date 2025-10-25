@@ -119,9 +119,27 @@ function BlogPage() {
 function ContactPage() {
   const t = useT()
   return (
-    <main className="page">
+    <main className="page contact-page">
       <h2>{t('page.contact.title')}</h2>
-      <p>{t('page.contact.desc')}</p>
+      <div className="contact-content">
+        <div className="contact-section">
+          <h3>Contact us:</h3>
+          <a href="mailto:info@4setup.cz" className="contact-email">info@4setup.cz</a>
+        </div>
+        
+        <div className="contact-section">
+          <h3>Company Information</h3>
+          <p className="contact-info">
+            <strong>4setup s.r.o.</strong><br />
+            IČ: 23616491
+          </p>
+          <p className="contact-info">
+            Varšavská 715/36<br />
+            Vinohrady, 120 00<br />
+            Praha 2
+          </p>
+        </div>
+      </div>
     </main>
   )
 }
