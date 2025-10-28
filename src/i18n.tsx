@@ -5,14 +5,15 @@ export type Lang = 'en' | 'cz'
 type Dictionary = Record<string, Record<Lang, string>>
 
 const DICT: Dictionary = {
-  'nav.setups': { en: 'Setups', cz: 'Setupy' },
+  'nav.products': { en: 'Products', cz: 'Produkty' },
+  'nav.spaces': { en: 'Setups', cz: 'Setupy' },
   'nav.blog': { en: 'Blog', cz: 'Blog' },
   'nav.eshop': { en: 'E-shop', cz: 'E-shop' },
   'nav.contact': { en: 'Contact us', cz: 'Kontaktuj nás' },
   'nav.business': { en: 'BUSINESS', cz: 'BUSINESS' },
   'nav.businessLabel': { en: 'Are you a company?', cz: 'Jste firma?' },
 
-  'hero.title': { en: 'WE CREATE CUSTOM ROOMS!', cz: 'TVOŘÍME POKOJE NA MÍRU!' },
+  'hero.title': { en: 'WE CREATE CUSTOM SPACES!', cz: 'TVOŘÍME PROSTORY NA MÍRU!' },
   'hero.subtitle': { en: 'gaming, streaming, work, learning', cz: 'gaming, streaming, práce, učení' },
   'hero.cta': { en: 'I WANT MY SETUP', cz: 'CHCI SVŮJ SETUP' },
 
@@ -39,8 +40,6 @@ const DICT: Dictionary = {
   'newsletter.cta': { en: 'SUBSCRIBE TO NEWSLETTER', cz: 'ODEBÍREJ NEWSLETTER' },
   'newsletter.placeholder': { en: 'Your email address', cz: 'Tvůj email' },
 
-  'page.setups.title': { en: 'Setups', cz: 'Setupy' },
-  'page.setups.desc': { en: 'Explore curated builds, desks, and lighting packages. More coming soon.', cz: 'Prozkoumejte sestavy, stoly a balíčky osvětlení. Již brzy více.' },
   'page.blog.title': { en: 'Blog', cz: 'Blog' },
   'page.blog.desc': { en: 'Guides and inspiration for performance setups and immersive spaces.', cz: 'Návody a inspirace pro výkonné sestavy a pohlcující prostředí.' },
   'page.contact.title': { en: 'Contact', cz: 'Kontakt' },
@@ -48,6 +47,36 @@ const DICT: Dictionary = {
   'page.contact.phone': { en: 'Phone:', cz: 'Telefon:' },
   'page.contact.email': { en: 'Email:', cz: 'Email:' },
   'page.contact.companyInfo': { en: 'Company Information', cz: 'Informace o společnosti' },
+
+  'landing.products': { en: 'PRODUCTS', cz: 'PRODUKTY' },
+  'landing.customSpaces': { en: 'CUSTOM SPACES', cz: 'PROSTORY NA MÍRU' },
+
+  'products.hero.title': { en: 'PREMIUM COLLECTION', cz: 'PRÉMIOVÁ KOLEKCE' },
+  'products.hero.subtitle': { en: 'Crafted for perfection. Designed for champions.', cz: 'Vytvořeno pro dokonalost. Navrženo pro šampióny.' },
+  'products.viewDetails': { en: 'VIEW DETAILS', cz: 'ZOBRAZIT DETAIL' },
+  'products.footer.warranty': { en: 'All products come with lifetime warranty and premium support.', cz: 'Všechny produkty zahrnují doživotní záruku a prémiovou podporu.' },
+  'products.footer.customOrder': { en: 'CUSTOM ORDER', cz: 'OBJEDNÁVKA NA MÍRU' },
+  
+  'products.apexDesk.name': { en: 'APEX PRO DESK', cz: 'APEX PRO DESK' },
+  'products.apexDesk.category': { en: 'Premium Gaming Desk', cz: 'Prémiový herní stůl' },
+  'products.apexDesk.description': { en: 'Handcrafted carbon fiber surface with integrated RGB lighting system and wireless charging zones.', cz: 'Ručně vyrobený karbon povrch s integrovaným RGB osvětlením a bezdrátovými nabíjecími zónami.' },
+  
+  'products.phantomChair.name': { en: 'PHANTOM CHAIR', cz: 'PHANTOM KŘESLO' },
+  'products.phantomChair.category': { en: 'Ergonomic Gaming Chair', cz: 'Ergonomické herní křeslo' },
+  'products.phantomChair.description': { en: 'Premium leather with memory foam, magnetic lumbar support, and adjustable 4D armrests.', cz: 'Prémiová kůže s memory pěnou, magnetická bederní podpora a nastavitelné 4D opěrky.' },
+  
+  'products.nexusLight.name': { en: 'NEXUS LIGHT PANEL', cz: 'NEXUS SVĚTELNÝ PANEL' },
+  'products.nexusLight.category': { en: 'Ambient Lighting System', cz: 'Ambientní osvětlení' },
+  'products.nexusLight.description': { en: 'Modular hexagonal panels with 16.8M colors, music sync, and AI-powered ambient modes.', cz: 'Modulární hexagonální panely s 16,8M barvami, synchronizací hudby a AI ambientními režimy.' },
+  
+  'products.titanWorkstation.name': { en: 'TITAN WORKSTATION', cz: 'TITAN WORKSTATION' },
+  'products.titanWorkstation.category': { en: 'Ultimate Gaming PC', cz: 'Ultimátní herní PC' },
+  'products.titanWorkstation.description': { en: 'Custom liquid-cooled build with RTX 4090, i9-14900K, and tempered glass showcase design.', cz: 'Vlastní vodně chlazená sestava s RTX 4090, i9-14900K a prémiovým skleněným designem.' },
+  
+  'products.block1.text': { en: 'Every detail\nmatters', cz: 'Každý detail\nse počítá' },
+  'products.block2.text': { en: 'Built to\ninspire', cz: 'Vytvořeno pro\ninspiraci' },
+  'products.block3.text': { en: 'Form meets\nfunction', cz: 'Forma splývá\ns funkcí' },
+  'products.block4.text': { en: 'Engineered for champions', cz: 'Vytvořeno pro šampióny' },
 }
 
 type I18nContextValue = {
