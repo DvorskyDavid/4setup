@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useI18n } from '../../i18n'
 import { getPostBySlug } from '../../data/blogPosts'
