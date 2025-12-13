@@ -8,7 +8,7 @@ import { CleanHeader } from './components/Header/CleanHeader'
 import { LandingPage } from './pages/LandingPage/LandingPage'
 import { ProductsPage } from './pages/ProductsPage/ProductsPage'
 import { SpacesPage } from './pages/SpacesPage/SpacesPage'
-import { BlogPage } from './pages/BlogPage'
+import { BlogPage, BlogPostPage } from './pages/BlogPage'
 import { ContactPage } from './pages/ContactPage'
 
 function App() {
@@ -46,6 +46,7 @@ function App() {
         <Route path="/spaces" element={<SpacesPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
 

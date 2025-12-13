@@ -28,13 +28,11 @@ const DICT: Dictionary = {
     cz: 'KAŽDÝ PROSTOR TVOŘÍME S DŮRAZEM NA KVALITU, DESIGN A FUNKČNOST.'
   },
 
-  'podcast.title': { en: '4SETUP PODCAST EVERY SATURDAY', cz: 'PODCAST 4SETUP KAŽDOU SOBOTU' },
-  'podcast.cta': { en: 'NEW EPISODE', cz: 'NOVÁ EPIZODA' },
-
   'ourSetups.title': { en: 'Our SETUPS', cz: 'Naše SETUPY' },
-  'ourSetups.gaming': { en: 'Gaming room', cz: 'Gaming room' },
-  'ourSetups.office': { en: 'Office', cz: 'Kancelář' },
-  'ourSetups.podcast': { en: 'Podcast rooms + Streaming studios', cz: 'Podcastovny + Streamovací studia' },
+  'ourSetups.subtitle': { en: 'Explore our latest realizations', cz: 'Prohlédněte si naše nejnovější realizace' },
+  'ourSetups.gaming': { en: 'Gaming Rooms', cz: 'Herní místnosti' },
+  'ourSetups.office': { en: 'Home Offices', cz: 'Domácí kanceláře' },
+  'ourSetups.streaming': { en: 'Streaming Studios', cz: 'Streamovací studia' },
 
   'newsletter.title': { en: 'WANT TO STAY INFORMED?', cz: 'CHCEŠ MÍT PŘEHLED?' },
   'newsletter.cta': { en: 'SUBSCRIBE TO NEWSLETTER', cz: 'ODEBÍREJ NEWSLETTER' },
@@ -42,11 +40,22 @@ const DICT: Dictionary = {
 
   'page.blog.title': { en: 'Blog', cz: 'Blog' },
   'page.blog.desc': { en: 'Guides and inspiration for performance setups and immersive spaces.', cz: 'Návody a inspirace pro výkonné sestavy a pohlcující prostředí.' },
+  'blog.backToList': { en: 'Back to articles', cz: 'Zpět na články' },
+  'blog.ctaTitle': { en: 'Ready to build your perfect setup?', cz: 'Připraveni na váš dokonalý setup?' },
   'page.contact.title': { en: 'Contact', cz: 'Kontakt' },
   'page.contact.contactUs': { en: 'Contact us:', cz: 'Kontaktujte nás:' },
   'page.contact.phone': { en: 'Phone:', cz: 'Telefon:' },
   'page.contact.email': { en: 'Email:', cz: 'Email:' },
   'page.contact.companyInfo': { en: 'Company Information', cz: 'Informace o společnosti' },
+  'contact.formTitle': { en: 'Send us a message', cz: 'Napište nám' },
+  'contact.name': { en: 'Your name', cz: 'Vaše jméno' },
+  'contact.emailPlaceholder': { en: 'Your email', cz: 'Váš email' },
+  'contact.subject': { en: 'Subject', cz: 'Předmět' },
+  'contact.message': { en: 'Your message', cz: 'Vaše zpráva' },
+  'contact.send': { en: 'SEND MESSAGE', cz: 'ODESLAT ZPRÁVU' },
+  'contact.sending': { en: 'SENDING...', cz: 'ODESÍLÁM...' },
+  'contact.success': { en: 'Message sent successfully! We\'ll get back to you soon.', cz: 'Zpráva byla úspěšně odeslána! Brzy se vám ozveme.' },
+  'contact.error': { en: 'Something went wrong. Please try again or email us directly.', cz: 'Něco se pokazilo. Zkuste to znovu nebo nám napište přímo.' },
 
   'landing.products': { en: 'PRODUCTS', cz: 'PRODUKTY' },
   'landing.customSpaces': { en: 'CUSTOM SPACES', cz: 'PROSTORY NA MÍRU' },
