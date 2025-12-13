@@ -49,16 +49,16 @@ main { background: transparent; }
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 32px 40px 12px;
+  padding: 32px 40px 20px;
   position: sticky;
   top: 0;
   z-index: 3000;
-  background: linear-gradient(180deg, rgba(11,15,23,0.9), rgba(11,15,23,0.6));
+  background: linear-gradient(180deg, rgba(11,15,23,0.95) 0%, rgba(11,15,23,0.9) 60%, rgba(11,15,23,0.7) 85%, rgba(11,15,23,0) 100%);
   backdrop-filter: saturate(1.2) blur(6px);
 }
 
 .clean-header {
-  background: #000000;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 60%, rgba(0,0,0,0.8) 85%, rgba(0,0,0,0) 100%);
   backdrop-filter: none;
 }
 
@@ -68,6 +68,16 @@ main { background: transparent; }
   justify-content: center;
   width: 100%;
   position: relative;
+  transition: justify-content 0.3s ease;
+}
+
+/* Compact layout when logo would overlap with nav */
+.header-compact .header-main-row {
+  justify-content: flex-start;
+}
+
+.header-compact .brand {
+  transition: transform 0.3s ease;
 }
 
 .header-right {

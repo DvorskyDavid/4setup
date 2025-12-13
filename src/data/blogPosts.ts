@@ -161,7 +161,7 @@ Tempered safety glass is a specific choice that can visually push your setup int
     },
     date: '2024-12-08',
     readTime: { cz: '5 min čtení', en: '5 min read' },
-    category: { cz: 'Materiály', en: 'Materials' }
+    category: { cz: 'Průvodce', en: 'Guide' }
   },
   {
     id: '3',
@@ -240,7 +240,7 @@ When you look at our finished product, you see the result of this journey. Every
     },
     date: '2024-12-05',
     readTime: { cz: '4 min čtení', en: '4 min read' },
-    category: { cz: 'Za scénou', en: 'Behind the scenes' }
+    category: { cz: 'Z naší dílny', en: 'From our workshop' }
   },
   {
     id: '4',

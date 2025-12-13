@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import logoPng from '../../assets/logos/4setup-gradient.png'
 import { LangSelector } from './LangSelector'
+import { useHeaderLayout } from './useHeaderLayout'
 
 type HeaderProps = {
   menuOpen: boolean
@@ -9,10 +10,15 @@ type HeaderProps = {
 }
 
 export function NormalHeader({ menuOpen, setMenuOpen, t }: HeaderProps) {
+  const { isCompact, brandRef, navRef, headerRef } = useHeaderLayout()
+
   return (
-    <header className="site-header">
+    <header 
+      ref={headerRef}
+      className={`site-header ${isCompact ? 'header-compact' : ''}`}
+    >
       <div className="header-main-row">
-        <div className="brand">
+        <div className="brand" ref={brandRef}>
           <Link to="/">
             <img src={logoPng} alt="4setup" className="brand-mark" />
           </Link>
@@ -22,7 +28,7 @@ export function NormalHeader({ menuOpen, setMenuOpen, t }: HeaderProps) {
           <span className="line2" />
         </button>
         <div className={`nav-backdrop ${menuOpen ? 'show' : ''}`} onClick={() => setMenuOpen(false)} />
-        <div className="header-right">
+        <div className="header-right" ref={navRef}>
           <nav className={`nav ${menuOpen ? 'open' : ''}`}>
             <Link to="/products">{t('nav.products')}</Link>
             <Link to="/spaces">{t('nav.spaces')}</Link>
@@ -44,4 +50,3 @@ export function NormalHeader({ menuOpen, setMenuOpen, t }: HeaderProps) {
     </header>
   )
 }
-

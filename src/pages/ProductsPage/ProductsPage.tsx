@@ -34,8 +34,8 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://via.placeholder.com/1200x800/0a0f17/0ea5e9?text=PRECISION" 
-                alt="Precision"
+                src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=1200&q=80" 
+                alt="Premium gaming desk setup"
                 className="cyber-block-image"
               />
             </div>
@@ -55,8 +55,8 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://via.placeholder.com/800x600/0a0f17/0ea5e9?text=CRAFTED" 
-                alt="Crafted"
+                src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80" 
+                alt="RGB gaming setup"
                 className="cyber-block-image"
               />
             </div>
@@ -75,8 +75,8 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://via.placeholder.com/800x600/0a0f17/0ea5e9?text=PERFORMANCE" 
-                alt="Performance"
+                src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800&q=80" 
+                alt="High-performance gaming PC"
                 className="cyber-block-image"
               />
             </div>
@@ -96,8 +96,8 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://via.placeholder.com/1600x600/0a0f17/0ea5e9?text=EXCELLENCE" 
-                alt="Excellence"
+                src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=1600&q=80" 
+                alt="Complete gaming battlestation"
                 className="cyber-block-image"
               />
             </div>
