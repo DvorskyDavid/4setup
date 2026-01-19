@@ -60,6 +60,55 @@ const DICT: Dictionary = {
   'landing.products': { en: 'PRODUCTS', cz: 'PRODUKTY' },
   'landing.customSpaces': { en: 'CUSTOM SPACES', cz: 'PROSTORY NA MÍRU' },
 
+  // New Landing Page
+  'landing.hero.line1': { en: 'YOUR SPACE', cz: 'VÁŠ PROSTOR' },
+  'landing.hero.line2': { en: 'ELEVATED', cz: 'NA NOVÉ ÚROVNI' },
+  'landing.hero.tagline': { 
+    en: 'Premium gaming setups, custom spaces, and high-end products designed for those who demand excellence.', 
+    cz: 'Prémiové herní sestavy, prostory na míru a produkty nejvyšší kvality pro ty, kdo vyžadují dokonalost.' 
+  },
+  'landing.hero.ctaPrimary': { en: 'GET YOUR SETUP', cz: 'ZÍSKEJ SVŮJ SETUP' },
+  'landing.hero.ctaSecondary': { en: 'VIEW PRODUCTS', cz: 'PROHLÉDNOUT PRODUKTY' },
+  'landing.hero.scroll': { en: 'Scroll to explore', cz: 'Scrolluj a objevuj' },
+
+  'landing.services.label': { en: 'What We Do', cz: 'Co děláme' },
+  'landing.services.title': { en: 'SERVICES', cz: 'SLUŽBY' },
+
+  'landing.services.spaces.title': { en: 'CUSTOM SPACES', cz: 'PROSTORY NA MÍRU' },
+  'landing.services.spaces.desc': { 
+    en: 'Your vision. Our realization.', 
+    cz: 'Vaše vize. Naše realizace.' 
+  },
+  'landing.services.spaces.tag1': { en: 'Gaming Rooms', cz: 'Herní pokoje' },
+  'landing.services.spaces.tag2': { en: 'Streaming Studios', cz: 'Streamovací studia' },
+  'landing.services.spaces.tag3': { en: 'Offices', cz: 'Kanceláře' },
+  'landing.services.spaces.cta': { en: 'I WANT MY SETUP', cz: 'CHCI SVŮJ SETUP' },
+
+  'landing.services.products.title': { en: 'PREMIUM PRODUCTS', cz: 'PRÉMIOVÉ PRODUKTY' },
+  'landing.services.products.desc': { 
+    en: 'Our products designed for the ultimate gaming experience.', 
+    cz: 'Naše produkty navržené pro ultimátní herní zážitek.' 
+  },
+  'landing.services.products.tag1': { en: 'Desks', cz: 'Stoly' },
+  'landing.services.products.tag2': { en: 'Chairs', cz: 'Křesla' },
+  'landing.services.products.tag3': { en: 'Lighting', cz: 'Osvětlení' },
+  'landing.services.products.cta': { en: 'EXPLORE COLLECTION', cz: 'PROZKOUMAT KOLEKCI' },
+
+  'landing.features.label': { en: 'Why Choose Us', cz: 'Proč si vybrat nás' },
+  'landing.features.title': { en: 'THE 4SETUP DIFFERENCE', cz: 'ROZDÍL 4SETUP' },
+  'landing.features.f1.title': { en: 'Premium Quality', cz: 'Prémiová kvalita' },
+  'landing.features.f1.desc': { en: 'Every product and project meets the highest standards of craftsmanship.', cz: 'Každý produkt a projekt splňuje nejvyšší standardy řemeslné práce.' },
+  'landing.features.f2.title': { en: 'Custom Design', cz: 'Design na míru' },
+  'landing.features.f2.desc': { en: 'Tailored solutions that perfectly match your vision and needs.', cz: 'Řešení na míru, která dokonale odpovídají vaší vizi a potřebám.' },
+  'landing.features.f3.title': { en: 'Full Service', cz: 'Kompletní servis' },
+  'landing.features.f3.desc': { en: 'From concept to installation, we handle every detail for you.', cz: 'Od konceptu po instalaci, postaráme se o každý detail za vás.' },
+  'landing.features.f4.title': { en: 'Expert Support', cz: 'Expertní podpora' },
+  'landing.features.f4.desc': { en: 'Dedicated team ready to help you create your perfect space.', cz: 'Specializovaný tým připravený pomoci vám vytvořit perfektní prostor.' },
+
+  'landing.cta.title': { en: 'READY TO UPGRADE?', cz: 'PŘIPRAVENI NA UPGRADE?' },
+  'landing.cta.desc': { en: 'Let\'s discuss your dream setup and make it a reality.', cz: 'Pojďme probrat váš vysněný setup a proměnit ho v realitu.' },
+  'landing.cta.button': { en: 'GET IN TOUCH', cz: 'KONTAKTUJTE NÁS' },
+
   'products.hero.title': { en: 'PREMIUM COLLECTION', cz: 'PRÉMIOVÁ KOLEKCE' },
   'products.hero.subtitle': { en: 'Crafted for perfection. Designed for champions.', cz: 'Vytvořeno pro dokonalost. Navrženo pro šampióny.' },
   'products.viewDetails': { en: 'VIEW DETAILS', cz: 'ZOBRAZIT DETAIL' },
