@@ -25,9 +25,6 @@ export function useHeaderLayout() {
     const headerCenter = headerRect.width / 2
     const brandHalfWidth = brandRect.width / 2
 
-    // The brand would be centered, so its left edge would be at:
-    const brandLeftIfCentered = headerCenter - brandHalfWidth
-    
     // Nav is positioned from the right, calculate its left edge position
     // relative to the header's left edge
     const navLeftRelative = navRect.left - headerRect.left
