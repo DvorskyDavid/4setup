@@ -131,10 +131,83 @@ const DICT: Dictionary = {
   'products.titanWorkstation.category': { en: 'Ultimate Gaming PC', cz: 'Ultimátní herní PC' },
   'products.titanWorkstation.description': { en: 'Custom liquid-cooled build with RTX 4090, i9-14900K, and tempered glass showcase design.', cz: 'Vlastní vodně chlazená sestava s RTX 4090, i9-14900K a prémiovým skleněným designem.' },
   
+  'products.block1.title': { en: 'Looking for standard lighting?', cz: 'Hledáte standardní osvětlení?' },
+  'products.block1.desc': { en: 'Visit our e-shop for ready-to-buy products.', cz: 'Navštivte náš e-shop.' },
+  'products.block1.cta': { en: 'VISIT E-SHOP', cz: 'NAVŠTÍVIT E-SHOP' },
   'products.block1.text': { en: 'Every detail\nmatters', cz: 'Každý detail\nse počítá' },
   'products.block2.text': { en: 'Built to\ninspire', cz: 'Vytvořeno pro\ninspiraci' },
   'products.block3.text': { en: 'Form meets\nfunction', cz: 'Forma splývá\ns funkcí' },
   'products.block4.text': { en: 'Engineered for champions', cz: 'Vytvořeno pro šampióny' },
+
+  // Spaces Page
+  'spaces.hero.subtitle': { en: 'gaming, streaming, work, learning', cz: 'gaming, streaming, práce, učení' },
+  
+  'spaces.process.title': { en: 'HOW IT WORKS', cz: 'JAK TO PROBÍHÁ' },
+  'spaces.process.subtitle': { en: 'From idea to realization in 3 simple steps', cz: 'Od nápadu k realizaci ve 3 jednoduchých krocích' },
+  'spaces.process.showDetails': { en: 'Show details', cz: 'Zobrazit detaily' },
+  'spaces.process.hideDetails': { en: 'Hide details', cz: 'Skrýt detaily' },
+  
+  'spaces.process.step1.title': { en: 'CONSULTATION', cz: 'KONZULTACE' },
+  'spaces.process.step1.desc': { 
+    en: 'We start with a detailed questionnaire to understand your needs, preferences, and vision. We discuss your space, budget, and goals to create a personalized plan.',
+    cz: 'Začínáme detailním dotazníkem, abychom pochopili vaše potřeby, preference a vizi. Probereme váš prostor, rozpočet a cíle pro vytvoření personalizovaného plánu.'
+  },
+  
+  'spaces.process.step2.title': { en: '3D DESIGN', cz: '3D NÁVRH' },
+  'spaces.process.step2.desc': { 
+    en: 'Our designers create a stunning 3D visualization of your future space. You can see exactly how everything will look before we start the realization.',
+    cz: 'Naši designéři vytvoří úchvatnou 3D vizualizaci vašeho budoucího prostoru. Můžete přesně vidět, jak bude vše vypadat, než začneme s realizací.'
+  },
+  
+  'spaces.process.step3.title': { en: 'REALIZATION', cz: 'REALIZACE' },
+  'spaces.process.step3.desc': { 
+    en: 'We handle everything from product delivery to final installation. Our team ensures every detail is perfect and your space is ready to use.',
+    cz: 'Postaráme se o vše od dodání produktů po finální instalaci. Náš tým zajistí, že každý detail je dokonalý a váš prostor je připraven k použití.'
+  },
+
+  'spaces.gallery.view': { en: 'VIEW GALLERY', cz: 'PROHLÉDNOUT' },
+
+  'spaces.form.title': { en: 'GET YOUR CUSTOM SETUP', cz: 'ZÍSKEJTE SVŮJ SETUP NA MÍRU' },
+  'spaces.form.subtitle': { en: 'Fill out the form and we\'ll contact you within 24 hours', cz: 'Vyplňte formulář a ozveme se vám do 24 hodin' },
+  
+  'spaces.form.purpose': { en: 'What\'s the purpose of your setup?', cz: 'K čemu bude váš setup sloužit?' },
+  'spaces.form.purposes.gaming': { en: 'Gaming', cz: 'Gaming' },
+  'spaces.form.purposes.work': { en: 'Work', cz: 'Práce' },
+  'spaces.form.purposes.streaming': { en: 'Streaming', cz: 'Streaming' },
+  'spaces.form.purposes.podcast': { en: 'Podcast', cz: 'Podcast' },
+  'spaces.form.purposes.other': { en: 'Other', cz: 'Jiné' },
+
+  'spaces.form.currentState': { en: 'Current state of your space', cz: 'Aktuální stav vašeho prostoru' },
+  'spaces.form.states.fromScratch': { en: 'Building from scratch', cz: 'Stavím od nuly' },
+  'spaces.form.states.upgrade': { en: 'I want an upgrade', cz: 'Chci upgrade' },
+
+  'spaces.form.budget': { en: 'Budget range', cz: 'Rozpočet' },
+  'spaces.form.budgets.under50k': { en: 'Under 50,000 CZK', cz: 'Do 50 000 Kč' },
+  'spaces.form.budgets.50to100k': { en: '50,000 - 100,000 CZK', cz: '50 000 - 100 000 Kč' },
+  'spaces.form.budgets.100to200k': { en: '100,000 - 200,000 CZK', cz: '100 000 - 200 000 Kč' },
+  'spaces.form.budgets.over200k': { en: 'Over 200,000 CZK', cz: 'Nad 200 000 Kč' },
+
+  'spaces.form.problems': { en: 'What bothers you the most?', cz: 'Co vás nejvíc trápí?' },
+  'spaces.form.problemOptions.cables': { en: 'Cables', cz: 'Kabely' },
+  'spaces.form.problemOptions.lighting': { en: 'Lighting', cz: 'Světlo' },
+  'spaces.form.problemOptions.storage': { en: 'Storage space', cz: 'Odkládací prostor' },
+  'spaces.form.problemOptions.design': { en: 'Design', cz: 'Design' },
+  'spaces.form.problemOptions.performance': { en: 'Performance', cz: 'Výkon' },
+  'spaces.form.problemOptions.space': { en: 'Lack of space', cz: 'Nedostatek místa' },
+
+  'spaces.form.message': { en: 'Additional information (optional)', cz: 'Doplňující informace (volitelné)' },
+  'spaces.form.messagePlaceholder': { en: 'Tell us more about your dream setup...', cz: 'Řekněte nám více o vašem vysněném setupu...' },
+
+  'spaces.form.photoLabel': { en: 'Photo of your current space', cz: 'Fotka vašeho aktuálního prostoru' },
+  'spaces.form.photoNote': { en: 'You can send photos to info@4setup.cz after submitting this form.', cz: 'Fotky můžete poslat na info@4setup.cz po odeslání tohoto formuláře.' },
+
+  'spaces.form.phone': { en: 'Phone number (optional)', cz: 'Telefonní číslo (volitelné)' },
+  'spaces.form.preferredContact': { en: 'Preferred contact method', cz: 'Preferovaný způsob kontaktu' },
+  'spaces.form.phoneOption': { en: 'Phone', cz: 'Telefon' },
+
+  'spaces.form.submit': { en: 'SEND REQUEST', cz: 'ODESLAT POPTÁVKU' },
+  'spaces.form.responseNote': { en: 'We\'ll get back to you within 24 hours to discuss options.', cz: 'Ozveme se vám do 24 hodin a probereme možnosti.' },
+  'spaces.form.success': { en: 'Thank you! We\'ll contact you within 24 hours.', cz: 'Děkujeme! Ozveme se vám do 24 hodin.' },
 }
 
 type I18nContextValue = {

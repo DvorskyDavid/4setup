@@ -25,8 +25,8 @@ export function ProductsPage() {
 
       {/* Block Grid Layout */}
       <div className="cyber-blocks-container">
-        {/* Large Featured Block */}
-        <div className="cyber-block cyber-block-large">
+        {/* Large Featured Block - E-shop Link */}
+        <a href="https://store.4setup.cz" target="_blank" rel="noopener noreferrer" className="cyber-block cyber-block-large cyber-block-link">
           <div className="cyber-block-inner">
             <div className="cyber-image-wrapper">
               <div className="cyber-block-corner tl"></div>
@@ -35,16 +35,18 @@ export function ProductsPage() {
               <div className="cyber-block-corner br"></div>
               <img 
                 src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=1200&q=80" 
-                alt="Premium gaming desk setup"
+                alt="E-shop lighting products"
                 className="cyber-block-image"
               />
             </div>
             <div className="cyber-block-text">
               <span className="cyber-block-label">01</span>
-              <h3 className="cyber-block-title">{t('products.block1.text').split('\n').map((line, i) => <Fragment key={i}>{line}{i === 0 && <br/>}</Fragment>)}</h3>
+              <h3 className="cyber-block-title">{t('products.block1.title')}</h3>
+              <p className="cyber-block-desc">{t('products.block1.desc')}</p>
+              <span className="cyber-block-cta">{t('products.block1.cta')} →</span>
             </div>
           </div>
-        </div>
+        </a>
 
         {/* Two Medium Blocks */}
         <div className="cyber-block cyber-block-medium">

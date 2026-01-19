@@ -27,6 +27,9 @@ export function LandingPage() {
     <main className="landing-new">
       {/* Floating Header */}
       <header className="landing-header">
+        <Link to="/" className="landing-brand">
+          <img src={logoClean} alt="4setup" className="landing-header-logo" />
+        </Link>
         <nav className="landing-nav">
           <Link to="/spaces">{t('nav.spaces')}</Link>
           <Link to="/products">{t('nav.products')}</Link>

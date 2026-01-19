@@ -21,13 +21,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 40px;
-  background: linear-gradient(180deg, rgba(5, 8, 16, 0.9) 0%, transparent 100%);
+  padding: 20px 40px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
+}
+
+.landing-brand {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  width: 140px;
+  height: 40px;
+}
+
+.landing-header-logo {
+  width: 140px;
+  height: auto;
+  display: block;
 }
 
 .landing-nav {
   display: flex;
   gap: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .landing-nav a {
@@ -649,6 +666,15 @@
 @media (max-width: 768px) {
   .landing-header {
     padding: 16px 24px;
+  }
+
+  .landing-brand {
+    width: 120px;
+    height: 34px;
+  }
+
+  .landing-header-logo {
+    width: 120px;
   }
 
   .landing-nav {
