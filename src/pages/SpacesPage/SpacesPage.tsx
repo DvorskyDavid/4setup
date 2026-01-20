@@ -13,7 +13,7 @@ export function SpacesPage() {
   const formLoadTime = useRef(Date.now())
   
   const [status, setStatus] = useState<FormStatus>('idle')
-  const [expandedStep, setExpandedStep] = useState<number | null>(null)
+  const [expandedSteps, setExpandedSteps] = useState<number[]>([])
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,26 +37,31 @@ export function SpacesPage() {
   const processSteps = [
     { 
       num: '01', 
-      icon: '💬',
       titleKey: 'spaces.process.step1.title',
       subtitleKey: 'spaces.process.step1.subtitle',
       descKey: 'spaces.process.step1.desc'
     },
     { 
       num: '02', 
-      icon: '🎨',
       titleKey: 'spaces.process.step2.title',
       subtitleKey: 'spaces.process.step2.subtitle',
       descKey: 'spaces.process.step2.desc'
     },
     { 
       num: '03', 
-      icon: '🚀',
       titleKey: 'spaces.process.step3.title',
       subtitleKey: 'spaces.process.step3.subtitle',
       descKey: 'spaces.process.step3.desc'
     },
   ]
+
+  const toggleStep = (idx: number) => {
+    setExpandedSteps(prev => 
+      prev.includes(idx) 
+        ? prev.filter(i => i !== idx) 
+        : [...prev, idx]
+    )
+  }
 
   const setups = [
     { 
@@ -176,19 +181,18 @@ export function SpacesPage() {
           {processSteps.map((step, idx) => (
             <div key={step.num} className="process-node" style={{ '--delay': `${0.6 + idx * 0.15}s` } as CSSProperties}>
               <div 
-                className={`process-card ${expandedStep === idx ? 'expanded' : ''}`}
-                onClick={() => setExpandedStep(expandedStep === idx ? null : idx)}
+                className={`process-card ${expandedSteps.includes(idx) ? 'expanded' : ''}`}
+                onClick={() => toggleStep(idx)}
               >
                 <div className="cyber-corner top-left"></div>
                 <div className="cyber-corner top-right"></div>
-                <span className="process-icon">{step.icon}</span>
                 <span className="process-num">{step.num}</span>
                 <span className="process-label">{t(step.titleKey as any)}</span>
                 <span className="process-subtitle">{t(step.subtitleKey as any)}</span>
                 <button className="process-details-btn">
-                  {expandedStep === idx ? t('spaces.process.hideDetails') : t('spaces.process.showDetails')}
+                  {expandedSteps.includes(idx) ? t('spaces.process.hideDetails') : t('spaces.process.showDetails')}
                 </button>
-                {expandedStep === idx && (
+                {expandedSteps.includes(idx) && (
                   <p className="process-description">{t(step.descKey as any)}</p>
                 )}
               </div>
