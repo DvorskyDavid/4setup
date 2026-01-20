@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { CSSProperties } from 'react'
+import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
 import bgImage from '../../assets/backgrounds/custom-rooms.png'
 import './spaces.css'
@@ -9,12 +10,10 @@ type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 export function SpacesPage() {
   const t = useT()
   const formRef = useRef<HTMLDivElement>(null)
-  const galleryRef = useRef<HTMLDivElement>(null)
   const formLoadTime = useRef(Date.now())
   
   const [status, setStatus] = useState<FormStatus>('idle')
   const [expandedStep, setExpandedStep] = useState<number | null>(null)
-  const [selectedGalleryCategory, setSelectedGalleryCategory] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,13 +32,6 @@ export function SpacesPage() {
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const scrollToGallery = (category?: string) => {
-    if (category) {
-      setSelectedGalleryCategory(category)
-    }
-    galleryRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const processSteps = [
@@ -66,33 +58,24 @@ export function SpacesPage() {
   const setups = [
     { 
       key: 'gaming', 
-      images: [
-        'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80',
-        'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=800&q=80',
-        'https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=800&q=80',
-      ]
+      path: '/spaces/gaming',
+      image: 'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80',
     },
     { 
       key: 'office', 
-      images: [
-        'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80',
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-        'https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=800&q=80',
-      ]
+      path: '/spaces/office',
+      image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80',
     },
     { 
       key: 'streaming', 
-      images: [
-        'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80',
-        'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80',
-        'https://images.unsplash.com/photo-1606814893907-c2e42943c91f?w=800&q=80',
-      ]
+      path: '/spaces/streaming',
+      image: 'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80',
     },
   ]
 
   const purposes = ['gaming', 'work', 'streaming', 'podcast', 'other']
   const currentStates = ['fromScratch', 'upgrade']
-  const budgets = ['under50k', '50to100k', '100to200k', 'over200k']
+  const budgets = ['under500k', '500kTo1m', 'over1m']
   const problems = ['cables', 'lighting', 'storage', 'design', 'performance', 'space']
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -228,29 +211,17 @@ export function SpacesPage() {
       </section>
 
       {/* Setups Gallery */}
-      <section className="spaces-setups" ref={galleryRef}>
+      <section className="spaces-setups">
         <h2 className="spaces-section-title">{t('ourSetups.title')}</h2>
         <p className="spaces-section-subtitle">{t('ourSetups.subtitle')}</p>
         
-        <div className="gallery-categories">
-          {setups.map((setup) => (
-            <button
-              key={setup.key}
-              className={`gallery-category-btn ${selectedGalleryCategory === setup.key ? 'active' : ''}`}
-              onClick={() => setSelectedGalleryCategory(selectedGalleryCategory === setup.key ? null : setup.key)}
-            >
-              {t(`ourSetups.${setup.key}` as any)}
-            </button>
-          ))}
-        </div>
-        
         <div className="setups-gallery">
           {setups.map((setup, idx) => (
-            <div 
+            <Link 
               key={setup.key} 
-              className={`setup-block setup-block-${idx + 1} ${selectedGalleryCategory && selectedGalleryCategory !== setup.key ? 'dimmed' : ''}`}
+              to={setup.path}
+              className={`setup-block setup-block-${idx + 1}`}
               style={{ '--delay': `${0.8 + idx * 0.15}s` } as CSSProperties}
-              onClick={() => scrollToGallery(setup.key)}
             >
               <div className="setup-image-wrapper">
                 <div className="cyber-corner top-left"></div>
@@ -258,7 +229,7 @@ export function SpacesPage() {
                 <div className="cyber-corner bottom-left"></div>
                 <div className="cyber-corner bottom-right"></div>
                 <img 
-                  src={setup.images[0]} 
+                  src={setup.image} 
                   alt={t(`ourSetups.${setup.key}` as any)}
                   className="setup-img"
                 />
@@ -268,31 +239,9 @@ export function SpacesPage() {
                   <span className="setup-view-btn">{t('spaces.gallery.view')}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-
-        {/* Expanded Gallery */}
-        {selectedGalleryCategory && (
-          <div className="gallery-expanded">
-            <div className="gallery-expanded-header">
-              <h3>{t(`ourSetups.${selectedGalleryCategory}` as any)}</h3>
-              <button 
-                className="gallery-close-btn"
-                onClick={() => setSelectedGalleryCategory(null)}
-              >
-                ✕
-              </button>
-            </div>
-            <div className="gallery-expanded-grid">
-              {setups.find(s => s.key === selectedGalleryCategory)?.images.map((img, i) => (
-                <div key={i} className="gallery-expanded-item">
-                  <img src={img} alt={`${selectedGalleryCategory} setup ${i + 1}`} />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
 
       {/* Custom Spaces Form */}

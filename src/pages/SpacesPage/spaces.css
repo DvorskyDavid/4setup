@@ -1,5 +1,6 @@
 /* Spaces Page - Cyber Aesthetic */
-.spaces-cyber {
+.spaces-cyber,
+.room-type-page {
   background: transparent;
   padding: 0;
   position: relative;
@@ -964,5 +965,156 @@
   .cyber-corner {
     width: 16px;
     height: 16px;
+  }
+}
+
+/* ========== ROOM TYPE PAGES ========== */
+.room-type-page::before {
+  opacity: 0.25;
+}
+
+.room-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 40px 80px;
+  overflow: hidden;
+}
+
+.room-hero-content {
+  position: relative;
+  text-align: center;
+  padding: 60px 80px;
+  max-width: 900px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  animation: heroContentEnter 0.8s ease-out 0.2s backwards;
+}
+
+.room-back-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.room-back-link:hover {
+  color: var(--text);
+}
+
+.room-hero-title {
+  font-size: 56px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.room-hero-subtitle {
+  font-size: 20px;
+  color: var(--muted);
+  margin: 28px 0 0;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.room-content {
+  padding: 60px 40px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.room-content-frame {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  min-height: 300px;
+  padding: 60px;
+  background: rgba(15, 23, 36, 0.6);
+  border: 1px solid rgba(14,165,233,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+}
+
+.room-placeholder {
+  font-size: 18px;
+  color: var(--muted);
+  text-align: center;
+  font-style: italic;
+}
+
+.room-cta {
+  padding: 40px 40px 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.room-cta-frame {
+  position: relative;
+  padding: 50px 80px;
+  background: linear-gradient(135deg, rgba(14,165,233,0.05) 0%, rgba(2,132,199,0.02) 100%);
+  border: 1px solid rgba(14,165,233,0.2);
+  text-align: center;
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+}
+
+.room-cta-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: var(--text);
+}
+
+.room-cta-btn {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 16px 40px;
+}
+
+@media (max-width: 1120px) {
+  .room-hero {
+    min-height: 50vh;
+    padding: 100px 20px 60px;
+  }
+  
+  .room-hero-content {
+    padding: 40px 30px;
+  }
+  
+  .room-hero-title {
+    font-size: 36px;
+  }
+  
+  .room-hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .room-content {
+    padding: 40px 20px 60px;
+  }
+  
+  .room-content-frame {
+    padding: 40px 24px;
+  }
+  
+  .room-cta {
+    padding: 20px 20px 80px;
+  }
+  
+  .room-cta-frame {
+    padding: 36px 24px;
   }
 }

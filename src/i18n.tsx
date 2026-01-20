@@ -113,7 +113,7 @@ const DICT: Dictionary = {
   'products.hero.subtitle': { en: 'Crafted for perfection. Designed for champions.', cz: 'Vytvořeno pro dokonalost. Navrženo pro šampióny.' },
   'products.viewDetails': { en: 'VIEW DETAILS', cz: 'ZOBRAZIT DETAIL' },
   'products.footer.warranty': { en: 'All products come with lifetime warranty and premium support.', cz: 'Všechny produkty zahrnují doživotní záruku a prémiovou podporu.' },
-  'products.footer.customOrder': { en: 'CUSTOM ORDER', cz: 'OBJEDNÁVKA NA MÍRU' },
+  'products.footer.customOrder': { en: 'CONTACT US', cz: 'KONTAKTUJTE NÁS' },
   
   'products.apexDesk.name': { en: 'APEX PRO DESK', cz: 'APEX PRO DESK' },
   'products.apexDesk.category': { en: 'Premium Gaming Desk', cz: 'Prémiový herní stůl' },
@@ -182,10 +182,9 @@ const DICT: Dictionary = {
   'spaces.form.states.upgrade': { en: 'I want an upgrade', cz: 'Chci upgrade' },
 
   'spaces.form.budget': { en: 'Budget range', cz: 'Rozpočet' },
-  'spaces.form.budgets.under50k': { en: 'Under 50,000 CZK', cz: 'Do 50 000 Kč' },
-  'spaces.form.budgets.50to100k': { en: '50,000 - 100,000 CZK', cz: '50 000 - 100 000 Kč' },
-  'spaces.form.budgets.100to200k': { en: '100,000 - 200,000 CZK', cz: '100 000 - 200 000 Kč' },
-  'spaces.form.budgets.over200k': { en: 'Over 200,000 CZK', cz: 'Nad 200 000 Kč' },
+  'spaces.form.budgets.under500k': { en: 'Under 500,000 CZK', cz: 'Do 500 tis. Kč' },
+  'spaces.form.budgets.500kTo1m': { en: '500,000 - 1,000,000 CZK', cz: '500 tis. - 1 mil. Kč' },
+  'spaces.form.budgets.over1m': { en: 'Over 1,000,000 CZK', cz: '1 mil. Kč +' },
 
   'spaces.form.problems': { en: 'What bothers you the most?', cz: 'Co vás nejvíc trápí?' },
   'spaces.form.problemOptions.cables': { en: 'Cables', cz: 'Kabely' },
@@ -208,6 +207,15 @@ const DICT: Dictionary = {
   'spaces.form.submit': { en: 'SEND REQUEST', cz: 'ODESLAT POPTÁVKU' },
   'spaces.form.responseNote': { en: 'We\'ll get back to you within 24 hours to discuss options.', cz: 'Ozveme se vám do 24 hodin a probereme možnosti.' },
   'spaces.form.success': { en: 'Thank you! We\'ll contact you within 24 hours.', cz: 'Děkujeme! Ozveme se vám do 24 hodin.' },
+
+  // Room Type Pages
+  'rooms.backToSpaces': { en: 'Back to Setups', cz: 'Zpět na Setupy' },
+  'rooms.comingSoon': { en: 'Gallery and details coming soon...', cz: 'Galerie a detaily již brzy...' },
+  'rooms.cta.title': { en: 'Ready to create your dream space?', cz: 'Připraveni vytvořit váš vysněný prostor?' },
+  
+  'rooms.gaming.subtitle': { en: 'Immersive gaming setups designed for victory', cz: 'Pohlcující herní sestavy navržené pro vítězství' },
+  'rooms.office.subtitle': { en: 'Professional home offices for maximum productivity', cz: 'Profesionální domácí kanceláře pro maximální produktivitu' },
+  'rooms.streaming.subtitle': { en: 'Streaming studios that make you stand out', cz: 'Streamovací studia, která vás odliší' },
 }
 
 type I18nContextValue = {

@@ -7,6 +7,8 @@
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Ensure background covers entire content on mobile */
+  isolation: isolate;
 }
 
 /* ============================================
@@ -68,6 +70,10 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  /* Prevent mobile browser UI from causing background shift */
+  height: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 .landing-gradient {
@@ -664,6 +670,13 @@
 }
 
 @media (max-width: 768px) {
+  /* Fix mobile background jumping - use absolute instead of fixed */
+  .landing-bg {
+    position: absolute;
+    height: auto;
+    min-height: 100%;
+  }
+
   .landing-header {
     padding: 16px 24px;
   }

@@ -93,12 +93,6 @@ export function LandingPage() {
             <div className="service-card-bg"></div>
             <div className="service-card-overlay"></div>
             <div className="service-card-content">
-              <div className="service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-              </div>
               <h3 className="service-title">{t('landing.services.spaces.title')}</h3>
               <p className="service-desc">{t('landing.services.spaces.desc')}</p>
               <div className="service-tags">
@@ -125,12 +119,6 @@ export function LandingPage() {
             <div className="service-card-bg"></div>
             <div className="service-card-overlay"></div>
             <div className="service-card-content">
-              <div className="service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                  <polyline points="17 2 12 7 7 2" />
-                </svg>
-              </div>
               <h3 className="service-title">{t('landing.services.products.title')}</h3>
               <p className="service-desc">{t('landing.services.products.desc')}</p>
               <div className="service-tags">

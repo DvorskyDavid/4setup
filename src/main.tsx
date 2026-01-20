@@ -8,6 +8,7 @@ import { CleanHeader } from './components/Header/CleanHeader'
 import { LandingPage } from './pages/LandingPage/LandingPage'
 import { ProductsPage } from './pages/ProductsPage/ProductsPage'
 import { SpacesPage } from './pages/SpacesPage/SpacesPage'
+import { GamingRoomPage, OfficeRoomPage, StreamingRoomPage } from './pages/SpacesPage/RoomTypePage'
 import { BlogPage, BlogPostPage } from './pages/BlogPage'
 import { ContactPage } from './pages/ContactPage'
 
@@ -44,6 +45,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/spaces" element={<SpacesPage />} />
+        <Route path="/spaces/gaming" element={<GamingRoomPage />} />
+        <Route path="/spaces/office" element={<OfficeRoomPage />} />
+        <Route path="/spaces/streaming" element={<StreamingRoomPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
