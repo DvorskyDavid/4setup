@@ -49,49 +49,39 @@ main { background: transparent; }
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 32px 40px 20px;
+  padding: 18px 40px 16px;
   position: sticky;
   top: 0;
   z-index: 3000;
-  background: linear-gradient(180deg, rgba(11,15,23,0.95) 0%, rgba(11,15,23,0.9) 60%, rgba(11,15,23,0.7) 85%, rgba(11,15,23,0) 100%);
+  background: linear-gradient(180deg, rgba(11,15,23,0.98) 0%, rgba(11,15,23,0.95) 60%, rgba(11,15,23,0.8) 85%, rgba(11,15,23,0) 100%);
   backdrop-filter: saturate(1.2) blur(6px);
-}
-
-.clean-header {
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 60%, rgba(0,0,0,0.8) 85%, rgba(0,0,0,0) 100%);
-  backdrop-filter: none;
 }
 
 .header-main-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   position: relative;
-  transition: justify-content 0.3s ease;
 }
 
-/* Compact layout when logo would overlap with nav */
-.header-compact .header-main-row {
-  justify-content: flex-start;
-}
-
-.header-compact .brand {
-  transition: transform 0.3s ease;
-}
-
-.header-right {
+.header-nav-group {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  position: absolute;
-  right: 0;
-  top: 0;
+  align-items: center;
+  gap: 24px;
 }
 
 .mobile-only {
   display: none;
+}
+
+/* Language selector visibility */
+.nav-lang-desktop {
+  flex-shrink: 0;
+}
+
+.nav-lang-mobile {
+  display: none !important;
 }
 
 .brand { 
@@ -104,13 +94,7 @@ main { background: transparent; }
 .brand-mark { 
   width: 160px; 
   height: auto; 
-  filter: drop-shadow(0 0 18px var(--ring)); 
   display: block; 
-}
-
-.clean-brand-mark { 
-  width: 200px; 
-  filter: none; 
 }
 
 .menu-toggle { 
@@ -159,8 +143,8 @@ main { background: transparent; }
 
 .nav { 
   display: flex; 
-  gap: 18px; 
-  align-items: center; 
+  gap: 24px; 
+  align-items: center;
 }
 
 .nav a { 
@@ -300,19 +284,19 @@ main { background: transparent; }
 /* Mobile Responsive */
 @media (max-width: 1120px) {
   .site-header { 
-    padding: 32px 12px 16px; 
+    padding: 16px 12px 12px; 
   }
   
   .brand-mark { 
     width: 140px; 
   }
   
-  .clean-brand-mark { 
-    width: 175px; 
-  }
-  
   .menu-toggle { 
     display: inline-flex; 
+  }
+  
+  .header-nav-group {
+    position: static;
   }
   
   .nav { 
@@ -354,9 +338,15 @@ main { background: transparent; }
     margin: 0 auto; 
   }
   
-  .header-right { 
-    width: 100%; 
-    align-items: center; 
+  .nav-lang-desktop {
+    display: none !important;
+  }
+  
+  .nav-lang-mobile {
+    display: inline-flex !important;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(14, 165, 233, 0.2);
   }
   
   .desktop-only { 

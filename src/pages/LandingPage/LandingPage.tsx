@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
-import { LangSelector } from '../../components/Header/LangSelector'
-import logoClean from '../../assets/logos/logo-clean.png'
+import logoOutlines from '../../assets/logos/4setup-outlines.png'
 import productsPng from '../../assets/backgrounds/products.png'
 import customRoomsPng from '../../assets/backgrounds/custom-rooms.png'
 import './landing.css'
@@ -25,20 +24,6 @@ export function LandingPage() {
 
   return (
     <main className="landing-new">
-      {/* Floating Header */}
-      <header className="landing-header">
-        <Link to="/" className="landing-brand">
-          <img src={logoClean} alt="4setup" className="landing-header-logo" />
-        </Link>
-        <nav className="landing-nav">
-          <Link to="/spaces">{t('nav.spaces')}</Link>
-          <Link to="/products">{t('nav.products')}</Link>
-          <Link to="/blog">{t('nav.blog')}</Link>
-          <Link to="/contact">{t('nav.contact')}</Link>
-        </nav>
-        <LangSelector />
-      </header>
-
       {/* Animated background */}
       <div className="landing-bg">
         <div className="landing-gradient"></div>
@@ -50,7 +35,7 @@ export function LandingPage() {
       <section className="landing-hero" ref={heroRef}>
         <div className="hero-content">
           <div className="hero-logo-wrapper">
-            <img src={logoClean} alt="4setup" className="hero-logo" />
+            <img src={logoOutlines} alt="4setup" className="hero-logo" />
           </div>
           
           <h1 className="hero-headline">

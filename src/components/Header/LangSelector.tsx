@@ -1,9 +1,13 @@
 import { useI18n } from '../../i18n'
 
-export function LangSelector() {
+type LangSelectorProps = {
+  className?: string
+}
+
+export function LangSelector({ className = '' }: LangSelectorProps) {
   const { lang, setLang } = useI18n()
   return (
-    <div className="lang-pill" role="group" aria-label="Language selector">
+    <div className={`lang-pill ${className}`} role="group" aria-label="Language selector">
       <button
         className={`lang-pill-btn ${lang === 'en' ? 'active' : ''}`}
         onClick={() => setLang('en')}

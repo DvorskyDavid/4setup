@@ -3,8 +3,7 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import './styles/global.css'
 import { I18nProvider, useT } from './i18n'
-import { NormalHeader } from './components/Header/NormalHeader'
-import { CleanHeader } from './components/Header/CleanHeader'
+import { SiteHeader } from './components/Header'
 import { LandingPage } from './pages/LandingPage/LandingPage'
 import { ProductsPage } from './pages/ProductsPage/ProductsPage'
 import { SpacesPage } from './pages/SpacesPage/SpacesPage'
@@ -32,15 +31,10 @@ function App() {
   }, [menuOpen])
 
   const isLandingPage = location.pathname === '/'
-  const isProductsPage = location.pathname === '/products'
 
   return (
     <div id="app-root">
-      {!isLandingPage && (
-        isProductsPage 
-          ? <CleanHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} t={t} />
-          : <NormalHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} t={t} />
-      )}
+      <SiteHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} t={t} />
 
       <Routes>
         <Route path="/" element={<LandingPage />} />

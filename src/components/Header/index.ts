@@ -1,4 +1,3 @@
-export { NormalHeader } from './NormalHeader'
-export { CleanHeader } from './CleanHeader'
+export { SiteHeader, NormalHeader } from './NormalHeader'
 export { LangSelector } from './LangSelector'
 
