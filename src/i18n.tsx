@@ -93,15 +93,27 @@ const DICT: Dictionary = {
   'landing.services.products.cta': { en: 'EXPLORE COLLECTION', cz: 'PROZKOUMAT KOLEKCI' },
 
   'landing.features.label': { en: 'Why Choose Us', cz: 'Proč si vybrat nás' },
-  'landing.features.title': { en: 'THE 4SETUP DIFFERENCE', cz: 'ROZDÍL 4SETUP' },
-  'landing.features.f1.title': { en: 'Premium Quality', cz: 'Prémiová kvalita' },
-  'landing.features.f1.desc': { en: 'Every product and project meets the highest standards of craftsmanship.', cz: 'Každý produkt a projekt splňuje nejvyšší standardy řemeslné práce.' },
-  'landing.features.f2.title': { en: 'Custom Design', cz: 'Design na míru' },
-  'landing.features.f2.desc': { en: 'Tailored solutions that perfectly match your vision and needs.', cz: 'Řešení na míru, která dokonale odpovídají vaší vizi a potřebám.' },
-  'landing.features.f3.title': { en: 'Full Service', cz: 'Kompletní servis' },
-  'landing.features.f3.desc': { en: 'From concept to installation, we handle every detail for you.', cz: 'Od konceptu po instalaci, postaráme se o každý detail za vás.' },
-  'landing.features.f4.title': { en: 'Expert Support', cz: 'Expertní podpora' },
-  'landing.features.f4.desc': { en: 'Dedicated team ready to help you create your perfect space.', cz: 'Specializovaný tým připravený pomoci vám vytvořit perfektní prostor.' },
+  'landing.features.title': { en: 'WHY CHOOSE 4SETUP', cz: 'PROČ SI VYBRAT 4SETUP' },
+  'landing.features.f1.title': { en: 'Comprehensive Approach', cz: 'Komplexní pojetí' },
+  'landing.features.f1.desc': { 
+    en: 'Whether you\'re gaming, programming, or studying at your desk, we design spaces with a functional environment that supports focus and long-term comfort.',
+    cz: 'Ať už u stolu hrajete, programujete nebo se učíte, navrhneme pro vás prostory s funkčním prostředím, které podporuje soustředění a dlouhodobé pohodlí u stolu.'
+  },
+  'landing.features.f2.title': { en: 'Technical Discipline', cz: 'Technická disciplína' },
+  'landing.features.f2.desc': { 
+    en: 'Cable management for us isn\'t just hiding cables – it\'s a systematic arrangement of all technology. The result is a clean, safe, and easily maintainable space that won\'t distract you from work or play.',
+    cz: 'Cable management pro nás není jen schování kabelů, ale systémové uspořádání veškeré techniky. Výsledkem je čistý, bezpečný a snadno udržitelný prostor, který vás nebude rozptylovat od práce ani hry.'
+  },
+  'landing.features.f3.title': { en: 'Purposeful Lighting', cz: 'Světlo, které má smysl' },
+  'landing.features.f3.desc': { 
+    en: 'We design lighting scenes that protect your eyes, look great on camera, and create the ideal atmosphere for both focus and relaxation.',
+    cz: 'Navrhujeme světelné scény, které šetří váš zrak, vypadají skvěle na kameře a tvoří ideální atmosféru pro soustředění i relaxaci.'
+  },
+  'landing.features.f4.title': { en: 'Our Own Products', cz: 'Vlastní produkty' },
+  'landing.features.f4.desc': { 
+    en: 'We manufacture a select collection of exclusive accessories you won\'t find anywhere else. Each piece is designed, tested, and made by us. Get them as a standalone upgrade for your current setup, or we\'ll use them as exclusive design elements in your new space.',
+    cz: 'Vyrábíme úzkou kolekci exkluzivních doplňků, které jinde nenajdete. Každý kus jsme sami navrhli, otestovali a vyrobili. Můžete si je pořídit jako samostatný upgrade svého stávajícího setupu, nebo je využijeme jako exkluzivní designové prvky při návrhu vašeho nového prostoru.'
+  },
 
   'landing.cta.title': { en: 'READY TO UPGRADE?', cz: 'PŘIPRAVENI NA UPGRADE?' },
   'landing.cta.desc': { en: 'Let\'s discuss your dream setup and make it a reality.', cz: 'Pojďme probrat váš vysněný setup a proměnit ho v realitu.' },
@@ -140,27 +152,30 @@ const DICT: Dictionary = {
   // Spaces Page
   'spaces.hero.subtitle': { en: 'gaming, streaming, work, learning', cz: 'gaming, streaming, práce, učení' },
   
-  'spaces.process.title': { en: 'HOW IT WORKS', cz: 'JAK TO PROBÍHÁ' },
+  'spaces.process.title': { en: 'REALIZATION', cz: 'REALIZACE' },
   'spaces.process.subtitle': { en: 'From idea to realization in 3 simple steps', cz: 'Od nápadu k realizaci ve 3 jednoduchých krocích' },
   'spaces.process.showDetails': { en: 'Show details', cz: 'Zobrazit detaily' },
   'spaces.process.hideDetails': { en: 'Hide details', cz: 'Skrýt detaily' },
   
   'spaces.process.step1.title': { en: 'CONSULTATION', cz: 'KONZULTACE' },
+  'spaces.process.step1.subtitle': { en: '"It all starts with your vision."', cz: '„Vše začíná u vaší vize."' },
   'spaces.process.step1.desc': { 
-    en: 'We start with a detailed questionnaire to understand your needs, preferences, and vision. We discuss your space, budget, and goals to create a personalized plan.',
-    cz: 'Začínáme detailním dotazníkem, abychom pochopili vaše potřeby, preference a vizi. Probereme váš prostor, rozpočet a cíle pro vytvoření personalizovaného plánu.'
+    en: 'Together we discuss your ideas, technical requirements, and aesthetic preferences. We don\'t just solve desks and chairs - we handle complete equipment, lighting, construction work, and overall ergonomics and acoustics. → You\'ll get a clear plan and initial ideas on how to maximize your space\'s potential.',
+    cz: 'Společně probereme vaše představy, nároky na techniku i estetické preference. Neřešíme jen stůl a židli, ale kompletní vybavení, osvětlení, stavební práce a celkovou ergonomii a akustiku. → Získáte jasný plán a první nápady, jak využít potenciál vašeho prostoru na maximum.'
   },
   
   'spaces.process.step2.title': { en: '3D DESIGN', cz: '3D NÁVRH' },
+  'spaces.process.step2.subtitle': { en: '"See the future before we begin."', cz: '„Uvidíte budoucnost dřív, než začneme."' },
   'spaces.process.step2.desc': { 
-    en: 'Our designers create a stunning 3D visualization of your future space. You can see exactly how everything will look before we start the realization.',
-    cz: 'Naši designéři vytvoří úchvatnou 3D vizualizaci vašeho budoucího prostoru. Můžete přesně vidět, jak bude vše vypadat, než začneme s realizací.'
+    en: 'Based on the consultation, we create a 3D visualization of your new corner and define an estimated budget. You\'ll see exact furniture placement, color scheme, and our proposed lighting and cable management system. → You\'ll get a realistic view of the final result. At this stage, we fine-tune details, materials, and accessories so everything fits perfectly.',
+    cz: 'Na základě konzultace vytvoříme 3D vizualizaci vašeho nového koutku a definujeme odhadovaný rozpočet. Uvidíte přesné rozmístění nábytku, barevné schéma i náš navržený systém osvětlení a cable managementu. → Získáte realistický pohled na finální výsledek. V této fázi ladíme detaily, materiály a doplňky tak, aby vše lícovalo na milimetr přesně.'
   },
   
   'spaces.process.step3.title': { en: 'REALIZATION', cz: 'REALIZACE' },
+  'spaces.process.step3.subtitle': { en: '"From idea to first power-on – worry-free."', cz: '„Od nápadu k prvnímu zapnutí – bez starostí."' },
   'spaces.process.step3.desc': { 
-    en: 'We handle everything from product delivery to final installation. Our team ensures every detail is perfect and your space is ready to use.',
-    cz: 'Postaráme se o vše od dodání produktů po finální instalaci. Náš tým zajistí, že každý detail je dokonalý a váš prostor je připraven k použití.'
+    en: 'Once you approve the design, we take the reins. We handle component delivery, professional furniture assembly, and precise tech installation. Our specialty is invisible cable routing and lighting calibration for the best atmosphere. → You\'ll get a finished, fully functional, and modern setup ready for immediate use. No stress with manuals, no chaos under the desk.',
+    cz: 'Jakmile schválíte návrh, přebíráme otěže my. Zajistíme dodání komponentů, odbornou montáž nábytku a precizní instalaci techniky. Naší specialitou je neviditelné vedení kabelů a kalibrace osvětlení pro tu nejlepší atmosféru. → Získáte hotový, plně funkční a moderní setup připravený k okamžitému použití. Žádný stres s manuály, žádný chaos pod stolem.'
   },
 
   'spaces.gallery.view': { en: 'VIEW GALLERY', cz: 'PROHLÉDNOUT' },

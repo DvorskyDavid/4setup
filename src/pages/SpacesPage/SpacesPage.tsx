@@ -39,18 +39,21 @@ export function SpacesPage() {
       num: '01', 
       icon: '💬',
       titleKey: 'spaces.process.step1.title',
+      subtitleKey: 'spaces.process.step1.subtitle',
       descKey: 'spaces.process.step1.desc'
     },
     { 
       num: '02', 
       icon: '🎨',
       titleKey: 'spaces.process.step2.title',
+      subtitleKey: 'spaces.process.step2.subtitle',
       descKey: 'spaces.process.step2.desc'
     },
     { 
       num: '03', 
       icon: '🚀',
       titleKey: 'spaces.process.step3.title',
+      subtitleKey: 'spaces.process.step3.subtitle',
       descKey: 'spaces.process.step3.desc'
     },
   ]
@@ -181,6 +184,7 @@ export function SpacesPage() {
                 <span className="process-icon">{step.icon}</span>
                 <span className="process-num">{step.num}</span>
                 <span className="process-label">{t(step.titleKey as any)}</span>
+                <span className="process-subtitle">{t(step.subtitleKey as any)}</span>
                 <button className="process-details-btn">
                   {expandedStep === idx ? t('spaces.process.hideDetails') : t('spaces.process.showDetails')}
                 </button>
