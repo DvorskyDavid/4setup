@@ -195,7 +195,7 @@
 
 .process-timeline {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
   gap: 0;
   flex-wrap: wrap;
@@ -203,7 +203,7 @@
 
 .process-node {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   animation: nodeEnter 0.6s ease-out var(--delay) backwards;
 }
 
@@ -224,11 +224,15 @@
   border: 1px solid rgba(14,165,233,0.2);
   padding: 32px 28px;
   min-width: 220px;
+  max-width: 280px;
   text-align: center;
   clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
   transition: all 0.4s ease;
   backdrop-filter: blur(5px);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .process-card:hover,
@@ -283,6 +287,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: auto;
 }
 
 .process-details-btn:hover {
@@ -298,6 +303,7 @@
   padding-top: 16px;
   border-top: 1px solid rgba(14,165,233,0.2);
   animation: fadeIn 0.3s ease;
+  width: 100%;
 }
 
 @keyframes fadeIn {
@@ -310,6 +316,7 @@
   width: 60px;
   height: 2px;
   margin: 0 8px;
+  align-self: center;
 }
 
 .connector-line {

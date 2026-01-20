@@ -357,12 +357,6 @@ export function SpacesPage() {
                 />
               </div>
 
-              {/* Photo Upload Note */}
-              <div className="form-group">
-                <label>{t('spaces.form.photoLabel')}</label>
-                <p className="form-note">{t('spaces.form.photoNote')}</p>
-              </div>
-
               {/* Contact Info */}
               <div className="form-row">
                 <div className="form-group">

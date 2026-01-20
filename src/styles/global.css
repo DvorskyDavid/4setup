@@ -90,13 +90,6 @@ main { background: transparent; }
   top: 0;
 }
 
-.business-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-top: 8px;
-}
-
 .mobile-only {
   display: none;
 }
@@ -255,19 +248,6 @@ main { background: transparent; }
   color: var(--primary); 
 }
 
-/* Navigation business section */
-.business-label { 
-  color: var(--muted); 
-  font-size: 14px; 
-  font-weight: 500; 
-}
-
-.business-btn { 
-  padding: 6px 14px !important; 
-  font-size: 13px !important;
-  font-weight: 600 !important;
-}
-
 /* Footer */
 .site-footer { 
   border-top: 1px solid #131b2b; 
@@ -392,16 +372,6 @@ main { background: transparent; }
     padding-top: 16px; 
     border-top: 1px solid rgba(14, 165, 233, 0.2); 
     margin-top: 8px; 
-  }
-  
-  .business-label { 
-    text-align: center; 
-    font-size: 14px; 
-  }
-  
-  .business-btn { 
-    width: auto !important; 
-    padding: 8px 20px !important; 
   }
   
   .page { 

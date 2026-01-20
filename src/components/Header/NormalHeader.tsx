@@ -36,15 +36,7 @@ export function NormalHeader({ menuOpen, setMenuOpen, t }: HeaderProps) {
             <a href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.eshop')}</a>
             <Link to="/contact">{t('nav.contact')}</Link>
             <LangSelector />
-            <div className="business-section mobile-only">
-              <span className="business-label">{t('nav.businessLabel')}</span>
-              <a className="btn primary business-btn" href="#business">{t('nav.business')}</a>
-            </div>
           </nav>
-          <div className="business-section desktop-only">
-            <span className="business-label">{t('nav.businessLabel')}</span>
-            <a className="btn primary business-btn" href="#business">{t('nav.business')}</a>
-          </div>
         </div>
       </div>
     </header>

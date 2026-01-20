@@ -10,8 +10,6 @@ const DICT: Dictionary = {
   'nav.blog': { en: 'Blog', cz: 'Blog' },
   'nav.eshop': { en: 'E-shop', cz: 'E-shop' },
   'nav.contact': { en: 'Contact us', cz: 'Kontaktuj nás' },
-  'nav.business': { en: 'BUSINESS', cz: 'BUSINESS' },
-  'nav.businessLabel': { en: 'Are you a company?', cz: 'Jste firma?' },
 
   'hero.title': { en: 'WE CREATE CUSTOM SPACES!', cz: 'TVOŘÍME PROSTORY NA MÍRU!' },
   'hero.subtitle': { en: 'gaming, streaming, work, learning', cz: 'gaming, streaming, práce, učení' },
@@ -196,9 +194,6 @@ const DICT: Dictionary = {
 
   'spaces.form.message': { en: 'Additional information (optional)', cz: 'Doplňující informace (volitelné)' },
   'spaces.form.messagePlaceholder': { en: 'Tell us more about your dream setup...', cz: 'Řekněte nám více o vašem vysněném setupu...' },
-
-  'spaces.form.photoLabel': { en: 'Photo of your current space', cz: 'Fotka vašeho aktuálního prostoru' },
-  'spaces.form.photoNote': { en: 'You can send photos to info@4setup.cz after submitting this form.', cz: 'Fotky můžete poslat na info@4setup.cz po odeslání tohoto formuláře.' },
 
   'spaces.form.phone': { en: 'Phone number (optional)', cz: 'Telefonní číslo (volitelné)' },
   'spaces.form.preferredContact': { en: 'Preferred contact method', cz: 'Preferovaný způsob kontaktu' },

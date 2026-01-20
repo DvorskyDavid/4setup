@@ -90,6 +90,10 @@ export function LandingPage() {
             className="service-card service-spaces"
             style={{ '--card-bg': `url(${customRoomsPng})` } as CSSProperties}
           >
+            <div className="cyber-corner top-left"></div>
+            <div className="cyber-corner top-right"></div>
+            <div className="cyber-corner bottom-left"></div>
+            <div className="cyber-corner bottom-right"></div>
             <div className="service-card-bg"></div>
             <div className="service-card-overlay"></div>
             <div className="service-card-content">
@@ -107,7 +111,6 @@ export function LandingPage() {
                 </svg>
               </span>
             </div>
-            <div className="service-card-glow"></div>
           </Link>
 
           {/* Products Card */}
@@ -116,6 +119,10 @@ export function LandingPage() {
             className="service-card service-products"
             style={{ '--card-bg': `url(${productsPng})` } as CSSProperties}
           >
+            <div className="cyber-corner top-left"></div>
+            <div className="cyber-corner top-right"></div>
+            <div className="cyber-corner bottom-left"></div>
+            <div className="cyber-corner bottom-right"></div>
             <div className="service-card-bg"></div>
             <div className="service-card-overlay"></div>
             <div className="service-card-content">
@@ -133,7 +140,6 @@ export function LandingPage() {
                 </svg>
               </span>
             </div>
-            <div className="service-card-glow"></div>
           </Link>
         </div>
       </section>
@@ -147,22 +153,18 @@ export function LandingPage() {
 
         <div className="features-grid">
           <div className="feature-item">
-            <div className="feature-number">01</div>
             <h3 className="feature-title">{t('landing.features.f1.title')}</h3>
             <p className="feature-desc">{t('landing.features.f1.desc')}</p>
           </div>
           <div className="feature-item">
-            <div className="feature-number">02</div>
             <h3 className="feature-title">{t('landing.features.f2.title')}</h3>
             <p className="feature-desc">{t('landing.features.f2.desc')}</p>
           </div>
           <div className="feature-item">
-            <div className="feature-number">03</div>
             <h3 className="feature-title">{t('landing.features.f3.title')}</h3>
             <p className="feature-desc">{t('landing.features.f3.desc')}</p>
           </div>
           <div className="feature-item">
-            <div className="feature-number">04</div>
             <h3 className="feature-title">{t('landing.features.f4.title')}</h3>
             <p className="feature-desc">{t('landing.features.f4.desc')}</p>
           </div>
