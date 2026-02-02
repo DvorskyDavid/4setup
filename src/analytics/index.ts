@@ -51,12 +51,19 @@ export function initGA4(measurementId: string = GA4_MEASUREMENT_ID): boolean {
     window.gtag = gtag
     
     gtag('js', new Date())
-    gtag('config', measurementId, {
-      send_page_view: false // We'll send page views manually for SPA
-    })
+    gtag('config', measurementId)
 
     ga4Initialized = true
     console.log('[Analytics] GA4 initialized')
+    
+    // Send initial page view immediately
+    gtag('event', 'page_view', {
+      page_path: window.location.pathname,
+      page_title: document.title,
+      page_location: window.location.href
+    })
+    console.log('[Analytics] Initial page view sent:', window.location.pathname)
+    
     return true
   } catch (error) {
     console.error('[Analytics] Failed to initialize GA4:', error)
@@ -76,6 +83,7 @@ export function trackPageView(path: string, title: string): void {
     page_title: title,
     page_location: window.location.href
   })
+  console.log('[Analytics] Page view:', path)
 }
 
 /**
@@ -86,6 +94,7 @@ export function trackEvent(eventName: string, params?: Record<string, any>): voi
   if (!window.gtag) return
 
   window.gtag('event', eventName, params)
+  console.log('[Analytics] Event:', eventName, params)
 }
 
 // ============================================================================
