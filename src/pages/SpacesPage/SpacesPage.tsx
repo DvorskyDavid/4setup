@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
+import { trackEvent } from '../../analytics'
 import bgImage from '../../assets/backgrounds/custom-rooms.png'
 import './spaces.css'
 
@@ -133,6 +134,14 @@ export function SpacesPage() {
       })
 
       if (response.ok) {
+        // Track successful form submission with details
+        trackEvent('form_submit', {
+          form_name: 'custom_spaces_request',
+          form_location: 'spaces_page',
+          purpose: formData.purpose,
+          budget: formData.budget,
+          current_state: formData.currentState
+        })
         setStatus('success')
         setFormData({
           name: '',

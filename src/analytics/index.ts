@@ -10,7 +10,7 @@ import { getConsent } from '../components/CookieConsent'
 // ============================================================================
 // CONFIGURATION - Replace these with your actual IDs
 // ============================================================================
-export const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'  // Replace with your GA4 ID
+export const GA4_MEASUREMENT_ID = 'G-93B9VGT80V'
 export const CLARITY_PROJECT_ID = 'xxxxxxxxxx'    // Replace with your Clarity ID
 
 // ============================================================================
@@ -31,7 +31,7 @@ export function initGA4(measurementId: string = GA4_MEASUREMENT_ID): boolean {
   if (ga4Initialized) return true
   if (typeof window === 'undefined') return false
   if (getConsent() !== 'accepted') return false
-  if (measurementId === 'G-XXXXXXXXXX') {
+  if (!measurementId || measurementId.startsWith('G-XXXX')) {
     console.warn('[Analytics] GA4 measurement ID not configured')
     return false
   }

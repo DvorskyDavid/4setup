@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useT } from '../../i18n'
+import { trackEvent } from '../../analytics'
 import './contact.css'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
@@ -61,6 +62,11 @@ export function ContactPage() {
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
+        // Track successful form submission
+        trackEvent('form_submit', {
+          form_name: 'contact',
+          form_location: 'contact_page'
+        })
       } else {
         setStatus('error')
       }

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
+import { trackCTAClick } from '../../analytics'
 import logoOutlines from '../../assets/logos/4setup-outlines.png'
 import productsPng from '../../assets/backgrounds/products.png'
 import customRoomsPng from '../../assets/backgrounds/custom-rooms.png'
@@ -46,10 +47,18 @@ export function LandingPage() {
           <p className="hero-tagline">{t('landing.hero.tagline')}</p>
           
           <div className="hero-cta-group">
-            <Link to="/spaces" className="btn primary hero-btn">
+            <Link 
+              to="/spaces" 
+              className="btn primary hero-btn"
+              onClick={() => trackCTAClick('get_started', 'hero')}
+            >
               {t('landing.hero.ctaPrimary')}
             </Link>
-            <Link to="/products" className="btn ghost hero-btn">
+            <Link 
+              to="/products" 
+              className="btn ghost hero-btn"
+              onClick={() => trackCTAClick('view_products', 'hero')}
+            >
               {t('landing.hero.ctaSecondary')}
             </Link>
           </div>
@@ -161,7 +170,11 @@ export function LandingPage() {
         <div className="cta-content">
           <h2 className="cta-title">{t('landing.cta.title')}</h2>
           <p className="cta-desc">{t('landing.cta.desc')}</p>
-          <Link to="/contact" className="btn primary cta-btn">
+          <Link 
+            to="/contact" 
+            className="btn primary cta-btn"
+            onClick={() => trackCTAClick('contact_us', 'footer_cta')}
+          >
             {t('landing.cta.button')}
           </Link>
         </div>

@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
+import { trackExternalLinkClick } from '../../analytics'
 import bg01UpscaledPng from '../../assets/backgrounds/bg01upscaled.png'
 import './products.css'
 
@@ -26,7 +27,13 @@ export function ProductsPage() {
       {/* Block Grid Layout */}
       <div className="cyber-blocks-container">
         {/* Large Featured Block - E-shop Link */}
-        <a href="https://store.4setup.cz" target="_blank" rel="noopener noreferrer" className="cyber-block cyber-block-large cyber-block-link">
+        <a 
+          href="https://store.4setup.cz" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="cyber-block cyber-block-large cyber-block-link"
+          onClick={() => trackExternalLinkClick('https://store.4setup.cz', 'eshop')}
+        >
           <div className="cyber-block-inner">
             <div className="cyber-image-wrapper">
               <div className="cyber-block-corner tl"></div>
