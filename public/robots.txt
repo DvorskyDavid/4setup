@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://4setup.cz/sitemap.xml
+
+# Disallow any admin or API routes if they exist
+# Disallow: /api/
+

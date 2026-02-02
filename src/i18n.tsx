@@ -226,6 +226,16 @@ const DICT: Dictionary = {
   'rooms.gaming.subtitle': { en: 'Immersive gaming setups designed for victory', cz: 'Pohlcující herní sestavy navržené pro vítězství' },
   'rooms.office.subtitle': { en: 'Professional home offices for maximum productivity', cz: 'Profesionální domácí kanceláře pro maximální produktivitu' },
   'rooms.streaming.subtitle': { en: 'Streaming studios that make you stand out', cz: 'Streamovací studia, která vás odliší' },
+
+  // 404 Page
+  'notFound.title': { en: '404', cz: '404' },
+  'notFound.message': { en: 'Page not found', cz: 'Stránka nenalezena' },
+  'notFound.backHome': { en: 'Back to Home', cz: 'Zpět domů' },
+
+  // Cookie consent
+  'cookies.message': { en: 'We use cookies to analyze traffic and improve your experience.', cz: 'Používáme cookies pro analýzu návštěvnosti a zlepšení vašeho zážitku.' },
+  'cookies.accept': { en: 'Accept', cz: 'Přijmout' },
+  'cookies.reject': { en: 'Reject', cz: 'Odmítnout' },
 }
 
 type I18nContextValue = {
@@ -300,5 +310,3 @@ export function useI18n() {
 export function useT() {
   return useI18n().t
 }
-
-

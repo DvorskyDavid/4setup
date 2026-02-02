@@ -3,4 +3,5 @@ export { ProductsPage } from './ProductsPage/ProductsPage'
 export { SpacesPage } from './SpacesPage/SpacesPage'
 export { BlogPage, BlogPostPage } from './BlogPage'
 export { ContactPage } from './ContactPage'
+export { NotFoundPage } from './NotFoundPage'
 
