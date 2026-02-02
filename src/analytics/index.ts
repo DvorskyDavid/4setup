@@ -43,21 +43,20 @@ export function initGA4(measurementId: string = GA4_MEASUREMENT_ID): boolean {
     script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
     document.head.appendChild(script)
 
-    // Initialize gtag
-    window.dataLayer = window.dataLayer || []
-    function gtag(...args: any[]) {
-      window.dataLayer.push(args)
+    // Initialize gtag - must use arguments object, not rest params
+    window.dataLayer = window.dataLayer || [];
+    (window as any).gtag = function() {
+      window.dataLayer.push(arguments);
     }
-    window.gtag = gtag
     
-    gtag('js', new Date())
-    gtag('config', measurementId)
+    window.gtag('js', new Date())
+    window.gtag('config', measurementId)
 
     ga4Initialized = true
     console.log('[Analytics] GA4 initialized')
     
     // Send initial page view immediately
-    gtag('event', 'page_view', {
+    window.gtag('event', 'page_view', {
       page_path: window.location.pathname,
       page_title: document.title,
       page_location: window.location.href
