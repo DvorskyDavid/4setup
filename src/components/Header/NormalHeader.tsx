@@ -17,8 +17,8 @@ export function SiteHeader({ menuOpen, setMenuOpen, t }: HeaderProps) {
         </Link>
         <div className="header-nav-group">
           <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-            <Link to="/products">{t('nav.products')}</Link>
             <Link to="/spaces">{t('nav.spaces')}</Link>
+            <Link to="/products">{t('nav.products')}</Link>
             <Link to="/blog">{t('nav.blog')}</Link>
             <a href="https://store.4setup.cz" target="_blank" rel="noreferrer">{t('nav.eshop')}</a>
             <Link to="/contact">{t('nav.contact')}</Link>

@@ -141,7 +141,7 @@ const DICT: Dictionary = {
   'products.titanWorkstation.category': { en: 'Ultimate Gaming PC', cz: 'Ultimátní herní PC' },
   'products.titanWorkstation.description': { en: 'Custom liquid-cooled build with RTX 4090, i9-14900K, and tempered glass showcase design.', cz: 'Vlastní vodně chlazená sestava s RTX 4090, i9-14900K a prémiovým skleněným designem.' },
   
-  'products.block1.title': { en: 'Looking for standard lighting?', cz: 'Hledáte standardní osvětlení?' },
+  'products.block1.title': { en: 'Looking for lighting?', cz: 'Hledáte osvětlení?' },
   'products.block1.desc': { en: 'Visit our e-shop for ready-to-buy products.', cz: 'Navštivte náš e-shop.' },
   'products.block1.cta': { en: 'VISIT E-SHOP', cz: 'NAVŠTÍVIT E-SHOP' },
   'products.block1.text': { en: 'Every detail\nmatters', cz: 'Každý detail\nse počítá' },

@@ -22,7 +22,6 @@ export function SpacesPage() {
     preferredContact: 'email' as 'email' | 'phone',
     purpose: '',
     currentState: '',
-    budget: '',
     problems: [] as string[],
     message: ''
   })
@@ -84,7 +83,6 @@ export function SpacesPage() {
 
   const purposes = ['gaming', 'work', 'streaming', 'podcast', 'other']
   const currentStates = ['fromScratch', 'upgrade']
-  const budgets = ['under500k', '500kTo1m', 'over1m']
   const problems = ['cables', 'lighting', 'storage', 'design', 'performance', 'space']
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -139,7 +137,6 @@ export function SpacesPage() {
           form_name: 'custom_spaces_request',
           form_location: 'spaces_page',
           purpose: formData.purpose,
-          budget: formData.budget,
           current_state: formData.currentState
         })
         setStatus('success')
@@ -150,7 +147,6 @@ export function SpacesPage() {
           preferredContact: 'email',
           purpose: '',
           currentState: '',
-          budget: '',
           problems: [],
           message: ''
         })
@@ -320,25 +316,6 @@ export function SpacesPage() {
                         onChange={handleChange}
                       />
                       <span>{t(`spaces.form.states.${s}` as any)}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Budget */}
-              <div className="form-group">
-                <label>{t('spaces.form.budget')}</label>
-                <div className="form-options budget-options">
-                  {budgets.map(b => (
-                    <label key={b} className={`form-option ${formData.budget === b ? 'selected' : ''}`}>
-                      <input
-                        type="radio"
-                        name="budget"
-                        value={b}
-                        checked={formData.budget === b}
-                        onChange={handleChange}
-                      />
-                      <span>{t(`spaces.form.budgets.${b}` as any)}</span>
                     </label>
                   ))}
                 </div>
