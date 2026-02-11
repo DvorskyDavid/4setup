@@ -56,7 +56,7 @@ export function ProductsPage() {
         </a>
 
         {/* Two Medium Blocks */}
-        <div className="cyber-block cyber-block-medium">
+        <div className="cyber-block cyber-block-medium cyber-block-2">
           <div className="cyber-block-inner">
             <div className="cyber-image-wrapper">
               <div className="cyber-block-corner tl"></div>
@@ -76,7 +76,7 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <div className="cyber-block cyber-block-medium">
+        <div className="cyber-block cyber-block-medium cyber-block-3">
           <div className="cyber-block-inner">
             <div className="cyber-image-wrapper">
               <div className="cyber-block-corner tl"></div>
