@@ -5,7 +5,7 @@
  * Only initializes if user has given cookie consent.
  */
 
-import { getConsent, getAnalyticsConsent } from '../components/CookieConsent'
+import { getAnalyticsConsent } from '../components/CookieConsent'
 
 // ============================================================================
 // CONFIGURATION - Replace these with your actual IDs
