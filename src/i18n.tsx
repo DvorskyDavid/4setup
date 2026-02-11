@@ -233,9 +233,19 @@ const DICT: Dictionary = {
   'notFound.backHome': { en: 'Back to Home', cz: 'Zpět domů' },
 
   // Cookie consent
-  'cookies.message': { en: 'We use cookies to analyze traffic and improve your experience.', cz: 'Používáme cookies pro analýzu návštěvnosti a zlepšení vašeho zážitku.' },
-  'cookies.accept': { en: 'Accept', cz: 'Přijmout' },
-  'cookies.reject': { en: 'Reject', cz: 'Odmítnout' },
+  'cookies.title': { en: 'Cookie Settings', cz: 'Nastavení cookies' },
+  'cookies.message': { en: 'We use cookies to ensure the website functions properly and to analyze traffic. You can customize your preferences below.', cz: 'Používáme cookies pro správné fungování webu a analýzu návštěvnosti. Níže si můžete přizpůsobit své preference.' },
+  'cookies.acceptAll': { en: 'Accept All', cz: 'Přijmout vše' },
+  'cookies.customize': { en: 'Customize', cz: 'Přizpůsobit' },
+  'cookies.customizeTitle': { en: 'Cookie Preferences', cz: 'Předvolby cookies' },
+  'cookies.customizeDesc': { en: 'Choose which cookies you want to allow. You can change these settings at any time.', cz: 'Vyberte, které cookies chcete povolit. Tato nastavení můžete kdykoliv změnit.' },
+  'cookies.functional': { en: 'Functional', cz: 'Funkční' },
+  'cookies.functionalDesc': { en: 'Essential for the website to work properly. Cannot be disabled.', cz: 'Nezbytné pro správné fungování webu. Nelze vypnout.' },
+  'cookies.analytics': { en: 'Visit Statistics', cz: 'Statistika návštěvnosti' },
+  'cookies.analyticsDesc': { en: 'Help us understand how visitors use our website.', cz: 'Pomáhají nám porozumět, jak návštěvníci používají náš web.' },
+  'cookies.allowAll': { en: 'Allow All', cz: 'Povolit vše' },
+  'cookies.save': { en: 'Save', cz: 'Uložit' },
+  'cookies.back': { en: 'Back', cz: 'Zpět' },
 }
 
 type I18nContextValue = {

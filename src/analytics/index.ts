@@ -5,13 +5,13 @@
  * Only initializes if user has given cookie consent.
  */
 
-import { getConsent } from '../components/CookieConsent'
+import { getConsent, getAnalyticsConsent } from '../components/CookieConsent'
 
 // ============================================================================
 // CONFIGURATION - Replace these with your actual IDs
 // ============================================================================
 export const GA4_MEASUREMENT_ID = 'G-93B9VGT80V'
-export const CLARITY_PROJECT_ID = 'xxxxxxxxxx'    // Replace with your Clarity ID
+export const CLARITY_PROJECT_ID = 'vfppecncdq'
 
 // ============================================================================
 // State tracking
@@ -30,7 +30,7 @@ let clarityInitialized = false
 export function initGA4(measurementId: string = GA4_MEASUREMENT_ID): boolean {
   if (ga4Initialized) return true
   if (typeof window === 'undefined') return false
-  if (getConsent() !== 'accepted') return false
+  if (!getAnalyticsConsent()) return false
   if (!measurementId || measurementId.startsWith('G-XXXX')) {
     console.warn('[Analytics] GA4 measurement ID not configured')
     return false
@@ -107,8 +107,8 @@ export function trackEvent(eventName: string, params?: Record<string, any>): voi
 export function initClarity(projectId: string = CLARITY_PROJECT_ID): boolean {
   if (clarityInitialized) return true
   if (typeof window === 'undefined') return false
-  if (getConsent() !== 'accepted') return false
-  if (projectId === 'xxxxxxxxxx') {
+  if (!getAnalyticsConsent()) return false
+  if (!projectId || projectId === 'xxxxxxxxxx') {
     console.warn('[Analytics] Clarity project ID not configured')
     return false
   }
@@ -138,10 +138,10 @@ export function initClarity(projectId: string = CLARITY_PROJECT_ID): boolean {
 // ============================================================================
 
 /**
- * Initialize all analytics services if consent was given
+ * Initialize all analytics services if analytics consent was given
  */
 export function initAllAnalytics(): void {
-  if (getConsent() !== 'accepted') return
+  if (!getAnalyticsConsent()) return
   
   initGA4()
   initClarity()
