@@ -435,8 +435,8 @@
   }
   
   .cyber-block-large,
-  .cyber-block-medium:nth-of-type(2),
-  .cyber-block-medium:nth-of-type(3),
+  .cyber-block-medium:nth-child(2),
+  .cyber-block-medium:nth-child(3),
   .cyber-block-wide {
     width: 100% !important;
     margin-left: 0 !important;
