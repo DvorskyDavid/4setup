@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
 import { trackExternalLinkClick } from '../../analytics'
 import bg01UpscaledPng from '../../assets/backgrounds/bg01upscaled.png'
+import gaming1Png from '../../assets/backgrounds/gaming-1.png'
+import gaming2Png from '../../assets/backgrounds/gaming-2.png'
+import gaming3Png from '../../assets/backgrounds/gaming-3.png'
+import gaming4Png from '../../assets/backgrounds/gaming-4.png'
 import './products.css'
 
 export function ProductsPage() {
@@ -41,7 +45,7 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=1200&q=80" 
+                src={gaming1Png} 
                 alt="E-shop lighting products"
                 className="cyber-block-image"
               />
@@ -64,7 +68,7 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80" 
+                src={gaming2Png} 
                 alt="RGB gaming setup"
                 className="cyber-block-image"
               />
@@ -84,7 +88,7 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800&q=80" 
+                src={gaming3Png} 
                 alt="High-performance gaming PC"
                 className="cyber-block-image"
               />
@@ -105,7 +109,7 @@ export function ProductsPage() {
               <div className="cyber-block-corner bl"></div>
               <div className="cyber-block-corner br"></div>
               <img 
-                src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=1600&q=80" 
+                src={gaming4Png} 
                 alt="Complete gaming battlestation"
                 className="cyber-block-image"
               />

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
 import { trackEvent } from '../../analytics'
 import bgImage from '../../assets/backgrounds/custom-rooms.png'
+import gaming1Png from '../../assets/backgrounds/gaming-1.png'
+import office1Png from '../../assets/backgrounds/office-1.png'
+import studio1Png from '../../assets/backgrounds/studio-1.png'
 import './spaces.css'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
@@ -67,17 +70,17 @@ export function SpacesPage() {
     { 
       key: 'gaming', 
       path: '/spaces/gaming',
-      image: 'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80',
+      image: gaming1Png,
     },
     { 
       key: 'office', 
       path: '/spaces/office',
-      image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80',
+      image: office1Png,
     },
     { 
       key: 'streaming', 
       path: '/spaces/streaming',
-      image: 'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=800&q=80',
+      image: studio1Png,
     },
   ]
 
