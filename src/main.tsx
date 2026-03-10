@@ -6,6 +6,7 @@ import { I18nProvider, useT } from './i18n'
 import { SiteHeader } from './components/Header'
 import { LandingPage } from './pages/LandingPage/LandingPage'
 import { ProductsPage } from './pages/ProductsPage/ProductsPage'
+import { StoneLightPage, MatrixPage, SpeakerPage } from './pages/ProductsPage/ProductDetailPage'
 import { SpacesPage } from './pages/SpacesPage/SpacesPage'
 import { GamingRoomPage, OfficeRoomPage, StreamingRoomPage } from './pages/SpacesPage/RoomTypePage'
 import { BlogPage, BlogPostPage } from './pages/BlogPage'
@@ -81,6 +82,9 @@ function App() {
         <Route path="/spaces/office" element={<OfficeRoomPage />} />
         <Route path="/spaces/streaming" element={<StreamingRoomPage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/stone-light" element={<StoneLightPage />} />
+        <Route path="/products/matrix" element={<MatrixPage />} />
+        <Route path="/products/speaker" element={<SpeakerPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/contact" element={<ContactPage />} />

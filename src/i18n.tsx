@@ -141,13 +141,117 @@ const DICT: Dictionary = {
   'products.titanWorkstation.category': { en: 'Ultimate Gaming PC', cz: 'Ultimátní herní PC' },
   'products.titanWorkstation.description': { en: 'Custom liquid-cooled build with RTX 4090, i9-14900K, and tempered glass showcase design.', cz: 'Vlastní vodně chlazená sestava s RTX 4090, i9-14900K a prémiovým skleněným designem.' },
   
-  'products.block1.title': { en: 'Looking for lighting?', cz: 'Hledáte osvětlení?' },
-  'products.block1.desc': { en: 'Visit our e-shop for ready-to-buy products.', cz: 'Navštivte náš e-shop.' },
-  'products.block1.cta': { en: 'VISIT E-SHOP', cz: 'NAVŠTÍVIT E-SHOP' },
-  'products.block1.text': { en: 'Every detail\nmatters', cz: 'Každý detail\nse počítá' },
-  'products.block2.text': { en: 'Built to\ninspire', cz: 'Vytvořeno pro\ninspiraci' },
-  'products.block3.text': { en: 'Form meets\nfunction', cz: 'Forma splývá\ns funkcí' },
-  'products.block4.text': { en: 'Engineered for champions', cz: 'Vytvořeno pro šampióny' },
+  'products.backToProducts': { en: '← Back to Products', cz: '← Zpět na produkty' },
+  
+  'products.newsletter.title': { en: 'Want to be among the first?', cz: 'Chcete být mezi prvními?' },
+  'products.newsletter.desc': { en: 'Leave us your email and get priority information about the launch.', cz: 'Zanechte nám svůj e-mail a získáte přednostní informace o spuštění prodeje.' },
+  'products.newsletter.cta': { en: 'NOTIFY ME', cz: 'CHCI VĚDĚT' },
+  'products.newsletter.success': { en: 'Thank you! We\'ll keep you posted.', cz: 'Děkujeme! Budeme vás informovat.' },
+
+  // Stone Light Product
+  'products.stoneLight.name': { en: 'STONE LIGHT', cz: 'KAMENNÉ SVĚTLO' },
+  'products.stoneLight.tagline': { en: 'Premium design light made from real stone', cz: 'Prémiové designové světlo z pravého kamene' },
+  'products.stoneLight.introText': { 
+    en: 'Introducing Stone Light — a unique Czech design product that combines real stone with modern lighting technology. Unlike custom installations that are typically very expensive and permanently built into walls, we bring a solution you can simply buy as a finished product. Unbox, install, and illuminate.',
+    cz: 'Představujeme kamenné svítidlo — unikátní český designový produkt, který spojuje skutečný kámen s moderní světelnou technologií. Na rozdíl od zakázkových realizací, které jsou běžně velmi nákladné a pevně zabudované ve stěně, přinášíme řešení, které si jednoduše koupíte jako hotový produkt. Rozbalíte, nainstalujete a svítíte.'
+  },
+  'products.stoneLight.ambient.title': { en: 'Atmospheric Light for Modern Interiors', cz: 'Atmosférické světlo pro moderní interiér' },
+  'products.stoneLight.ambient.text': { 
+    en: 'Stone Light is designed primarily as ambient and supplementary lighting. It creates a pleasant, luxurious atmosphere without harsh overhead lighting. When using multiple panels, you can create fully layered room lighting without the need for a dominant ceiling fixture.',
+    cz: 'Kamenné svítidlo je navržené především jako ambientní a doplňkové osvětlení. V prostoru vytváří příjemnou, luxusní atmosféru bez ostrého stropního světla. Při použití více panelů můžete vytvořit plnohodnotné vrstvené osvětlení prostoru bez potřeby dominantního stropního svítidla.'
+  },
+  'products.stoneLight.ambient.list': { 
+    en: 'Design interiors|Relaxation zones and wellness|Modern living rooms|Offices and commercial spaces|Bars and receptions',
+    cz: 'Designové interiéry|Relaxační zóny a wellness|Moderní obývací pokoje|Kanceláře a komerční prostory|Bary a recepce'
+  },
+  'products.stoneLight.design.title': { en: 'Real Stone, Pure Design', cz: 'Pravý kámen, čistý design' },
+  'products.stoneLight.design.text': { 
+    en: 'Each light is made from real stone that naturally highlights its undertones when backlit. The design is crafted to perfectly fit modern interiors and meet the requirements of architects and designers.',
+    cz: 'Každé svítidlo je vyrobeno z reálného kamene, který přirozeně zvýrazňuje své podtóny při podsvícení. Design je navržený tak, aby perfektně zapadl do moderních interiérů a splňoval požadavky architektů i designérů.'
+  },
+  'products.stoneLight.design.list': { 
+    en: 'Neutral white backlighting|Color backlighting to enhance stone structure',
+    cz: 'Neutrální bílé podsvícení|Barevné podsvícení pro zvýraznění struktury kamene'
+  },
+  'products.stoneLight.construction.title': { en: 'Ultra-thin Construction', cz: 'Ultratenká konstrukce' },
+  'products.stoneLight.construction.text': { 
+    en: 'Standard stone backlighting requires deep wall installation for electronics and cooling. We went a different way. The result is an extraordinarily thin design light that looks minimalist and luxurious.',
+    cz: 'Běžná kamenná podsvícení vyžadují hluboké zabudování do stěny kvůli elektronice a chlazení. My jsme šli jinou cestou. Výsledkem je mimořádně tenké designové svítidlo, které působí minimalisticky a luxusně.'
+  },
+  'products.stoneLight.construction.list': { 
+    en: 'Panel thickness approximately 2 cm|Separate external power source (can be hidden in wall or furniture)|Clean front surface without distracting frame|Premium materials and craftsmanship',
+    cz: 'Tloušťka panelu přibližně 2 cm|Samostatný externí zdroj (lze skrýt do stěny nebo nábytku)|Čistá čelní plocha bez rušivého rámečku|Prémiové materiály a zpracování'
+  },
+  'products.stoneLight.modular.title': { en: 'Modular and Custom Options', cz: 'Modulární a zakázkové možnosti' },
+  'products.stoneLight.modular.text': { 
+    en: 'The basic intended format is 60 × 120 cm, but the system allows for multiple panels side by side, continuous stone patterns (custom), and future expansion to additional formats. We\'re also planning a design light cube (e.g., coffee table 60 × 60 cm) for the future.',
+    cz: 'Základní zamýšlený formát je 60 × 120 cm, ale systém umožňuje instalaci více panelů vedle sebe, navazující kresbu kamene (na míru) a budoucí rozšíření o další formáty. Do budoucna plánujeme také designovou světelnou kostku (např. konferenční stolek 60 × 60 cm).'
+  },
+  'products.stoneLight.czech.title': { en: 'Czech Development and Manufacturing', cz: 'Český vývoj a výroba' },
+  'products.stoneLight.czech.text': { 
+    en: 'We develop the product completely in-house — from construction to final appearance. The goal is to create a premium design light that will be available as a finished product, not just as an expensive custom installation.',
+    cz: 'Produkt kompletně vyvíjíme interně — od konstrukce až po finální vzhled. Cílem je vytvořit prémiové designové svítidlo, které bude dostupné jako hotový produkt, nikoli pouze jako drahá zakázková instalace.'
+  },
+
+  // Matrix Product
+  'products.matrix.name': { en: 'MATRIX', cz: 'MATRIX' },
+  'products.matrix.tagline': { en: 'Modular large-scale LED light for gaming and modern interiors', cz: 'Modulární velkoplošné LED světlo pro gaming i moderní interiér' },
+  'products.matrix.introText': { 
+    en: 'Forget ordinary LED strips. Matrix is a modular large-scale LED light that you assemble precisely according to your wall — and display anything from retro animations to ambient lighting effects. Create your own light wall for a gaming room, studio, or modern interior.',
+    cz: 'Zapomeňte na obyčejné LED pásky. Matrix je modulární velkoplošné LED světlo, které si sestavíte přesně podle své stěny — a zobrazíte na něm cokoliv od retro animací až po ambientní světelné efekty. Vytvořte si vlastní světelnou stěnu pro gaming room, studio nebo moderní interiér.'
+  },
+  'products.matrix.pixel.title': { en: 'Pixel Classic', cz: 'Pixelová klasika' },
+  'products.matrix.pixel.text': { 
+    en: 'Want Pac-Man running behind you or sharp gaming animations? Turn on pixel mode and enjoy the true retro gaming vibe with perfectly readable pixels.',
+    cz: 'Chcete, aby vám za zády běžel Pac-Man nebo ostré herní animace? Zapněte pixelový režim a užijte si pravý retro gaming vibe s perfektně čitelnými pixely.'
+  },
+  'products.matrix.pixel.list': { 
+    en: 'Gaming rooms|Streaming backgrounds|Gaming studios|Retro enthusiasts',
+    cz: 'Gaming rooms|Streamovací pozadí|Herní studia|Retro nadšence'
+  },
+  'products.matrix.diffuse.title': { en: 'Diffuse Mode', cz: 'Difuzní režim' },
+  'products.matrix.diffuse.text': { 
+    en: 'In this mode, colors and shapes organically blend into space, creating a smooth lighting atmosphere. Perfect as ambient backlighting, a design interior element, or a light backdrop without distracting details.',
+    cz: 'Barvy a tvary se v tomto režimu organicky rozpíjejí do prostoru a vytvářejí plynulou světelnou atmosféru. Perfektní jako ambientní podsvícení, designový prvek interiéru nebo světelná kulisa bez rušivých detailů.'
+  },
+  'products.matrix.development.title': { en: 'Developed and Made In-House', cz: 'Vyvíjeno a vyráběno u nás v dílně' },
+  'products.matrix.development.text': { 
+    en: 'We\'ve been designing and building Matrix from the start in-house. Originally we worked with 8×8 3D LED boards. We\'re currently transitioning to more modern 32×32 modules that significantly simplify installation, improve display quality, and bring the entire system closer to the final production version.',
+    cz: 'Matrix od začátku navrhujeme a stavíme interně. Původně jsme pracovali s 3D LED destičkami 8×8. Aktuálně přecházíme na modernější moduly 32×32, které výrazně zjednodušují instalaci, zvyšují kvalitu zobrazení a posouvají celý systém blíž k finální produkční verzi.'
+  },
+
+  // Speaker Product
+  'products.speaker.name': { en: 'SPEAKER', cz: 'REPRODUKTOR' },
+  'products.speaker.tagline': { en: 'Design speaker for discerning listeners', cz: 'Designový reproduktor pro náročný poslech' },
+  'products.speaker.introText': { 
+    en: 'When choosing a speaker today, you usually face a compromise: reasonable price, quality sound, attractive design. Usually you can choose at most two of these things. We believe it can be different.',
+    cz: 'Když si dnes vybíráte reproduktor, většinou stojíte před kompromisem: rozumná cena, kvalitní zvuk, atraktivní design. Obvykle si můžete vybrat maximálně dvě z těchto věcí. My věříme, že to jde i jinak.'
+  },
+  'products.speaker.quality.title': { en: 'Uncompromised Sound for the Everyday Listener', cz: 'Zvuk bez kompromisů pro běžného posluchače' },
+  'products.speaker.quality.text': { 
+    en: 'We\'re audiophiles. We love clean, detailed sound. At the same time, we love beautiful interiors — and like most people, we don\'t want to spend tens or hundreds of thousands on speakers. Today\'s market often shows two extremes: cheap speakers with average sound, or top audio setups for tens to hundreds of thousands. But there\'s a missing product in between that would combine high sound quality, accessible price, and modern design. That\'s exactly our goal.',
+    cz: 'Jsme audiofilové. Milujeme čistý, detailní zvuk. Zároveň máme rádi krásné interiéry — a stejně jako většina lidí nechceme utrácet desítky nebo stovky tisíc za reproduktory. Na trhu dnes často vidíte dvě extrémní polohy: levné reproduktory s průměrným zvukem, nebo špičkové audio sestavy za desítky až stovky tisíc. Mezi nimi ale chybí produkt, který by kombinoval vysokou kvalitu zvuku, dostupnou cenu a moderní design. Právě to je náš cíl.'
+  },
+  'products.speaker.sweetSpot.title': { en: 'Where Sound Quality Really Breaks', cz: 'Kde se skutečně láme kvalita zvuku' },
+  'products.speaker.sweetSpot.text': { 
+    en: 'In the audio world, there are clear performance levels. The biggest jump in quality comes when transitioning from regular consumer electronics to proper Hi-Fi speakers. Further improvements come gradually and often at significantly higher prices. For most discerning listeners, there\'s a point where sound is already excellent for everyday listening — without the need to invest extreme amounts in ultra high-end solutions. That\'s the point we\'re targeting.',
+    cz: 'Ve světě audia existují jasné výkonnostní úrovně. Největší skok v kvalitě přichází při přechodu z běžné spotřební elektroniky do poctivých Hi-Fi reproduktorů. Další zlepšení už přichází postupně a často za výrazně vyšší cenu. Pro většinu náročných posluchačů existuje bod, kde už je zvuk výborný pro každodenní poslech — bez nutnosti investovat extrémní částky do ultra high-end řešení. Na tento bod cílíme.'
+  },
+  'products.speaker.design.title': { en: 'Design That Belongs in Modern Interiors', cz: 'Design, který patří do moderního interiéru' },
+  'products.speaker.design.text': { 
+    en: 'With top-tier audio, sound is often the focus, but design comes second. We approach it differently. Our speaker is designed to play great, look good in modern interiors, and not be priced out of reach for regular users. Because quality sound shouldn\'t be reserved only for extremely expensive setups.',
+    cz: 'U špičkového audia se často řeší zvuk, ale design přichází až na druhém místě. My to stavíme jinak. Náš reproduktor je navržen tak, aby skvěle hrál, dobře vypadal v moderním interiéru a nebyl cenově mimo realitu běžného uživatele. Protože kvalitní zvuk by neměl být vyhrazený jen pro extrémně drahé sestavy.'
+  },
+  'products.speaker.target.title': { en: 'Who We\'re Developing the Speaker For', cz: 'Pro koho reproduktor vyvíjíme' },
+  'products.speaker.target.text': { 
+    en: 'For listeners who want significantly better sound than regular Bluetooth speakers, care about the look of their space, don\'t want to spend unreasonable amounts on high-end audio, and want an honest performance/price ratio.',
+    cz: 'Pro posluchače, kteří chtějí výrazně lepší zvuk než z běžných Bluetooth reproduktorů, řeší vzhled svého prostoru, nechtějí utrácet nesmyslné částky za high-end audio a chtějí poctivý poměr výkon / cena.'
+  },
+  'products.speaker.development.title': { en: 'Development Happening In-House', cz: 'Vývoj probíhá interně' },
+  'products.speaker.development.text': { 
+    en: 'We\'re currently developing the speaker with emphasis on sound clarity and detail, balanced frequency response, modern minimalist design, and accessibility for a wider range of users.',
+    cz: 'Reproduktor aktuálně vyvíjíme s důrazem na čistotu a detail zvuku, vyvážený frekvenční projev, moderní minimalistický design a dostupnost pro širší okruh uživatelů.'
+  },
 
   // Spaces Page
   'spaces.hero.subtitle': { en: 'gaming, streaming, work, learning', cz: 'gaming, streaming, práce, učení' },
@@ -220,7 +324,7 @@ const DICT: Dictionary = {
 
   // Room Type Pages
   'rooms.backToSpaces': { en: 'Back to Setups', cz: 'Zpět na Setupy' },
-  'rooms.comingSoon': { en: 'Gallery and details coming soon...', cz: 'Galerie a detaily již brzy...' },
+  'rooms.gallery.title': { en: 'Our Realizations', cz: 'Naše realizace' },
   'rooms.cta.title': { en: 'Ready to create your dream space?', cz: 'Připraveni vytvořit váš vysněný prostor?' },
   
   'rooms.gaming.subtitle': { en: 'Immersive gaming setups designed for victory', cz: 'Pohlcující herní sestavy navržené pro vítězství' },

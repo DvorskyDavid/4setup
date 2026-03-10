@@ -1,7 +1,27 @@
+import { useState } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
 import './spaces.css'
+
+import gaming1 from '../../assets/gallery/gaming-1.png'
+import gaming2 from '../../assets/gallery/gaming-2.png'
+import gaming3 from '../../assets/gallery/gaming-3.png'
+import gaming4 from '../../assets/gallery/gaming-4.png'
+import gaming5 from '../../assets/gallery/gaming-5.png'
+import gaming6 from '../../assets/gallery/gaming-6.png'
+import gaming7 from '../../assets/gallery/gaming-7.png'
+
+import office1 from '../../assets/gallery/office-1.png'
+import office2 from '../../assets/gallery/office-2.png'
+import office3 from '../../assets/gallery/office-3.png'
+import office4 from '../../assets/gallery/office-4.png'
+import office5 from '../../assets/gallery/office-5.png'
+
+import streaming1 from '../../assets/gallery/streaming-1.png'
+import streaming2 from '../../assets/gallery/streaming-2.png'
+import streaming3 from '../../assets/gallery/streaming-3.png'
+import streaming4 from '../../assets/gallery/streaming-4.png'
 
 type RoomType = 'gaming' | 'office' | 'streaming'
 
@@ -9,17 +29,22 @@ interface RoomTypePageProps {
   type: RoomType
 }
 
-const roomImages: Record<RoomType, string> = {
-  gaming: 'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=1200&q=80',
-  office: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=1200&q=80',
-  streaming: 'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=1200&q=80',
+const roomGalleries: Record<RoomType, string[]> = {
+  gaming: [gaming1, gaming2, gaming3, gaming4, gaming5, gaming6, gaming7],
+  office: [office1, office2, office3, office4, office5],
+  streaming: [streaming1, streaming2, streaming3, streaming4],
 }
 
 export function RoomTypePage({ type }: RoomTypePageProps) {
   const t = useT()
+  const gallery = roomGalleries[type]
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
+
+  const openLightbox = (image: string) => setLightboxImage(image)
+  const closeLightbox = () => setLightboxImage(null)
 
   return (
-    <main className="room-type-page" style={{ '--bg-image': `url(${roomImages[type]})` } as CSSProperties}>
+    <main className="room-type-page" style={{ '--bg-image': `url(${gallery[0]})` } as CSSProperties}>
       {/* Hero Section */}
       <section className="room-hero">
         <div className="spaces-grid-bg"></div>
@@ -37,14 +62,27 @@ export function RoomTypePage({ type }: RoomTypePageProps) {
         </div>
       </section>
 
-      {/* Content Placeholder */}
-      <section className="room-content">
-        <div className="room-content-frame">
-          <div className="cyber-corner top-left"></div>
-          <div className="cyber-corner top-right"></div>
-          <div className="cyber-corner bottom-left"></div>
-          <div className="cyber-corner bottom-right"></div>
-          <p className="room-placeholder">{t('rooms.comingSoon')}</p>
+      {/* Gallery Section */}
+      <section className="room-gallery">
+        <h2 className="room-gallery-title">{t('rooms.gallery.title')}</h2>
+        <div className="room-gallery-grid">
+          {gallery.map((image, idx) => (
+            <button
+              key={idx}
+              className="room-gallery-item"
+              onClick={() => openLightbox(image)}
+              style={{ '--delay': `${0.5 + idx * 0.1}s` } as CSSProperties}
+            >
+              <div className="cyber-corner top-left"></div>
+              <div className="cyber-corner top-right"></div>
+              <div className="cyber-corner bottom-left"></div>
+              <div className="cyber-corner bottom-right"></div>
+              <img src={image} alt={`${t(`ourSetups.${type}` as any)} ${idx + 1}`} />
+              <div className="room-gallery-overlay">
+                <span className="room-gallery-zoom">+</span>
+              </div>
+            </button>
+          ))}
         </div>
       </section>
 
@@ -59,6 +97,14 @@ export function RoomTypePage({ type }: RoomTypePageProps) {
           </Link>
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxImage && (
+        <div className="room-lightbox" onClick={closeLightbox}>
+          <button className="room-lightbox-close" onClick={closeLightbox}>×</button>
+          <img src={lightboxImage} alt="" onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
     </main>
   )
 }

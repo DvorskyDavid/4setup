@@ -1,17 +1,32 @@
-import { Fragment } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
-import { trackExternalLinkClick } from '../../analytics'
 import bg01UpscaledPng from '../../assets/backgrounds/bg01upscaled.png'
-import gaming1Png from '../../assets/backgrounds/gaming-1.png'
-import gaming2Png from '../../assets/backgrounds/gaming-2.png'
-import gaming3Png from '../../assets/backgrounds/gaming-3.png'
-import gaming4Png from '../../assets/backgrounds/gaming-4.png'
+import stoneLightImg from '../../assets/products/kamen03_MAIN.png'
+import matrixImg from '../../assets/products/ledmatrix01_MAIN.png'
+import speakerImg from '../../assets/products/repro01_MAIN.png'
 import './products.css'
 
 export function ProductsPage() {
   const t = useT()
+
+  const products = [
+    {
+      key: 'stoneLight',
+      path: '/products/stone-light',
+      image: stoneLightImg,
+    },
+    {
+      key: 'matrix',
+      path: '/products/matrix',
+      image: matrixImg,
+    },
+    {
+      key: 'speaker',
+      path: '/products/speaker',
+      image: speakerImg,
+    },
+  ]
 
   return (
     <main className="products-cyber" style={{ '--bg-image': `url(${bg01UpscaledPng})` } as CSSProperties}>
@@ -28,98 +43,35 @@ export function ProductsPage() {
         </div>
       </section>
 
-      {/* Block Grid Layout */}
+      {/* Product Blocks */}
       <div className="cyber-blocks-container">
-        {/* Large Featured Block - E-shop Link */}
-        <a 
-          href="https://store.4setup.cz" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="cyber-block cyber-block-large cyber-block-link"
-          onClick={() => trackExternalLinkClick('https://store.4setup.cz', 'eshop')}
-        >
-          <div className="cyber-block-inner">
-            <div className="cyber-image-wrapper">
-              <div className="cyber-block-corner tl"></div>
-              <div className="cyber-block-corner tr"></div>
-              <div className="cyber-block-corner bl"></div>
-              <div className="cyber-block-corner br"></div>
-              <img 
-                src={gaming1Png} 
-                alt="E-shop lighting products"
-                className="cyber-block-image"
-              />
+        {products.map((product, idx) => (
+          <Link
+            key={product.key}
+            to={product.path}
+            className={`cyber-block cyber-block-link ${idx === 0 ? 'cyber-block-large' : 'cyber-block-medium'} cyber-block-${idx + 1}`}
+          >
+            <div className="cyber-block-inner">
+              <div className="cyber-image-wrapper">
+                <div className="cyber-block-corner tl"></div>
+                <div className="cyber-block-corner tr"></div>
+                <div className="cyber-block-corner bl"></div>
+                <div className="cyber-block-corner br"></div>
+                <img
+                  src={product.image}
+                  alt={t(`products.${product.key}.name` as any)}
+                  className="cyber-block-image"
+                />
+              </div>
+              <div className="cyber-block-text">
+                <span className="cyber-block-label">{String(idx + 1).padStart(2, '0')}</span>
+                <h3 className="cyber-block-title">{t(`products.${product.key}.name` as any)}</h3>
+                <p className="cyber-block-desc">{t(`products.${product.key}.tagline` as any)}</p>
+                <span className="cyber-block-cta">{t('products.viewDetails')} →</span>
+              </div>
             </div>
-            <div className="cyber-block-text">
-              <span className="cyber-block-label">01</span>
-              <h3 className="cyber-block-title">{t('products.block1.title')}</h3>
-              <p className="cyber-block-desc">{t('products.block1.desc')}</p>
-              <span className="cyber-block-cta">{t('products.block1.cta')} →</span>
-            </div>
-          </div>
-        </a>
-
-        {/* Two Medium Blocks */}
-        <div className="cyber-block cyber-block-medium cyber-block-2">
-          <div className="cyber-block-inner">
-            <div className="cyber-image-wrapper">
-              <div className="cyber-block-corner tl"></div>
-              <div className="cyber-block-corner tr"></div>
-              <div className="cyber-block-corner bl"></div>
-              <div className="cyber-block-corner br"></div>
-              <img 
-                src={gaming2Png} 
-                alt="RGB gaming setup"
-                className="cyber-block-image"
-              />
-            </div>
-            <div className="cyber-block-text">
-              <span className="cyber-block-label">02</span>
-              <h3 className="cyber-block-title">{t('products.block2.text').split('\n').map((line, i) => <Fragment key={i}>{line}{i === 0 && <br/>}</Fragment>)}</h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="cyber-block cyber-block-medium cyber-block-3">
-          <div className="cyber-block-inner">
-            <div className="cyber-image-wrapper">
-              <div className="cyber-block-corner tl"></div>
-              <div className="cyber-block-corner tr"></div>
-              <div className="cyber-block-corner bl"></div>
-              <div className="cyber-block-corner br"></div>
-              <img 
-                src={gaming3Png} 
-                alt="High-performance gaming PC"
-                className="cyber-block-image"
-              />
-            </div>
-            <div className="cyber-block-text">
-              <span className="cyber-block-label">03</span>
-              <h3 className="cyber-block-title">{t('products.block3.text').split('\n').map((line, i) => <Fragment key={i}>{line}{i === 0 && <br/>}</Fragment>)}</h3>
-            </div>
-          </div>
-        </div>
-
-        {/* Wide Block */}
-        <div className="cyber-block cyber-block-wide">
-          <div className="cyber-block-inner">
-            <div className="cyber-image-wrapper">
-              <div className="cyber-block-corner tl"></div>
-              <div className="cyber-block-corner tr"></div>
-              <div className="cyber-block-corner bl"></div>
-              <div className="cyber-block-corner br"></div>
-              <img 
-                src={gaming4Png} 
-                alt="Complete gaming battlestation"
-                className="cyber-block-image"
-              />
-            </div>
-            <div className="cyber-block-text">
-              <span className="cyber-block-label">04</span>
-              <h3 className="cyber-block-title">{t('products.block4.text')}</h3>
-            </div>
-          </div>
-        </div>
+          </Link>
+        ))}
       </div>
 
       {/* Footer CTA */}
