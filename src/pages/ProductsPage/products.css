@@ -506,11 +506,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  opacity: 0.25;
+  opacity: 0.35;
   z-index: 0;
   pointer-events: none;
-  transform: scale(1.3);
+  transform: scale(1.4) rotate(180deg);
   transform-origin: center;
+  animation: bgZoomIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-detail-page > * {
