@@ -4,6 +4,7 @@ import './cookie-consent.css'
 
 const CONSENT_KEY = 'cookie-consent'
 const ANALYTICS_KEY = 'cookie-analytics'
+const MARKETING_KEY = 'cookie-marketing'
 
 export type ConsentValue = 'accepted' | 'rejected' | null
 
@@ -19,12 +20,22 @@ export function getAnalyticsConsent(): boolean {
   return localStorage.getItem(ANALYTICS_KEY) === 'true'
 }
 
-export function setConsent(value: 'accepted' | 'rejected', analytics: boolean = true): void {
+export function getMarketingConsent(): boolean {
+  if (typeof window === 'undefined') return false
+  return localStorage.getItem(MARKETING_KEY) === 'true'
+}
+
+export function setConsent(
+  value: 'accepted' | 'rejected', 
+  analytics: boolean = true,
+  marketing: boolean = true
+): void {
   localStorage.setItem(CONSENT_KEY, value)
   localStorage.setItem(ANALYTICS_KEY, analytics ? 'true' : 'false')
+  localStorage.setItem(MARKETING_KEY, marketing ? 'true' : 'false')
   // Dispatch custom event so analytics can react
   window.dispatchEvent(new CustomEvent('cookie-consent-change', { 
-    detail: { consent: value, analytics } 
+    detail: { consent: value, analytics, marketing } 
   }))
 }
 
@@ -35,6 +46,7 @@ export function CookieConsent() {
   const [visible, setVisible] = useState(false)
   const [screen, setScreen] = useState<Screen>('main')
   const [analyticsEnabled, setAnalyticsEnabled] = useState(true)
+  const [marketingEnabled, setMarketingEnabled] = useState(true)
 
   useEffect(() => {
     // Only show banner if no preference is stored
@@ -50,7 +62,7 @@ export function CookieConsent() {
   }, [])
 
   const handleAcceptAll = () => {
-    setConsent('accepted', true)
+    setConsent('accepted', true, true)
     document.body.style.overflow = ''
     setVisible(false)
   }
@@ -64,9 +76,9 @@ export function CookieConsent() {
   }
 
   const handleSave = () => {
-    // If analytics is disabled, we store as 'rejected' for backwards compatibility
-    // but with explicit analytics preference
-    setConsent(analyticsEnabled ? 'accepted' : 'rejected', analyticsEnabled)
+    // Store consent with explicit analytics and marketing preferences
+    const hasAnyConsent = analyticsEnabled || marketingEnabled
+    setConsent(hasAnyConsent ? 'accepted' : 'rejected', analyticsEnabled, marketingEnabled)
     document.body.style.overflow = ''
     setVisible(false)
   }
@@ -133,6 +145,22 @@ export function CookieConsent() {
                     type="checkbox" 
                     checked={analyticsEnabled}
                     onChange={(e) => setAnalyticsEnabled(e.target.checked)}
+                  />
+                  <span className="cookie-toggle-slider"></span>
+                </label>
+              </div>
+
+              {/* Marketing - can be toggled */}
+              <div className="cookie-option">
+                <div className="cookie-option-info">
+                  <span className="cookie-option-label">{t('cookies.marketing')}</span>
+                  <span className="cookie-option-desc">{t('cookies.marketingDesc')}</span>
+                </div>
+                <label className="cookie-toggle">
+                  <input 
+                    type="checkbox" 
+                    checked={marketingEnabled}
+                    onChange={(e) => setMarketingEnabled(e.target.checked)}
                   />
                   <span className="cookie-toggle-slider"></span>
                 </label>

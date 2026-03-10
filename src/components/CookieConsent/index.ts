@@ -1,2 +1,2 @@
-export { CookieConsent, getConsent, getAnalyticsConsent, setConsent, type ConsentValue } from './CookieConsent'
+export { CookieConsent, getConsent, getAnalyticsConsent, getMarketingConsent, setConsent, type ConsentValue } from './CookieConsent'
 

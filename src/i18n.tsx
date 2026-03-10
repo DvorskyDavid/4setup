@@ -243,6 +243,8 @@ const DICT: Dictionary = {
   'cookies.functionalDesc': { en: 'Essential for the website to work properly. Cannot be disabled.', cz: 'Nezbytné pro správné fungování webu. Nelze vypnout.' },
   'cookies.analytics': { en: 'Visit Statistics', cz: 'Statistika návštěvnosti' },
   'cookies.analyticsDesc': { en: 'Help us understand how visitors use our website.', cz: 'Pomáhají nám porozumět, jak návštěvníci používají náš web.' },
+  'cookies.marketing': { en: 'Marketing', cz: 'Marketing' },
+  'cookies.marketingDesc': { en: 'Used to show you relevant ads and measure their effectiveness.', cz: 'Používají se k zobrazování relevantních reklam a měření jejich účinnosti.' },
   'cookies.allowAll': { en: 'Allow All', cz: 'Povolit vše' },
   'cookies.save': { en: 'Save', cz: 'Uložit' },
   'cookies.back': { en: 'Back', cz: 'Zpět' },

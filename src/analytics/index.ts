@@ -1,23 +1,25 @@
 /**
  * Analytics Module
  * 
- * Handles GA4 and Microsoft Clarity initialization and event tracking.
+ * Handles GA4, Microsoft Clarity, and Meta Pixel initialization and event tracking.
  * Only initializes if user has given cookie consent.
  */
 
-import { getAnalyticsConsent } from '../components/CookieConsent'
+import { getAnalyticsConsent, getMarketingConsent } from '../components/CookieConsent'
 
 // ============================================================================
 // CONFIGURATION - Replace these with your actual IDs
 // ============================================================================
 export const GA4_MEASUREMENT_ID = 'G-93B9VGT80V'
 export const CLARITY_PROJECT_ID = 'vfppecncdq'
+export const META_PIXEL_ID = '2378458622666214'
 
 // ============================================================================
 // State tracking
 // ============================================================================
 let ga4Initialized = false
 let clarityInitialized = false
+let metaPixelInitialized = false
 
 // ============================================================================
 // GA4 Functions
@@ -134,17 +136,104 @@ export function initClarity(projectId: string = CLARITY_PROJECT_ID): boolean {
 }
 
 // ============================================================================
+// Meta Pixel Functions
+// ============================================================================
+
+/**
+ * Initialize Meta Pixel
+ * Only runs if marketing consent was given and not already initialized
+ */
+export function initMetaPixel(pixelId: string = META_PIXEL_ID): boolean {
+  if (metaPixelInitialized) return true
+  if (typeof window === 'undefined') return false
+  if (!getMarketingConsent()) return false
+  if (!pixelId || pixelId === 'YOUR_PIXEL_ID_HERE') {
+    console.warn('[Analytics] Meta Pixel ID not configured')
+    return false
+  }
+
+  try {
+    // Meta Pixel base code
+    (function(f: any, b: Document, e: string, v: string, n?: any, t?: HTMLScriptElement, s?: Element) {
+      if (f.fbq) return
+      n = f.fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }
+      if (!f._fbq) f._fbq = n
+      n.push = n
+      n.loaded = true
+      n.version = '2.0'
+      n.queue = []
+      t = b.createElement(e) as HTMLScriptElement
+      t.async = true
+      t.src = v
+      s = b.getElementsByTagName(e)[0]
+      s?.parentNode?.insertBefore(t, s)
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+
+    window.fbq('init', pixelId)
+    window.fbq('track', 'PageView')
+
+    metaPixelInitialized = true
+    console.log('[Analytics] Meta Pixel initialized')
+    return true
+  } catch (error) {
+    console.error('[Analytics] Failed to initialize Meta Pixel:', error)
+    return false
+  }
+}
+
+/**
+ * Track Meta Pixel page view
+ */
+export function trackMetaPageView(): void {
+  if (!metaPixelInitialized || typeof window === 'undefined') return
+  if (!window.fbq) return
+
+  window.fbq('track', 'PageView')
+  console.log('[Analytics] Meta PageView tracked')
+}
+
+/**
+ * Track Meta Pixel standard event
+ */
+export function trackMetaEvent(eventName: string, params?: Record<string, any>): void {
+  if (!metaPixelInitialized || typeof window === 'undefined') return
+  if (!window.fbq) return
+
+  window.fbq('track', eventName, params)
+  console.log('[Analytics] Meta Event:', eventName, params)
+}
+
+/**
+ * Track Meta Pixel custom event
+ */
+export function trackMetaCustomEvent(eventName: string, params?: Record<string, any>): void {
+  if (!metaPixelInitialized || typeof window === 'undefined') return
+  if (!window.fbq) return
+
+  window.fbq('trackCustom', eventName, params)
+  console.log('[Analytics] Meta Custom Event:', eventName, params)
+}
+
+// ============================================================================
 // Combined initialization
 // ============================================================================
 
 /**
- * Initialize all analytics services if analytics consent was given
+ * Initialize all analytics services based on consent
  */
 export function initAllAnalytics(): void {
-  if (!getAnalyticsConsent()) return
+  // Analytics services (GA4, Clarity) - require analytics consent
+  if (getAnalyticsConsent()) {
+    initGA4()
+    initClarity()
+  }
   
-  initGA4()
-  initClarity()
+  // Marketing services (Meta Pixel) - require marketing consent
+  if (getMarketingConsent()) {
+    initMetaPixel()
+  }
 }
 
 // ============================================================================
@@ -211,6 +300,7 @@ declare global {
     dataLayer: any[]
     gtag: (...args: any[]) => void
     clarity: (...args: any[]) => void
+    fbq: (...args: any[]) => void
   }
 }
 
