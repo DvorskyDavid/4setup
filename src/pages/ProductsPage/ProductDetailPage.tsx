@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { useT } from '../../i18n'
+import bgImage from '../../assets/backgrounds/bg01upscaled.png'
 import stoneLightMain from '../../assets/products/kamen03_MAIN.png'
 import stoneLight01 from '../../assets/products/kamen01.png'
 import stoneLight02 from '../../assets/products/kamen02.png'
@@ -15,12 +16,6 @@ type ProductType = 'stoneLight' | 'matrix' | 'speaker'
 
 interface ProductDetailPageProps {
   type: ProductType
-}
-
-const productImages: Record<ProductType, string> = {
-  stoneLight: stoneLightMain,
-  matrix: matrixMain,
-  speaker: speakerMain,
 }
 
 interface SectionConfig {
@@ -88,7 +83,7 @@ export function ProductDetailPage({ type }: ProductDetailPageProps) {
   const sections = productSections[type]
 
   return (
-    <main className="product-detail-page" style={{ '--bg-image': `url(${productImages[type]})` } as CSSProperties}>
+    <main className="product-detail-page" style={{ '--bg-image': `url(${bgImage})` } as CSSProperties}>
       {/* Hero Section */}
       <section className="product-hero">
         <div className="cyber-grid-bg"></div>

@@ -324,7 +324,7 @@ const DICT: Dictionary = {
 
   // Room Type Pages
   'rooms.backToSpaces': { en: 'Back to Setups', cz: 'Zpět na Setupy' },
-  'rooms.gallery.title': { en: 'Our Realizations', cz: 'Naše realizace' },
+  'rooms.gallery.title': { en: 'Gallery', cz: 'Galerie' },
   'rooms.cta.title': { en: 'Ready to create your dream space?', cz: 'Připraveni vytvořit váš vysněný prostor?' },
   
   'rooms.gaming.subtitle': { en: 'Immersive gaming setups designed for victory', cz: 'Pohlcující herní sestavy navržené pro vítězství' },
