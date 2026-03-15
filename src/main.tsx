@@ -55,8 +55,8 @@ function App() {
 
   // Scroll to top and close menu on route change
   useEffect(() => {
-    setMenuOpen(false)
     window.scrollTo(0, 0)
+    setMenuOpen(false)
   }, [location.pathname])
 
   useEffect(() => {

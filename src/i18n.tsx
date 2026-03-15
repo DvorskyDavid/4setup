@@ -26,8 +26,8 @@ const DICT: Dictionary = {
     cz: 'KAŽDÝ PROSTOR TVOŘÍME S DŮRAZEM NA KVALITU, DESIGN A FUNKČNOST.'
   },
 
-  'ourSetups.title': { en: 'Our SETUPS', cz: 'Naše SETUPY' },
-  'ourSetups.subtitle': { en: 'Explore our latest realizations', cz: 'Prohlédněte si naše nejnovější realizace' },
+  'ourSetups.title': { en: 'GET INSPIRED', cz: 'INSPIRUJ SE' },
+  'ourSetups.subtitle': { en: 'Explore ideas for your dream setup', cz: 'Prozkoumej nápady pro tvůj vysněný setup' },
   'ourSetups.gaming': { en: 'Gaming Rooms', cz: 'Herní místnosti' },
   'ourSetups.office': { en: 'Home Offices', cz: 'Domácí kanceláře' },
   'ourSetups.streaming': { en: 'Streaming Studios', cz: 'Streamovací studia' },
