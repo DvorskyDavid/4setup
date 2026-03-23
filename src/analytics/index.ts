@@ -207,49 +207,23 @@ export function initClarity(projectId: string = CLARITY_PROJECT_ID): boolean {
 // ============================================================================
 
 /**
- * Load Meta Pixel script with consent revoked
- * This should be called on page load (before consent decision)
+ * Check if Meta Pixel is loaded (from index.html)
+ * The pixel base code and init are in index.html for verification
+ * This function just marks it as ready for our tracking functions
  */
-export function loadMetaPixelScript(pixelId: string = META_PIXEL_ID): boolean {
+export function loadMetaPixelScript(): boolean {
   if (metaPixelLoaded) return true
   if (typeof window === 'undefined') return false
-  if (!pixelId || pixelId === 'YOUR_PIXEL_ID_HERE') {
-    console.warn('[Analytics] Meta Pixel ID not configured')
-    return false
-  }
 
-  try {
-    // Meta Pixel base code
-    (function(f: any, b: Document, e: string, v: string, n?: any, t?: HTMLScriptElement, s?: Element) {
-      if (f.fbq) return
-      n = f.fbq = function() {
-        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      }
-      if (!f._fbq) f._fbq = n
-      n.push = n
-      n.loaded = true
-      n.version = '2.0'
-      n.queue = []
-      t = b.createElement(e) as HTMLScriptElement
-      t.async = true
-      t.src = v
-      s = b.getElementsByTagName(e)[0]
-      s?.parentNode?.insertBefore(t, s)
-    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
-
-    // Revoke consent by default
-    window.fbq('consent', 'revoke')
-    
-    // Initialize pixel (but won't track due to revoked consent)
-    window.fbq('init', pixelId)
-
+  // Check if fbq exists (loaded from index.html)
+  if (window.fbq) {
     metaPixelLoaded = true
-    console.log('[Analytics] Meta Pixel loaded with consent revoked')
+    console.log('[Analytics] Meta Pixel detected (awaiting consent for tracking)')
     return true
-  } catch (error) {
-    console.error('[Analytics] Failed to load Meta Pixel:', error)
-    return false
   }
+
+  console.warn('[Analytics] Meta Pixel not found - check index.html')
+  return false
 }
 
 /**
@@ -260,19 +234,19 @@ export function grantMetaPixelConsent(): void {
   if (metaPixelConsentGranted) return
   if (!window.fbq) return
 
-  window.fbq('consent', 'grant')
+  // Fire initial PageView now that we have consent
   window.fbq('track', 'PageView')
 
   metaPixelConsentGranted = true
-  console.log('[Analytics] Meta Pixel consent granted')
+  console.log('[Analytics] Meta Pixel consent granted, tracking enabled')
 }
 
 /**
  * Initialize Meta Pixel (legacy function for compatibility)
  */
-export function initMetaPixel(pixelId: string = META_PIXEL_ID): boolean {
+export function initMetaPixel(): boolean {
   if (!metaPixelLoaded) {
-    loadMetaPixelScript(pixelId)
+    loadMetaPixelScript()
   }
   if (getMarketingConsent()) {
     grantMetaPixelConsent()
