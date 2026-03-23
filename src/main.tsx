@@ -13,7 +13,7 @@ import { BlogPage, BlogPostPage } from './pages/BlogPage'
 import { ContactPage } from './pages/ContactPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { CookieConsent, getConsent } from './components/CookieConsent'
-import { initAllAnalytics, trackPageView } from './analytics'
+import { loadAnalyticsScripts, initAllAnalytics, trackPageView, trackMetaPageView } from './analytics'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -21,8 +21,12 @@ function App() {
   const t = useT()
   const analyticsInitialized = useRef(false)
 
-  // Initialize analytics on mount if consent exists, or when consent is given
+  // Load GA4 script immediately (consent mode - works without consent)
+  // Then grant full access when consent is given
   useEffect(() => {
+    // Load GA4 script immediately for consent mode
+    loadAnalyticsScripts()
+
     const tryInitAnalytics = () => {
       if (!analyticsInitialized.current && getConsent() === 'accepted') {
         initAllAnalytics()
@@ -30,12 +34,12 @@ function App() {
       }
     }
 
-    // Try on mount
+    // Grant consent if already given
     tryInitAnalytics()
 
     // Listen for consent changes
     const handleConsentChange = (e: CustomEvent) => {
-      if (e.detail === 'accepted') {
+      if (e.detail.consent === 'accepted') {
         tryInitAnalytics()
       }
     }
@@ -47,10 +51,10 @@ function App() {
   }, [])
 
   // Track page views on route changes
+  // GA4 tracks all users (consent mode), Meta only tracks consented users
   useEffect(() => {
-    if (analyticsInitialized.current) {
-      trackPageView(location.pathname, document.title)
-    }
+    trackPageView(location.pathname, document.title)
+    trackMetaPageView() // internally checks if consent was granted
   }, [location.pathname])
 
   // Scroll to top and close menu on route change

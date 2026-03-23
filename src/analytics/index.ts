@@ -2,7 +2,8 @@
  * Analytics Module
  * 
  * Handles GA4, Microsoft Clarity, and Meta Pixel initialization and event tracking.
- * Only initializes if user has given cookie consent.
+ * GA4 uses Consent Mode v2 - loads for all users but only collects full data with consent.
+ * Clarity and Meta Pixel only initialize with explicit consent.
  */
 
 import { getAnalyticsConsent, getMarketingConsent } from '../components/CookieConsent'
@@ -17,66 +18,131 @@ export const META_PIXEL_ID = '2378458622666214'
 // ============================================================================
 // State tracking
 // ============================================================================
-let ga4Initialized = false
+let ga4ScriptLoaded = false
+let ga4ConsentGranted = false
 let clarityInitialized = false
-let metaPixelInitialized = false
+let metaPixelLoaded = false
+let metaPixelConsentGranted = false
 
 // ============================================================================
-// GA4 Functions
+// GA4 Functions (with Consent Mode v2)
 // ============================================================================
 
 /**
- * Initialize Google Analytics 4
- * Only runs if consent was given and not already initialized
+ * Load GA4 script with default consent denied
+ * This should be called on page load (before consent decision)
+ * Enables cookieless pings for basic analytics even without consent
  */
-export function initGA4(measurementId: string = GA4_MEASUREMENT_ID): boolean {
-  if (ga4Initialized) return true
+export function loadGA4Script(measurementId: string = GA4_MEASUREMENT_ID): boolean {
+  if (ga4ScriptLoaded) return true
   if (typeof window === 'undefined') return false
-  if (!getAnalyticsConsent()) return false
   if (!measurementId || measurementId.startsWith('G-XXXX')) {
     console.warn('[Analytics] GA4 measurement ID not configured')
     return false
   }
 
   try {
-    // Create gtag script
+    // Initialize gtag and dataLayer first
+    window.dataLayer = window.dataLayer || [];
+    (window as any).gtag = function() {
+      window.dataLayer.push(arguments);
+    }
+
+    // Set default consent state to denied (Consent Mode v2)
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    })
+
+    // Enable URL passthrough for campaign data even without consent
+    window.gtag('set', 'url_passthrough', true)
+    
+    // Enable ads data redaction when consent denied
+    window.gtag('set', 'ads_data_redaction', true)
+
+    // Load the gtag script
     const script = document.createElement('script')
     script.async = true
     script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
     document.head.appendChild(script)
 
-    // Initialize gtag - must use arguments object, not rest params
-    window.dataLayer = window.dataLayer || [];
-    (window as any).gtag = function() {
-      window.dataLayer.push(arguments);
-    }
-    
+    // Initialize GA4
     window.gtag('js', new Date())
     window.gtag('config', measurementId)
 
-    ga4Initialized = true
-    console.log('[Analytics] GA4 initialized')
-    
-    // Send initial page view immediately
-    window.gtag('event', 'page_view', {
-      page_path: window.location.pathname,
-      page_title: document.title,
-      page_location: window.location.href
-    })
-    console.log('[Analytics] Initial page view sent:', window.location.pathname)
-    
+    ga4ScriptLoaded = true
+    console.log('[Analytics] GA4 loaded with consent mode (default: denied)')
+
     return true
   } catch (error) {
-    console.error('[Analytics] Failed to initialize GA4:', error)
+    console.error('[Analytics] Failed to load GA4:', error)
     return false
   }
 }
 
 /**
+ * Update GA4 consent state when user grants analytics consent
+ */
+export function grantGA4Consent(): void {
+  if (!ga4ScriptLoaded || typeof window === 'undefined') return
+  if (ga4ConsentGranted) return
+
+  window.gtag('consent', 'update', {
+    analytics_storage: 'granted'
+  })
+
+  ga4ConsentGranted = true
+  console.log('[Analytics] GA4 consent granted')
+
+  // Send page view now that full tracking is enabled
+  window.gtag('event', 'page_view', {
+    page_path: window.location.pathname,
+    page_title: document.title,
+    page_location: window.location.href
+  })
+}
+
+/**
+ * Update GA4 consent for ad/marketing when user grants marketing consent
+ */
+export function grantGA4MarketingConsent(): void {
+  if (!ga4ScriptLoaded || typeof window === 'undefined') return
+
+  window.gtag('consent', 'update', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted'
+  })
+
+  console.log('[Analytics] GA4 marketing consent granted')
+}
+
+/**
+ * Initialize GA4 with consent (legacy function for compatibility)
+ * Now just grants consent if script is already loaded
+ */
+export function initGA4(measurementId: string = GA4_MEASUREMENT_ID): boolean {
+  if (!ga4ScriptLoaded) {
+    loadGA4Script(measurementId)
+  }
+  if (getAnalyticsConsent()) {
+    grantGA4Consent()
+  }
+  if (getMarketingConsent()) {
+    grantGA4MarketingConsent()
+  }
+  return ga4ScriptLoaded
+}
+
+/**
  * Track page view in GA4
+ * Works in consent mode - sends cookieless ping if consent not granted
  */
 export function trackPageView(path: string, title: string): void {
-  if (!ga4Initialized || typeof window === 'undefined') return
+  if (!ga4ScriptLoaded || typeof window === 'undefined') return
   if (!window.gtag) return
 
   window.gtag('event', 'page_view', {
@@ -89,9 +155,10 @@ export function trackPageView(path: string, title: string): void {
 
 /**
  * Track custom event in GA4
+ * Works in consent mode - sends cookieless ping if consent not granted
  */
 export function trackEvent(eventName: string, params?: Record<string, any>): void {
-  if (!ga4Initialized || typeof window === 'undefined') return
+  if (!ga4ScriptLoaded || typeof window === 'undefined') return
   if (!window.gtag) return
 
   window.gtag('event', eventName, params)
@@ -136,17 +203,16 @@ export function initClarity(projectId: string = CLARITY_PROJECT_ID): boolean {
 }
 
 // ============================================================================
-// Meta Pixel Functions
+// Meta Pixel Functions (with consent handling)
 // ============================================================================
 
 /**
- * Initialize Meta Pixel
- * Only runs if marketing consent was given and not already initialized
+ * Load Meta Pixel script with consent revoked
+ * This should be called on page load (before consent decision)
  */
-export function initMetaPixel(pixelId: string = META_PIXEL_ID): boolean {
-  if (metaPixelInitialized) return true
+export function loadMetaPixelScript(pixelId: string = META_PIXEL_ID): boolean {
+  if (metaPixelLoaded) return true
   if (typeof window === 'undefined') return false
-  if (!getMarketingConsent()) return false
   if (!pixelId || pixelId === 'YOUR_PIXEL_ID_HERE') {
     console.warn('[Analytics] Meta Pixel ID not configured')
     return false
@@ -171,23 +237,55 @@ export function initMetaPixel(pixelId: string = META_PIXEL_ID): boolean {
       s?.parentNode?.insertBefore(t, s)
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
 
+    // Revoke consent by default
+    window.fbq('consent', 'revoke')
+    
+    // Initialize pixel (but won't track due to revoked consent)
     window.fbq('init', pixelId)
-    window.fbq('track', 'PageView')
 
-    metaPixelInitialized = true
-    console.log('[Analytics] Meta Pixel initialized')
+    metaPixelLoaded = true
+    console.log('[Analytics] Meta Pixel loaded with consent revoked')
     return true
   } catch (error) {
-    console.error('[Analytics] Failed to initialize Meta Pixel:', error)
+    console.error('[Analytics] Failed to load Meta Pixel:', error)
     return false
   }
 }
 
 /**
+ * Grant Meta Pixel consent and start tracking
+ */
+export function grantMetaPixelConsent(): void {
+  if (!metaPixelLoaded || typeof window === 'undefined') return
+  if (metaPixelConsentGranted) return
+  if (!window.fbq) return
+
+  window.fbq('consent', 'grant')
+  window.fbq('track', 'PageView')
+
+  metaPixelConsentGranted = true
+  console.log('[Analytics] Meta Pixel consent granted')
+}
+
+/**
+ * Initialize Meta Pixel (legacy function for compatibility)
+ */
+export function initMetaPixel(pixelId: string = META_PIXEL_ID): boolean {
+  if (!metaPixelLoaded) {
+    loadMetaPixelScript(pixelId)
+  }
+  if (getMarketingConsent()) {
+    grantMetaPixelConsent()
+  }
+  return metaPixelLoaded
+}
+
+/**
  * Track Meta Pixel page view
+ * Only tracks if consent was granted
  */
 export function trackMetaPageView(): void {
-  if (!metaPixelInitialized || typeof window === 'undefined') return
+  if (!metaPixelConsentGranted || typeof window === 'undefined') return
   if (!window.fbq) return
 
   window.fbq('track', 'PageView')
@@ -196,9 +294,10 @@ export function trackMetaPageView(): void {
 
 /**
  * Track Meta Pixel standard event
+ * Only tracks if consent was granted
  */
 export function trackMetaEvent(eventName: string, params?: Record<string, any>): void {
-  if (!metaPixelInitialized || typeof window === 'undefined') return
+  if (!metaPixelConsentGranted || typeof window === 'undefined') return
   if (!window.fbq) return
 
   window.fbq('track', eventName, params)
@@ -207,9 +306,10 @@ export function trackMetaEvent(eventName: string, params?: Record<string, any>):
 
 /**
  * Track Meta Pixel custom event
+ * Only tracks if consent was granted
  */
 export function trackMetaCustomEvent(eventName: string, params?: Record<string, any>): void {
-  if (!metaPixelInitialized || typeof window === 'undefined') return
+  if (!metaPixelConsentGranted || typeof window === 'undefined') return
   if (!window.fbq) return
 
   window.fbq('trackCustom', eventName, params)
@@ -221,18 +321,29 @@ export function trackMetaCustomEvent(eventName: string, params?: Record<string, 
 // ============================================================================
 
 /**
- * Initialize all analytics services based on consent
+ * Load tracking scripts immediately (before consent)
+ * Call this on app startup
+ */
+export function loadAnalyticsScripts(): void {
+  loadGA4Script()
+  loadMetaPixelScript()
+}
+
+/**
+ * Initialize/update all analytics services based on consent
+ * Call this when consent is given or on startup if consent already exists
  */
 export function initAllAnalytics(): void {
-  // Analytics services (GA4, Clarity) - require analytics consent
+  // GA4 - grant consent if analytics consent given
   if (getAnalyticsConsent()) {
-    initGA4()
+    grantGA4Consent()
     initClarity()
   }
   
-  // Marketing services (Meta Pixel) - require marketing consent
+  // GA4 marketing consent + Meta Pixel - require marketing consent
   if (getMarketingConsent()) {
-    initMetaPixel()
+    grantGA4MarketingConsent()
+    grantMetaPixelConsent()
   }
 }
 
