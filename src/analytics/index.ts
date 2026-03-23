@@ -384,8 +384,8 @@ declare global {
   interface Window {
     dataLayer: any[]
     gtag: (...args: any[]) => void
-    clarity: (...args: any[]) => void
-    fbq: (...args: any[]) => void
+    clarity?: (...args: any[]) => void
+    fbq?: (...args: any[]) => void
   }
 }
 
